@@ -82,7 +82,7 @@ h2::after{content:"";flex:1;height:1px;background:var(--line)}
 
 /* chips de selecao */
 .pick{display:flex;flex-wrap:wrap;gap:7px;margin-bottom:6px}
-#tab-calc{padding-bottom:96px}
+#tab-calc{padding-bottom:var(--barra,90px)}
 .pick button{background:var(--s1);border:1px solid var(--line);color:#C3C5C9;padding:9px 13px;
   font-size:14px;cursor:pointer;font-family:var(--body)}
 .pick button[aria-pressed="true"]{background:var(--red);border-color:var(--red);color:#fff;font-weight:600}
@@ -164,14 +164,18 @@ svg.chart{width:100%;height:auto;display:block;background:var(--s1);border:1px s
 .sync{cursor:pointer}
 .syncbox{background:var(--s2);border:1px solid var(--red);padding:14px;margin-top:10px}
 
-.pick button.plano{border-color:var(--red)}
-.pick button.plano::before{content:"";display:inline-block;width:5px;height:5px;border-radius:50%;
-  background:var(--red);margin-right:7px;vertical-align:1px}
-.pick button.plano[aria-pressed="true"]::before{background:#fff}
+.pick button.plano::after{content:"no plano";display:inline-block;font-size:9.5px;
+  font-family:var(--disp);letter-spacing:.1em;text-transform:uppercase;color:var(--mut);
+  margin-left:8px;vertical-align:1px}
+.pick button.plano[aria-pressed="true"]::after{color:rgba(255,255,255,.75)}
 .plano-box{background:var(--s1);border-left:3px solid var(--red);padding:13px 15px;margin:14px 0 4px;
   font-size:14.5px;color:#C8CACE}
 .plano-box .pb-t{font-family:var(--disp);font-size:10.5px;letter-spacing:.16em;text-transform:uppercase;
   color:var(--red);font-weight:600;margin-bottom:5px}
+
+.pick button{scroll-margin-bottom:340px}
+.sb-l small{display:block;font-size:11px;color:var(--mut);margin-top:1px}
+.sb-l.zero{opacity:.45}
 
 </style>
 </head><body>
@@ -341,50 +345,69 @@ function mostraPlano(r){
       <div class="sb-alvo">exatamente o que o plano pede nesta refeição</div>
       <button class="btn pri" id="csave" style="margin-top:10px">Registrar como comido</button>
     </div>`;
-  $("#sbtoggle").onclick = () => box.classList.toggle("open");
+  $("#sbtoggle").onclick = () => { box.classList.toggle("open"); ajustaEspaco(); };
+  ajustaEspaco();
   $("#csave").onclick = () => {
     salvarRefeicao(r.h, `${r.h} ${r.tag||""}`.trim(), itens, r.m[0], r.m[1], r.m[2]);
     ir("hoje");
   };
 }
 
+function ajustaEspaco(){
+  const box = $("#cres"), tab = $("#tab-calc");
+  if (!box || !tab) return;
+  const h = box.classList.contains("vazia") ? 20 : box.getBoundingClientRect().height;
+  tab.style.setProperty("--barra", (h + 28) + "px");
+}
 function calcular(){
   const dia = refsDoDia(), r = dia.refs[calc.ref], A = D.alimentos;
   const [aP,aC,aG] = r.m;
   const sel = [...calc.sel].filter(k => A[k]);
   const box = $("#cres"); if (!box || r.livre) return;
-  if (!sel.length){ box.className = "stickybar vazia"; box.innerHTML = ""; return; }
-  box.className = "stickybar";
-  const prot = sel.filter(k => A[k][4]==="prot");
-  const carb = sel.filter(k => A[k][4]==="carb" || A[k][4]==="fruta");
-  const gord = sel.filter(k => A[k][4]==="gord");
+  if (!sel.length){ box.className = "stickybar vazia"; box.innerHTML = ""; ajustaEspaco(); return; }
+  box.className = box.classList.contains("open") ? "stickybar open" : "stickybar";
+
+  // itens que o proprio plano pede nesta refeicao ficam ancorados na quantidade do plano
+  const plano = {};
+  (r.itens||[]).forEach(i => { if (A[i.n]) plano[i.n] = parseFloat(i.q); });
   const q = {}; sel.forEach(k => q[k] = 0);
+  const fixos = sel.filter(k => plano[k] != null);
+  fixos.forEach(k => q[k] = plano[k]);
+
+  const livres = sel.filter(k => plano[k] == null);
+  const prot = livres.filter(k => A[k][4]==="prot");
+  const carb = livres.filter(k => A[k][4]==="carb" || A[k][4]==="fruta");
+  const gord = livres.filter(k => A[k][4]==="gord");
+  const soma = (lista, m) => lista.reduce((s,k)=> s + A[k][m]*q[k]/100, 0);
+
   for (let it=0; it<5; it++){
     if (carb.length){
-      const ja = prot.concat(gord).reduce((s,k)=> s + A[k][1]*q[k]/100, 0);
+      const ja = soma(fixos,1) + soma(prot,1) + soma(gord,1);
       const alvo = Math.max(aC - ja, 0) / carb.length;
       carb.forEach(k => q[k] = A[k][1] ? alvo/A[k][1]*100 : 0);
     }
     if (prot.length){
-      const ja = carb.concat(gord).reduce((s,k)=> s + A[k][0]*q[k]/100, 0);
+      const ja = soma(fixos,0) + soma(carb,0) + soma(gord,0);
       const alvo = Math.max(aP - ja, 0) / prot.length;
       prot.forEach(k => q[k] = A[k][0] ? alvo/A[k][0]*100 : 0);
     }
     if (gord.length){
-      const ja = prot.concat(carb).reduce((s,k)=> s + A[k][2]*q[k]/100, 0);
+      const ja = soma(fixos,2) + soma(prot,2) + soma(carb,2);
       const alvo = Math.max(aG - ja, 0) / gord.length;
       gord.forEach(k => q[k] = A[k][2] ? alvo/A[k][2]*100 : 0);
     }
   }
   let P=0,C=0,G=0;
   sel.forEach(k => { P+=A[k][0]*q[k]/100; C+=A[k][1]*q[k]/100; G+=A[k][2]*q[k]/100; });
-  const usados = sel.filter(k=>q[k]>0.5);
+
+  const zerados = sel.filter(k => q[k] < 0.5);
   const avisos = [];
+  if (zerados.length)
+    avisos.push(`Não sobra espaço para ${zerados.join(" e ")}. Esta refeição já fecha com ${fixos.join(" e ") || "o que você marcou"}. Desmarque um deles para abrir espaço.`);
   const dG = aG - G;
-  if (!gord.length && dG > 3) avisos.push(`some ${dG.toFixed(0)} g de azeite`);
+  if (!gord.length && !zerados.length && dG > 3) avisos.push(`some ${dG.toFixed(0)} g de azeite`);
   if (dG < -3) avisos.push(`sobram ${(-dG).toFixed(0)} g de gordura, +${(-dG*9).toFixed(0)} kcal`);
-  if (!carb.length && aC > 10) avisos.push(`falta carboidrato: ${aC.toFixed(0)} g`);
-  if (!prot.length && aP > 15) avisos.push(`falta proteína: ${aP.toFixed(0)} g`);
+  if (!carb.length && !fixos.length && aC > 10) avisos.push(`falta carboidrato: ${aC.toFixed(0)} g`);
 
   box.innerHTML = `
     <div class="sb-head" id="sbtoggle">
@@ -393,17 +416,19 @@ function calcular(){
       <span class="sb-seta">▾</span>
     </div>
     <div class="sb-body">
-      ${usados.map(k => `<div class="sb-l"><span>${k}</span><b>${Math.round(q[k])} ${A[k][5]}</b></div>`).join("")}
-      ${avisos.length ? `<div class="sb-av">${avisos.join(" · ")}</div>` : ""}
+      ${sel.map(k => `<div class="sb-l${q[k]<0.5?" zero":""}"><span>${k}${plano[k]!=null?'<small>quantidade do plano</small>':''}</span>
+        <b>${Math.round(q[k])} ${A[k][5]}</b></div>`).join("")}
+      ${avisos.map(a => `<div class="sb-av">${a}</div>`).join("")}
       <div class="sb-alvo">alvo da refeição: ${aP} P · ${aC} C · ${aG} G · ${fmt(r.m[3])} kcal</div>
       <button class="btn pri" id="csave" style="margin-top:10px">Registrar como comido</button>
       <button class="btn sm" id="cclear" style="margin-top:6px;width:100%">Limpar seleção</button>
     </div>`;
-  $("#sbtoggle").onclick = () => { box.classList.toggle("open"); box.dataset.tocado = "1"; };
+  $("#sbtoggle").onclick = () => { box.classList.toggle("open"); box.dataset.tocado = "1"; ajustaEspaco(); };
   if (!box.dataset.tocado) box.classList.add("open");
+  ajustaEspaco();
   $("#csave").onclick = () => {
     salvarRefeicao(r.h, `${r.h} ${r.tag||""}`.trim(),
-      usados.map(k => ({n:k, q:Math.round(q[k]), u:A[k][5]})), P, C, G);
+      sel.filter(k=>q[k]>=0.5).map(k => ({n:k, q:Math.round(q[k]), u:A[k][5]})), P, C, G);
     ir("hoje");
   };
   $("#cclear").onclick = () => { calc.sel.clear(); telaCalc(); };
