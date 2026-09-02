@@ -3372,8 +3372,9 @@
   {
    "titulo": "Quando mudar de bloco",
    "itens": [
-    "Peso parado por **duas semanas seguidas** na média de 7 dias: antecipe o próximo bloco.",
-    "Perda acima de **0,7 kg por semana** em duas seguidas: volte um bloco. Acima disso a perda de massa magra dispara.",
+    "Média de 7 dias mais de **{desvioKg} kg acima do alvo da semana** por {semanas} segundas seguidas: antecipe o próximo bloco.",
+    "Média de 7 dias mais de **{desvioKg} kg abaixo do alvo** por {semanas} segundas seguidas: volte um bloco. Perder mais rápido que a curva é perder massa magra.",
+    "Dentro de {desvioKg} kg do alvo, para cima ou para baixo: siga o cronograma. A tela Peso aplica exatamente esta regra e mostra a decisão.",
     "RPE alto para cargas habituais somado a sono ruim e irritabilidade por duas semanas: uma semana em manutenção antes de retomar.",
     "Cintura toda segunda, em jejum, em pé, fim da expiração normal, sobre o umbigo, média de três medidas.",
     "**Regra de parada.** Se a cintura chegar a 88 cm antes da semana 19, pare o déficit e volte para manutenção (soma cerca de 500 kcal/dia ao bloco corrente). O plano tem margem para ir até 86 cm, e abaixo de 10% de gordura a fome, o sono e a qualidade de treino pioram rápido sem ganho visual proporcional.",
