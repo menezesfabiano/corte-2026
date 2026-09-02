@@ -20,6 +20,7 @@
     "verbatimModuleSyntax": true,
     "allowImportingTsExtensions": true,
     "types": [
+      "node",
       "vite/client",
       "vite-plugin-pwa/client"
     ]
