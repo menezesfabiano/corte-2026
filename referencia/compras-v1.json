@@ -1,0 +1,574 @@
+{
+ "origem": "index-v1.html, lista digitada a mao",
+ "substituida": "2026-09-01, pela lista derivada em src/core/compras.ts",
+ "compras": {
+  "A": {
+   "periodo": "24/08 a 13/09",
+   "cats": [
+    {
+     "cat": "Açougue",
+     "itens": [
+      {
+       "n": "Patinho",
+       "q": "988 g",
+       "extra": null,
+       "nota": "rende 692 g prontos"
+      },
+      {
+       "n": "Peito de frango",
+       "q": "1,90 kg",
+       "extra": null,
+       "nota": "rende 1,33 kg prontos"
+      }
+     ]
+    },
+    {
+     "cat": "Ovos",
+     "itens": [
+      {
+       "n": "Ovo",
+       "q": "5 un",
+       "extra": null,
+       "nota": "1 un = 50 g sem casca"
+      }
+     ]
+    },
+    {
+     "cat": "Laticínios",
+     "itens": [
+      {
+       "n": "Leite integral",
+       "q": "4,06 L",
+       "extra": "5 caixas",
+       "nota": "caixa de 1 L"
+      },
+      {
+       "n": "Queijo mussarela, fatiado",
+       "q": "162 g",
+       "extra": null,
+       "nota": null
+      }
+     ]
+    },
+    {
+     "cat": "Hortifruti",
+     "itens": [
+      {
+       "n": "Banana prata",
+       "q": "1,51 kg",
+       "extra": null,
+       "nota": "peso com casca"
+      },
+      {
+       "n": "Batata doce",
+       "q": "534 g",
+       "extra": null,
+       "nota": "peso com casca"
+      },
+      {
+       "n": "Legumes variados",
+       "q": "3,37 kg",
+       "extra": null,
+       "nota": "brócolis, abobrinha, cenoura, vagem"
+      }
+     ]
+    },
+    {
+     "cat": "Mercearia",
+     "itens": [
+      {
+       "n": "Arroz branco",
+       "q": "453 g",
+       "extra": null,
+       "nota": "rende 1,18 kg prontos"
+      },
+      {
+       "n": "Atum em água, lata",
+       "q": "5 latas",
+       "extra": null,
+       "nota": "lata de 170 g rende 120 g drenado"
+      },
+      {
+       "n": "Aveia em flocos",
+       "q": "367 g",
+       "extra": null,
+       "nota": null
+      },
+      {
+       "n": "Azeite de oliva",
+       "q": "107 ml",
+       "extra": null,
+       "nota": null
+      },
+      {
+       "n": "Feijão carioca",
+       "q": "545 g",
+       "extra": null,
+       "nota": "rende 1,20 kg prontos"
+      },
+      {
+       "n": "Mel",
+       "q": "65 g",
+       "extra": null,
+       "nota": null
+      },
+      {
+       "n": "Pasta de amendoim",
+       "q": "45 g",
+       "extra": null,
+       "nota": null
+      }
+     ]
+    },
+    {
+     "cat": "Padaria",
+     "itens": [
+      {
+       "n": "Pão francês",
+       "q": "5 un",
+       "extra": null,
+       "nota": "1 un = 50 g"
+      }
+     ]
+    },
+    {
+     "cat": "Suplemento",
+     "itens": [
+      {
+       "n": "Whey concentrado",
+       "q": "477 g",
+       "extra": null,
+       "nota": "dose de 30 g"
+      }
+     ]
+    }
+   ]
+  },
+  "B": {
+   "periodo": "14/09 a 18/10",
+   "cats": [
+    {
+     "cat": "Açougue",
+     "itens": [
+      {
+       "n": "Patinho",
+       "q": "988 g",
+       "extra": null,
+       "nota": "rende 692 g prontos"
+      },
+      {
+       "n": "Peito de frango",
+       "q": "1,90 kg",
+       "extra": null,
+       "nota": "rende 1,33 kg prontos"
+      }
+     ]
+    },
+    {
+     "cat": "Ovos",
+     "itens": [
+      {
+       "n": "Ovo",
+       "q": "5 un",
+       "extra": null,
+       "nota": "1 un = 50 g sem casca"
+      }
+     ]
+    },
+    {
+     "cat": "Laticínios",
+     "itens": [
+      {
+       "n": "Leite integral",
+       "q": "4,06 L",
+       "extra": "5 caixas",
+       "nota": "caixa de 1 L"
+      },
+      {
+       "n": "Queijo mussarela, fatiado",
+       "q": "162 g",
+       "extra": null,
+       "nota": null
+      }
+     ]
+    },
+    {
+     "cat": "Hortifruti",
+     "itens": [
+      {
+       "n": "Banana prata",
+       "q": "1,51 kg",
+       "extra": null,
+       "nota": "peso com casca"
+      },
+      {
+       "n": "Batata doce",
+       "q": "534 g",
+       "extra": null,
+       "nota": "peso com casca"
+      },
+      {
+       "n": "Legumes variados",
+       "q": "3,37 kg",
+       "extra": null,
+       "nota": "brócolis, abobrinha, cenoura, vagem"
+      }
+     ]
+    },
+    {
+     "cat": "Mercearia",
+     "itens": [
+      {
+       "n": "Arroz branco",
+       "q": "235 g",
+       "extra": null,
+       "nota": "rende 611 g prontos"
+      },
+      {
+       "n": "Atum em água, lata",
+       "q": "5 latas",
+       "extra": null,
+       "nota": "lata de 170 g rende 120 g drenado"
+      },
+      {
+       "n": "Aveia em flocos",
+       "q": "367 g",
+       "extra": null,
+       "nota": null
+      },
+      {
+       "n": "Azeite de oliva",
+       "q": "107 ml",
+       "extra": null,
+       "nota": null
+      },
+      {
+       "n": "Feijão carioca",
+       "q": "545 g",
+       "extra": null,
+       "nota": "rende 1,20 kg prontos"
+      },
+      {
+       "n": "Mel",
+       "q": "65 g",
+       "extra": null,
+       "nota": null
+      },
+      {
+       "n": "Pasta de amendoim",
+       "q": "45 g",
+       "extra": null,
+       "nota": null
+      }
+     ]
+    },
+    {
+     "cat": "Padaria",
+     "itens": [
+      {
+       "n": "Pão francês",
+       "q": "5 un",
+       "extra": null,
+       "nota": "1 un = 50 g"
+      }
+     ]
+    },
+    {
+     "cat": "Suplemento",
+     "itens": [
+      {
+       "n": "Whey concentrado",
+       "q": "477 g",
+       "extra": null,
+       "nota": "dose de 30 g"
+      }
+     ]
+    }
+   ]
+  },
+  "C": {
+   "periodo": "19/10 a 29/11",
+   "cats": [
+    {
+     "cat": "Açougue",
+     "itens": [
+      {
+       "n": "Patinho",
+       "q": "988 g",
+       "extra": null,
+       "nota": "rende 692 g prontos"
+      },
+      {
+       "n": "Peito de frango",
+       "q": "1,90 kg",
+       "extra": null,
+       "nota": "rende 1,33 kg prontos"
+      }
+     ]
+    },
+    {
+     "cat": "Ovos",
+     "itens": [
+      {
+       "n": "Ovo",
+       "q": "5 un",
+       "extra": null,
+       "nota": "1 un = 50 g sem casca"
+      }
+     ]
+    },
+    {
+     "cat": "Laticínios",
+     "itens": [
+      {
+       "n": "Leite integral",
+       "q": "4,06 L",
+       "extra": "5 caixas",
+       "nota": "caixa de 1 L"
+      },
+      {
+       "n": "Queijo mussarela, fatiado",
+       "q": "162 g",
+       "extra": null,
+       "nota": null
+      }
+     ]
+    },
+    {
+     "cat": "Hortifruti",
+     "itens": [
+      {
+       "n": "Banana prata",
+       "q": "1,26 kg",
+       "extra": null,
+       "nota": "peso com casca"
+      },
+      {
+       "n": "Batata doce",
+       "q": "186 g",
+       "extra": null,
+       "nota": "peso com casca"
+      },
+      {
+       "n": "Legumes variados",
+       "q": "3,37 kg",
+       "extra": null,
+       "nota": "brócolis, abobrinha, cenoura, vagem"
+      }
+     ]
+    },
+    {
+     "cat": "Mercearia",
+     "itens": [
+      {
+       "n": "Arroz branco",
+       "q": "233 g",
+       "extra": null,
+       "nota": "rende 606 g prontos"
+      },
+      {
+       "n": "Atum em água, lata",
+       "q": "5 latas",
+       "extra": null,
+       "nota": "lata de 170 g rende 120 g drenado"
+      },
+      {
+       "n": "Aveia em flocos",
+       "q": "367 g",
+       "extra": null,
+       "nota": null
+      },
+      {
+       "n": "Azeite de oliva",
+       "q": "107 ml",
+       "extra": null,
+       "nota": null
+      },
+      {
+       "n": "Feijão carioca",
+       "q": "545 g",
+       "extra": null,
+       "nota": "rende 1,20 kg prontos"
+      },
+      {
+       "n": "Mel",
+       "q": "65 g",
+       "extra": null,
+       "nota": null
+      },
+      {
+       "n": "Pasta de amendoim",
+       "q": "45 g",
+       "extra": null,
+       "nota": null
+      }
+     ]
+    },
+    {
+     "cat": "Padaria",
+     "itens": [
+      {
+       "n": "Pão francês",
+       "q": "5 un",
+       "extra": null,
+       "nota": "1 un = 50 g"
+      }
+     ]
+    },
+    {
+     "cat": "Suplemento",
+     "itens": [
+      {
+       "n": "Whey concentrado",
+       "q": "477 g",
+       "extra": null,
+       "nota": "dose de 30 g"
+      }
+     ]
+    }
+   ]
+  },
+  "D": {
+   "periodo": "30/11 a 31/12",
+   "cats": [
+    {
+     "cat": "Açougue",
+     "itens": [
+      {
+       "n": "Patinho",
+       "q": "988 g",
+       "extra": null,
+       "nota": "rende 692 g prontos"
+      },
+      {
+       "n": "Peito de frango",
+       "q": "1,90 kg",
+       "extra": null,
+       "nota": "rende 1,33 kg prontos"
+      }
+     ]
+    },
+    {
+     "cat": "Ovos",
+     "itens": [
+      {
+       "n": "Ovo",
+       "q": "5 un",
+       "extra": null,
+       "nota": "1 un = 50 g sem casca"
+      }
+     ]
+    },
+    {
+     "cat": "Laticínios",
+     "itens": [
+      {
+       "n": "Leite integral",
+       "q": "4,06 L",
+       "extra": "5 caixas",
+       "nota": "caixa de 1 L"
+      },
+      {
+       "n": "Queijo mussarela, fatiado",
+       "q": "162 g",
+       "extra": null,
+       "nota": null
+      }
+     ]
+    },
+    {
+     "cat": "Hortifruti",
+     "itens": [
+      {
+       "n": "Banana prata",
+       "q": "1,26 kg",
+       "extra": null,
+       "nota": "peso com casca"
+      },
+      {
+       "n": "Batata doce",
+       "q": "137 g",
+       "extra": null,
+       "nota": "peso com casca"
+      },
+      {
+       "n": "Legumes variados",
+       "q": "3,37 kg",
+       "extra": null,
+       "nota": "brócolis, abobrinha, cenoura, vagem"
+      }
+     ]
+    },
+    {
+     "cat": "Mercearia",
+     "itens": [
+      {
+       "n": "Arroz branco",
+       "q": "187 g",
+       "extra": null,
+       "nota": "rende 486 g prontos"
+      },
+      {
+       "n": "Atum em água, lata",
+       "q": "5 latas",
+       "extra": null,
+       "nota": "lata de 170 g rende 120 g drenado"
+      },
+      {
+       "n": "Aveia em flocos",
+       "q": "356 g",
+       "extra": null,
+       "nota": null
+      },
+      {
+       "n": "Azeite de oliva",
+       "q": "107 ml",
+       "extra": null,
+       "nota": null
+      },
+      {
+       "n": "Feijão carioca",
+       "q": "545 g",
+       "extra": null,
+       "nota": "rende 1,20 kg prontos"
+      },
+      {
+       "n": "Mel",
+       "q": "65 g",
+       "extra": null,
+       "nota": null
+      },
+      {
+       "n": "Pasta de amendoim",
+       "q": "45 g",
+       "extra": null,
+       "nota": null
+      }
+     ]
+    },
+    {
+     "cat": "Padaria",
+     "itens": [
+      {
+       "n": "Pão francês",
+       "q": "4 un",
+       "extra": null,
+       "nota": "1 un = 50 g"
+      }
+     ]
+    },
+    {
+     "cat": "Suplemento",
+     "itens": [
+      {
+       "n": "Whey concentrado",
+       "q": "477 g",
+       "extra": null,
+       "nota": "dose de 30 g"
+      }
+     ]
+    }
+   ]
+  }
+ }
+}

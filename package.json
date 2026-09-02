@@ -1,0 +1,31 @@
+{
+  "name": "corte-2026",
+  "private": true,
+  "version": "2.0.0",
+  "type": "module",
+  "scripts": {
+    "dev": "vite",
+    "validar": "node --experimental-strip-types scripts/validar-plano.ts",
+    "prebuild": "npm run validar",
+    "build": "tsc --noEmit && vite build",
+    "preview": "vite preview",
+    "test": "vitest run",
+    "test:watch": "vitest",
+    "cobertura": "vitest run --coverage",
+    "icones": "node --experimental-strip-types scripts/gerar-icones.ts"
+  },
+  "dependencies": {
+    "@supabase/supabase-js": "^2.58.0",
+    "zod": "^4.1.11"
+  },
+  "devDependencies": {
+    "@vitest/coverage-v8": "^3.2.4",
+    "typescript": "^5.9.2",
+    "vite": "^7.1.5",
+    "vite-plugin-pwa": "^1.0.3",
+    "vitest": "^3.2.4"
+  },
+  "engines": {
+    "node": ">=22.6"
+  }
+}

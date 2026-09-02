@@ -1,622 +1,78 @@
-<!DOCTYPE html><html lang="pt-BR"><head><meta charset="utf-8">
-<meta name="viewport" content="width=device-width,initial-scale=1,viewport-fit=cover">
-<title>Corte 2026</title>
-<link rel="icon" type="image/svg+xml" href="data:image/svg+xml,%3Csvg%20xmlns%3D%22http%3A%2F%2Fwww.w3.org%2F2000%2Fsvg%22%20viewBox%3D%220%200%2032%2032%22%3E%3Crect%20width%3D%2232%22%20height%3D%2232%22%20fill%3D%22%23C8102E%22%2F%3E%3Cg%20fill%3D%22%23fff%22%3E%3Crect%20x%3D%224%22%20y%3D%2214%22%20width%3D%2224%22%20height%3D%224%22%2F%3E%3Crect%20x%3D%226%22%20y%3D%228%22%20width%3D%225%22%20height%3D%2216%22%2F%3E%3Crect%20x%3D%2221%22%20y%3D%228%22%20width%3D%225%22%20height%3D%2216%22%2F%3E%3Crect%20x%3D%222%22%20y%3D%2211%22%20width%3D%222%22%20height%3D%2210%22%2F%3E%3Crect%20x%3D%2228%22%20y%3D%2211%22%20width%3D%222%22%20height%3D%2210%22%2F%3E%3C%2Fg%3E%3C%2Fsvg%3E">
-<link rel="apple-touch-icon" href="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAALQAAAC0CAIAAACyr5FlAAABnUlEQVR42u3dwQ1FQBRAUUQBNMJS/zuWKtGCBsRYvGEmzlnLF9yMzfOnXYepgSudW4A4EAfiQByIA3EgDsSBOBAHiANxIA7EgTgQB+JAHIgDcYA4EAfiQByIA3EgDsSBOBAHiANxIA7EgTgQB+JAHIgDcSAOEAfiIED/wjmWY8/xs9s4V3GL6718KwfiQByIA3EgDsSBOBAH4kAcIA7EgTgQB59Iz3M8GUeoZbTiP0KempUDcSAOxIE4EAfiQByIA3EgDhAH4kAciANxUJZ2Hab7IzL99wifM+yD1wriQByIA3EgDsSBOEAciANxIA7EgTgQB+JAHIgDcYA4EAfiIKeYTYfvv4Cw6fD7lx9yUisH4kAciANxIA7EgTgQB+JAHCAOxIE4EAfioCzpYR+7Tdco5KlZORAH4kAciANxIA7EgTgQB+IAcSAOxIE4EAdlSe9IjZUDxIE4EAfiQByIA3EgDsSBOEAciANxIA7EgTgQB+JAHIgDxIE4EAfiQByIA3EgDsSBOBAHiANxIA7EgTgQB+JAHIgDcYA4SDsB2eUekutPE6QAAAAASUVORK5CYII=">
-<meta name="theme-color" content="#0B0B0D">
-<meta name="apple-mobile-web-app-capable" content="yes">
-<meta name="apple-mobile-web-app-status-bar-style" content="black-translucent">
-<meta name="apple-mobile-web-app-title" content="Corte">
+<!doctype html>
+<html lang="pt-BR">
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover" />
+    <meta name="theme-color" content="#0B0B0D" />
+    <meta name="apple-mobile-web-app-capable" content="yes" />
+    <meta name="apple-mobile-web-app-status-bar-style" content="black-translucent" />
+    <meta name="apple-mobile-web-app-title" content="Corte" />
+    <title>Corte 2026</title>
+    <link rel="icon" type="image/svg+xml" href="/icons/favicon.svg" />
+    <link rel="apple-touch-icon" href="/icons/apple-touch-icon.png" />
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Oswald:wght@400;500;600;700&family=Inter:wght@400;500;600;700&display=swap"
+      rel="stylesheet"
+    />
+  </head>
+  <body>
+    <header>
+      <div class="wrap">
+        <div class="hd">
+          <h1>Corte <em>2026</em></h1>
+          <span class="chip" id="chip-bloco">Bloco A</span>
+          <span class="chip gray" id="chip-kcal">kcal</span>
+        </div>
+        <div class="sync">
+          <span class="dot" id="sync-dot"></span>
+          <span id="sync-txt"></span>
+          <span style="flex: 1"></span>
+          <button class="link" id="btn-conta" hidden>Entrar</button>
+        </div>
+        <div id="painel-conta" hidden></div>
+      </div>
+    </header>
 
-<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-<link href="https://fonts.googleapis.com/css2?family=Oswald:wght@400;500;600;700&family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet">
-<style>
-:root{
-  --bg:#0B0B0D; --s1:#141519; --s2:#1B1D22; --line:#2A2D33;
-  --ink:#fff; --mut:#8A8E96; --red:#C8102E; --ok:#4FCB7C; --warn:#E5A24D;
-  --disp:'Oswald',Impact,'Arial Narrow',sans-serif;
-  --body:'Inter',-apple-system,BlinkMacSystemFont,'Segoe UI',sans-serif;
-  --safe:env(safe-area-inset-bottom,0px);
-}
-*{box-sizing:border-box;margin:0;padding:0;-webkit-tap-highlight-color:transparent}
-html{-webkit-text-size-adjust:100%}
-body{background:var(--bg);color:var(--ink);font-family:var(--body);font-size:16px;
-  line-height:1.45;padding-bottom:calc(72px + var(--safe))}
-.wrap{max-width:820px;margin:0 auto;padding:0 16px}
+    <main class="wrap">
+      <section data-tela="hoje"></section>
+      <section data-tela="calc" hidden></section>
+      <section data-tela="peso" hidden></section>
+      <section data-tela="compras" hidden></section>
+    </main>
 
-/* topo */
-header{background:var(--s1);border-bottom:1px solid var(--line);position:relative;padding:14px 0 12px}
-header::before{content:"";position:absolute;top:0;left:0;right:0;height:3px;background:var(--red)}
-.hd{display:flex;align-items:center;gap:12px}
-.hd h1{font-family:var(--disp);font-size:22px;text-transform:uppercase;font-weight:700;
-  letter-spacing:-.01em;line-height:1;flex:1}
-.hd h1 em{font-style:normal;color:var(--red)}
-.chip{font-family:var(--disp);font-size:12px;letter-spacing:.12em;text-transform:uppercase;
-  background:var(--red);padding:5px 9px;font-weight:600;white-space:nowrap}
-.chip.gray{background:var(--s2);color:var(--mut)}
-.sync{font-size:11px;color:var(--mut);margin-top:6px;display:flex;align-items:center;gap:6px}
-.dot{width:7px;height:7px;border-radius:50%;background:var(--mut);flex:none}
-.dot.on{background:var(--ok)} .dot.off{background:var(--warn)}
+    <nav>
+      <div class="wrap">
+      <button data-t="hoje">
+        <svg viewBox="0 0 24 24"><path d="M3 10.5 12 4l9 6.5V20a1 1 0 0 1-1 1H4a1 1 0 0 1-1-1z" /></svg>
+        Hoje
+      </button>
+      <button data-t="calc">
+        <svg viewBox="0 0 24 24">
+          <rect x="4" y="3" width="16" height="18" rx="1" />
+          <line x1="8" y1="8" x2="16" y2="8" />
+          <line x1="8" y1="12" x2="10" y2="12" />
+          <line x1="14" y1="12" x2="16" y2="12" />
+          <line x1="8" y1="16" x2="10" y2="16" />
+          <line x1="14" y1="16" x2="16" y2="16" />
+        </svg>
+        Calcular
+      </button>
+      <button data-t="peso">
+        <svg viewBox="0 0 24 24"><path d="M4 19 9 11l4 4 3-5 4 9" /><circle cx="7" cy="6" r="2" /></svg>
+        Peso
+      </button>
+      <button data-t="compras">
+        <svg viewBox="0 0 24 24">
+          <path d="M4 6h16l-1.5 11a2 2 0 0 1-2 1.7H7.5a2 2 0 0 1-2-1.7z" />
+          <path d="M9 6V4.5A3 3 0 0 1 15 4.5V6" />
+        </svg>
+        Compras
+      </button>
+      </div>
+    </nav>
 
-/* abas inferiores */
-nav{position:fixed;bottom:0;left:0;right:0;background:var(--s1);border-top:1px solid var(--line);
-  display:grid;grid-template-columns:repeat(4,1fr);z-index:20;padding-bottom:var(--safe)}
-nav button{background:none;border:0;color:var(--mut);font-family:var(--disp);font-size:11px;
-  letter-spacing:.1em;text-transform:uppercase;padding:11px 4px 10px;cursor:pointer;font-weight:500;
-  display:flex;flex-direction:column;align-items:center;gap:5px}
-nav button svg{width:21px;height:21px;stroke:currentColor;fill:none;stroke-width:1.7}
-nav button[aria-current="page"]{color:var(--red)}
-main{padding-top:18px}
-section[hidden]{display:none}
-
-h2{font-family:var(--disp);font-size:13px;letter-spacing:.18em;text-transform:uppercase;
-  color:var(--mut);margin:22px 0 10px;display:flex;align-items:center;gap:12px}
-h2:first-child{margin-top:0}
-h2::after{content:"";flex:1;height:1px;background:var(--line)}
-.lead{color:var(--mut);font-size:14px;margin-bottom:14px}
-
-/* cartoes */
-.card{background:var(--s1);border-left:3px solid var(--line);padding:14px 15px;margin-bottom:2px}
-.card.on{border-left-color:var(--ok)}
-.card.livre{border-left-color:var(--red)}
-.crow{display:flex;align-items:center;gap:10px;margin-bottom:9px}
-.ctime{font-family:var(--disp);font-size:21px;font-weight:600;line-height:1}
-.ctag{font-family:var(--disp);font-size:10px;letter-spacing:.14em;text-transform:uppercase;color:var(--red)}
-.citem{display:flex;justify-content:space-between;gap:12px;padding:5px 0;font-size:15px;
-  border-bottom:1px solid rgba(255,255,255,.055)}
-.citem:last-of-type{border-bottom:0}
-.citem b{font-family:var(--disp);font-weight:600;font-size:16px;white-space:nowrap}
-.cmac{margin-top:9px;padding-top:8px;border-top:1px solid var(--line);
-  font-family:var(--disp);font-size:11px;letter-spacing:.09em;color:var(--mut)}
-.cmac b{color:#D5D6D9;font-weight:500}
-
-/* botoes */
-.btn{background:var(--s2);border:1px solid var(--line);color:var(--ink);font-family:var(--disp);
-  font-size:13px;letter-spacing:.11em;text-transform:uppercase;padding:11px 16px;cursor:pointer;
-  font-weight:500;width:100%}
-.btn:active{background:var(--line)}
-.btn.pri{background:var(--red);border-color:var(--red)}
-.btn.sm{width:auto;padding:8px 13px;font-size:11.5px}
-.btn:disabled{opacity:.4}
-.row{display:flex;gap:8px;margin-top:10px}
-
-/* chips de selecao */
-.pick{display:flex;flex-wrap:wrap;gap:7px;margin-bottom:6px}
-#tab-calc{padding-bottom:var(--barra,90px)}
-.pick button{background:var(--s1);border:1px solid var(--line);color:#C3C5C9;padding:9px 13px;
-  font-size:14px;cursor:pointer;font-family:var(--body)}
-.pick button[aria-pressed="true"]{background:var(--red);border-color:var(--red);color:#fff;font-weight:600}
-
-/* resultado da calculadora */
-.res{background:var(--s2);border:1px solid var(--red);padding:15px;margin-top:14px}
-.res .rl{display:flex;justify-content:space-between;align-items:baseline;gap:12px;
-  padding:9px 0;border-bottom:1px solid rgba(255,255,255,.07)}
-.res .rl:last-of-type{border-bottom:0}
-.res .rl b{font-family:var(--disp);font-size:26px;font-weight:700;line-height:1;white-space:nowrap}
-.res .rl small{display:block;font-size:11.5px;color:var(--mut);margin-top:2px}
-.res .tot{margin-top:12px;padding-top:11px;border-top:1px solid var(--line);
-  font-family:var(--disp);font-size:12.5px;letter-spacing:.09em;color:var(--mut)}
-
-/* formulario */
-label{display:block;font-family:var(--disp);font-size:11px;letter-spacing:.16em;
-  text-transform:uppercase;color:var(--mut);margin-bottom:5px}
-input,select{width:100%;background:var(--bg);border:1px solid var(--line);color:var(--ink);
-  font-family:var(--disp);font-size:19px;font-weight:600;padding:11px 12px;border-radius:0;
-  -webkit-appearance:none}
-input:focus,select:focus{outline:2px solid var(--red);outline-offset:-1px}
-.grid2{display:grid;grid-template-columns:1fr 1fr;gap:10px}
-
-/* placar */
-.score{display:grid;grid-template-columns:repeat(4,1fr);background:var(--red);margin-top:2px}
-.score div{padding:10px 8px;border-right:1px solid rgba(0,0,0,.18)}
-.score div:last-child{border-right:0}
-.score dt{font-family:var(--disp);font-size:9.5px;letter-spacing:.14em;text-transform:uppercase;
-  color:rgba(255,255,255,.8)}
-.score dd{font-family:var(--disp);font-size:21px;font-weight:700;line-height:1.15}
-.score dd small{font-size:11px;font-weight:400;margin-left:2px}
-
-/* painel */
-.panel{display:grid;grid-template-columns:repeat(auto-fit,minmax(150px,1fr));gap:2px;margin-bottom:2px}
-.pn{background:var(--s2);border:1px solid var(--line);padding:12px 14px}
-.pn dt{font-family:var(--disp);font-size:10px;letter-spacing:.16em;text-transform:uppercase;color:var(--mut)}
-.pn dd{font-family:var(--disp);font-size:24px;font-weight:700;margin-top:2px;line-height:1.05}
-.pn dd small{font-size:12px;font-weight:400;color:var(--mut);margin-left:3px}
-.pn dd.alert{color:var(--red);font-size:16px;line-height:1.25}
-.pn .h{font-size:11px;color:var(--mut);margin-top:4px;line-height:1.35}
-
-svg.chart{width:100%;height:auto;display:block;background:var(--s1);border:1px solid var(--line)}
-.tbl{width:100%;border-collapse:collapse;font-size:14px}
-.tbl th{text-align:left;font-family:var(--disp);font-size:10px;letter-spacing:.14em;
-  text-transform:uppercase;color:var(--mut);padding:8px 6px;border-bottom:1px solid var(--line)}
-.tbl td{padding:8px 6px;border-bottom:1px solid rgba(255,255,255,.05);color:#C8CACE}
-.tbl td.n{font-family:var(--disp);font-size:16px;font-weight:600;color:var(--ink)}
-.tbl tr.hoje td{background:rgba(200,16,46,.12)}
-.msg{background:var(--s2);border:1px solid var(--warn);color:var(--warn);padding:11px 13px;
-  font-size:13.5px;margin:12px 0}
-.empty{color:var(--mut);font-size:14px;padding:16px 0;text-align:center}
-
-/* seletor fixo no topo da calculadora */
-.stickytop{position:sticky;top:0;z-index:9;background:var(--bg);padding:8px 0 10px;
-  margin:-18px 0 0;border-bottom:1px solid var(--line)}
-
-/* barra de resultado fixa acima da navegação */
-.stickybar{position:fixed;left:50%;transform:translateX(-50%);
-  width:min(100%,820px);bottom:calc(62px + var(--safe));z-index:15;
-  background:var(--s2);border:1px solid var(--line);border-top:2px solid var(--red);
-  max-height:62vh;overflow-y:auto;box-shadow:0 -10px 26px rgba(0,0,0,.55)}
-.stickybar.vazia{display:none}
-.sb-vazio{display:none}
-.sb-head{display:flex;align-items:center;gap:10px;padding:12px 16px;cursor:pointer}
-.sb-ref{font-family:var(--disp);font-size:13px;letter-spacing:.09em;text-transform:uppercase;
-  color:var(--red);font-weight:600;white-space:nowrap}
-.sb-mac{flex:1;font-family:var(--disp);font-size:14.5px;font-weight:600;text-align:right}
-.sb-seta{color:var(--mut);font-size:14px;transition:transform .15s}
-.stickybar.open .sb-seta{transform:rotate(180deg)}
-.sb-body{display:none;padding:0 16px 16px}
-.stickybar.open .sb-body{display:block}
-.sb-l{display:flex;justify-content:space-between;align-items:baseline;gap:12px;
-  padding:10px 0;border-bottom:1px solid rgba(255,255,255,.07)}
-.sb-l b{font-family:var(--disp);font-size:25px;font-weight:700;white-space:nowrap;line-height:1}
-.sb-av{background:rgba(229,162,77,.13);border:1px solid var(--warn);color:var(--warn);
-  padding:9px 11px;font-size:13px;margin-top:11px}
-.sb-alvo{font-family:var(--disp);font-size:11.5px;letter-spacing:.08em;color:var(--mut);margin-top:11px}
-
-.sync{cursor:pointer}
-.syncbox{background:var(--s2);border:1px solid var(--red);padding:14px;margin-top:10px}
-
-.pick button.plano::after{content:"no plano";display:inline-block;font-size:9.5px;
-  font-family:var(--disp);letter-spacing:.1em;text-transform:uppercase;color:var(--mut);
-  margin-left:8px;vertical-align:1px}
-.pick button.plano[aria-pressed="true"]::after{color:rgba(255,255,255,.75)}
-.plano-box{background:var(--s1);border-left:3px solid var(--red);padding:13px 15px;margin:14px 0 4px;
-  font-size:14.5px;color:#C8CACE}
-.plano-box .pb-t{font-family:var(--disp);font-size:10.5px;letter-spacing:.16em;text-transform:uppercase;
-  color:var(--red);font-weight:600;margin-bottom:5px}
-
-.pick button{scroll-margin-bottom:340px}
-.sb-l small{display:block;font-size:11px;color:var(--mut);margin-top:1px}
-.sb-l.zero{opacity:.45}
-
-</style>
-</head><body>
-<header><div class="wrap"><div class="hd">
-  <h1>Corte <em>2026</em></h1>
-  <span class="chip" id="chipbloco">Bloco A</span>
-  <span class="chip gray" id="chipkcal">—</span>
-</div><div class="sync" id="syncline" role="button" tabindex="0"><span class="dot" id="syncdot"></span><span id="synctxt"></span></div>
-<div id="syncbox" class="syncbox" hidden></div></div></header>
-<main class="wrap">
-  <section id="tab-hoje"></section>
-  <section id="tab-calc" hidden></section>
-  <section id="tab-peso" hidden></section>
-  <section id="tab-compras" hidden></section>
-</main>
-<nav>
-  <button data-t="hoje"><svg viewBox="0 0 24 24"><path d="M3 10.5 12 4l9 6.5V20a1 1 0 0 1-1 1H4a1 1 0 0 1-1-1z"/></svg>Hoje</button>
-  <button data-t="calc"><svg viewBox="0 0 24 24"><rect x="4" y="3" width="16" height="18" rx="1"/><line x1="8" y1="8" x2="16" y2="8"/><line x1="8" y1="12" x2="10" y2="12"/><line x1="14" y1="12" x2="16" y2="12"/><line x1="8" y1="16" x2="10" y2="16"/><line x1="14" y1="16" x2="16" y2="16"/></svg>Calcular</button>
-  <button data-t="peso"><svg viewBox="0 0 24 24"><path d="M4 19 9 11l4 4 3-5 4 9"/><circle cx="7" cy="6" r="2"/></svg>Peso</button>
-  <button data-t="compras"><svg viewBox="0 0 24 24"><path d="M4 6h16l-1.5 11a2 2 0 0 1-2 1.7H7.5a2 2 0 0 1-2-1.7z"/><path d="M9 6V4.5A3 3 0 0 1 15 4.5V6"/></svg>Compras</button>
-</nav>
-<script>window.SYNC = { url: null, key: null };</script>
-<script>
-const DADOS_EMBUTIDOS = {"blocos": [{"cod": "A", "semanas": "Semanas 1 a 3", "periodo": "24/08 a 13/09", "media": 2549, "peso": "94,5 kg", "resumo": "Plano base", "perda": "1,5 kg"}, {"cod": "B", "semanas": "Semanas 4 a 8", "periodo": "14/09 a 18/10", "media": 2466, "peso": "92,0 kg", "resumo": "Menos arroz no almoço", "perda": "2,5 kg"}, {"cod": "C", "semanas": "Semanas 9 a 14", "periodo": "19/10 a 29/11", "media": 2410, "peso": "89,2 kg", "resumo": "Sai a batata doce do jantar", "perda": "2,8 kg"}, {"cod": "D", "semanas": "Semanas 15 a 19", "periodo": "30/11 a 31/12", "media": 2355, "peso": "86,8 kg", "resumo": "Aveia e pão reduzidos", "perda": "2,4 kg"}], "dias": {"A": {"t11": {"nome": "Treino 11h00", "desc": "Janela curta. Só 3h15 entre acordar e treinar.", "tot": [236, 272, 72, 2683], "refs": [{"h": "07:45", "tag": "T-3h15", "livre": false, "itens": [{"n": "Aveia em flocos", "q": "60 g"}, {"n": "Leite integral", "q": "250 ml"}, {"n": "Whey concentrado", "q": "32 g"}, {"n": "Banana prata", "q": "100 g"}], "m": [43, 80, 15, 632]}, {"h": "10:15", "tag": "T-45min", "livre": false, "itens": [{"n": "Pão francês", "q": "40 g"}, {"n": "Mel", "q": "15 g"}, {"n": "Banana prata", "q": "80 g"}], "m": [4, 57, 1, 255]}, {"h": "12:30", "tag": "Pós-treino", "livre": false, "itens": [{"n": "Arroz branco cozido", "q": "215 g"}, {"n": "Feijão carioca cozido", "q": "150 g"}, {"n": "Peito de frango grelhado", "q": "170 g"}, {"n": "Azeite", "q": "13 g"}, {"n": "Legumes cozidos", "q": "200 g"}], "m": [71, 93, 19, 826]}, {"h": "16:00", "tag": "", "livre": false, "itens": [{"n": "Whey concentrado", "q": "27 g"}, {"n": "Leite integral", "q": "250 ml"}], "m": [30, 14, 10, 263]}, {"h": "19:00", "tag": "", "livre": false, "itens": [{"n": "Atum em água, drenado", "q": "120 g"}, {"n": "Pasta de amendoim", "q": "19 g"}], "m": [36, 4, 11, 255]}, {"h": "20:30", "tag": "Jantar", "livre": false, "itens": [{"n": "Patinho grelhado", "q": "130 g"}, {"n": "Batata doce cozida", "q": "70 g"}, {"n": "Azeite", "q": "6 g"}, {"n": "Legumes cozidos", "q": "200 g"}], "m": [52, 25, 16, 451]}]}, "t1630": {"nome": "Treino 16h30", "desc": "Janela longa. Almoço é a refeição principal pré-treino.", "tot": [227, 272, 76, 2674], "refs": [{"h": "07:45", "tag": "", "livre": false, "itens": [{"n": "Aveia em flocos", "q": "60 g"}, {"n": "Leite integral", "q": "250 ml"}, {"n": "Whey concentrado", "q": "24 g"}, {"n": "Banana prata", "q": "100 g"}], "m": [37, 80, 15, 600]}, {"h": "10:30", "tag": "", "livre": false, "itens": [{"n": "Leite integral", "q": "200 ml"}, {"n": "Whey concentrado", "q": "21 g"}, {"n": "Queijo mussarela", "q": "55 g"}], "m": [37, 13, 22, 396]}, {"h": "13:00", "tag": "T-3h30", "livre": false, "itens": [{"n": "Arroz branco cozido", "q": "195 g"}, {"n": "Feijão carioca cozido", "q": "150 g"}, {"n": "Peito de frango grelhado", "q": "170 g"}, {"n": "Azeite", "q": "8 g"}, {"n": "Legumes cozidos", "q": "200 g"}], "m": [70, 87, 14, 757]}, {"h": "15:45", "tag": "T-45min", "livre": false, "itens": [{"n": "Pão francês", "q": "40 g"}, {"n": "Mel", "q": "15 g"}, {"n": "Banana prata", "q": "80 g"}], "m": [4, 57, 1, 255]}, {"h": "18:00", "tag": "Pós-treino", "livre": false, "itens": [{"n": "Whey concentrado", "q": "26 g"}, {"n": "Leite integral", "q": "180 ml"}], "m": [27, 11, 8, 216]}, {"h": "20:30", "tag": "Jantar", "livre": false, "itens": [{"n": "Patinho grelhado", "q": "130 g"}, {"n": "Batata doce cozida", "q": "70 g"}, {"n": "Azeite", "q": "6 g"}, {"n": "Legumes cozidos", "q": "200 g"}], "m": [52, 25, 16, 451]}]}, "off": {"nome": "Sem treino", "desc": "Mesma proteína, carboidrato menor. Saem as refeições pré-treino.", "tot": [233, 199, 69, 2352], "refs": [{"h": "08:00", "tag": "", "livre": false, "itens": [{"n": "Aveia em flocos", "q": "50 g"}, {"n": "Leite integral", "q": "250 ml"}, {"n": "Whey concentrado", "q": "32 g"}, {"n": "Banana prata", "q": "60 g"}], "m": [41, 63, 14, 548]}, {"h": "12:30", "tag": "Almoço", "livre": false, "itens": [{"n": "Arroz branco cozido", "q": "150 g"}, {"n": "Feijão carioca cozido", "q": "150 g"}, {"n": "Peito de frango grelhado", "q": "170 g"}, {"n": "Azeite", "q": "10 g"}, {"n": "Legumes cozidos", "q": "250 g"}], "m": [70, 78, 16, 736]}, {"h": "16:00", "tag": "", "livre": false, "itens": [{"n": "Whey concentrado", "q": "26 g"}, {"n": "Leite integral", "q": "250 ml"}, {"n": "Queijo mussarela", "q": "40 g"}], "m": [39, 15, 20, 395]}, {"h": "19:00", "tag": "", "livre": false, "itens": [{"n": "Atum em água, drenado", "q": "120 g"}, {"n": "Pasta de amendoim", "q": "4 g"}], "m": [32, 1, 3, 161]}, {"h": "20:30", "tag": "Jantar", "livre": false, "itens": [{"n": "Patinho grelhado", "q": "120 g"}, {"n": "Batata doce cozida", "q": "150 g"}, {"n": "Azeite", "q": "6 g"}, {"n": "Legumes cozidos", "q": "250 g"}], "m": [50, 43, 16, 511]}]}, "fds": {"nome": "Fim de semana", "desc": "Cinco eventos e refeição livre à noite, quando o risco é maior.", "tot": [221, 208, 74, 2387], "refs": [{"h": "09:00", "tag": "", "livre": false, "itens": [{"n": "Ovo cozido", "q": "100 g"}, {"n": "Pão francês", "q": "30 g"}, {"n": "Aveia em flocos", "q": "25 g"}, {"n": "Leite integral", "q": "250 ml"}, {"n": "Whey concentrado", "q": "32 g"}], "m": [53, 49, 23, 612]}, {"h": "12:00", "tag": "Almoço", "livre": false, "itens": [{"n": "Peito de frango grelhado", "q": "190 g"}, {"n": "Atum em água, drenado", "q": "60 g"}, {"n": "Feijão carioca cozido", "q": "180 g"}, {"n": "Arroz branco cozido", "q": "30 g"}, {"n": "Legumes cozidos", "q": "250 g"}, {"n": "Azeite", "q": "4 g"}], "m": [91, 48, 11, 654]}, {"h": "15:00", "tag": "", "livre": false, "itens": [{"n": "Whey concentrado", "q": "25 g"}, {"n": "Leite integral", "q": "250 ml"}, {"n": "Banana prata", "q": "60 g"}], "m": [29, 29, 10, 321]}, {"h": "17:30", "tag": "Volume livre", "livre": false, "itens": [{"n": "Legumes cozidos", "q": "200 g"}], "m": [4, 12, 1, 69]}, {"h": "20:00", "tag": "LIVRE", "livre": true, "itens": [], "m": [45, 70, 30, 730]}]}}, "B": {"t11": {"nome": "Treino 11h00", "desc": "Janela curta. Só 3h15 entre acordar e treinar.", "tot": [234, 248, 72, 2578], "refs": [{"h": "07:45", "tag": "T-3h15", "livre": false, "itens": [{"n": "Aveia em flocos", "q": "60 g"}, {"n": "Leite integral", "q": "250 ml"}, {"n": "Whey concentrado", "q": "32 g"}, {"n": "Banana prata", "q": "100 g"}], "m": [43, 80, 15, 632]}, {"h": "10:15", "tag": "T-45min", "livre": false, "itens": [{"n": "Pão francês", "q": "40 g"}, {"n": "Mel", "q": "15 g"}, {"n": "Banana prata", "q": "80 g"}], "m": [4, 57, 1, 255]}, {"h": "12:30", "tag": "Pós-treino", "livre": false, "itens": [{"n": "Arroz branco cozido", "q": "130 g"}, {"n": "Feijão carioca cozido", "q": "150 g"}, {"n": "Peito de frango grelhado", "q": "170 g"}, {"n": "Azeite", "q": "13 g"}, {"n": "Legumes cozidos", "q": "200 g"}], "m": [69, 69, 19, 721]}, {"h": "16:00", "tag": "", "livre": false, "itens": [{"n": "Whey concentrado", "q": "27 g"}, {"n": "Leite integral", "q": "250 ml"}], "m": [30, 14, 10, 263]}, {"h": "19:00", "tag": "", "livre": false, "itens": [{"n": "Atum em água, drenado", "q": "120 g"}, {"n": "Pasta de amendoim", "q": "19 g"}], "m": [36, 4, 11, 255]}, {"h": "20:30", "tag": "Jantar", "livre": false, "itens": [{"n": "Patinho grelhado", "q": "130 g"}, {"n": "Batata doce cozida", "q": "70 g"}, {"n": "Azeite", "q": "6 g"}, {"n": "Legumes cozidos", "q": "200 g"}], "m": [52, 25, 16, 451]}]}, "t1630": {"nome": "Treino 16h30", "desc": "Janela longa. Almoço é a refeição principal pré-treino.", "tot": [225, 249, 75, 2575], "refs": [{"h": "07:45", "tag": "", "livre": false, "itens": [{"n": "Aveia em flocos", "q": "60 g"}, {"n": "Leite integral", "q": "250 ml"}, {"n": "Whey concentrado", "q": "24 g"}, {"n": "Banana prata", "q": "100 g"}], "m": [37, 80, 15, 600]}, {"h": "10:30", "tag": "", "livre": false, "itens": [{"n": "Leite integral", "q": "200 ml"}, {"n": "Whey concentrado", "q": "21 g"}, {"n": "Queijo mussarela", "q": "55 g"}], "m": [37, 13, 22, 396]}, {"h": "13:00", "tag": "T-3h30", "livre": false, "itens": [{"n": "Arroz branco cozido", "q": "115 g"}, {"n": "Feijão carioca cozido", "q": "150 g"}, {"n": "Peito de frango grelhado", "q": "170 g"}, {"n": "Azeite", "q": "8 g"}, {"n": "Legumes cozidos", "q": "200 g"}], "m": [68, 65, 14, 657]}, {"h": "15:45", "tag": "T-45min", "livre": false, "itens": [{"n": "Pão francês", "q": "40 g"}, {"n": "Mel", "q": "15 g"}, {"n": "Banana prata", "q": "80 g"}], "m": [4, 57, 1, 255]}, {"h": "18:00", "tag": "Pós-treino", "livre": false, "itens": [{"n": "Whey concentrado", "q": "26 g"}, {"n": "Leite integral", "q": "180 ml"}], "m": [27, 11, 8, 216]}, {"h": "20:30", "tag": "Jantar", "livre": false, "itens": [{"n": "Patinho grelhado", "q": "130 g"}, {"n": "Batata doce cozida", "q": "70 g"}, {"n": "Azeite", "q": "6 g"}, {"n": "Legumes cozidos", "q": "200 g"}], "m": [52, 25, 16, 451]}]}, "off": {"nome": "Sem treino", "desc": "Mesma proteína, carboidrato menor. Saem as refeições pré-treino.", "tot": [231, 178, 69, 2259], "refs": [{"h": "08:00", "tag": "", "livre": false, "itens": [{"n": "Aveia em flocos", "q": "50 g"}, {"n": "Leite integral", "q": "250 ml"}, {"n": "Whey concentrado", "q": "32 g"}, {"n": "Banana prata", "q": "60 g"}], "m": [41, 63, 14, 548]}, {"h": "12:30", "tag": "Almoço", "livre": false, "itens": [{"n": "Arroz branco cozido", "q": "75 g"}, {"n": "Feijão carioca cozido", "q": "150 g"}, {"n": "Peito de frango grelhado", "q": "170 g"}, {"n": "Azeite", "q": "10 g"}, {"n": "Legumes cozidos", "q": "250 g"}], "m": [68, 56, 16, 643]}, {"h": "16:00", "tag": "", "livre": false, "itens": [{"n": "Whey concentrado", "q": "26 g"}, {"n": "Leite integral", "q": "250 ml"}, {"n": "Queijo mussarela", "q": "40 g"}], "m": [39, 15, 20, 395]}, {"h": "19:00", "tag": "", "livre": false, "itens": [{"n": "Atum em água, drenado", "q": "120 g"}, {"n": "Pasta de amendoim", "q": "4 g"}], "m": [32, 1, 3, 161]}, {"h": "20:30", "tag": "Jantar", "livre": false, "itens": [{"n": "Patinho grelhado", "q": "120 g"}, {"n": "Batata doce cozida", "q": "150 g"}, {"n": "Azeite", "q": "6 g"}, {"n": "Legumes cozidos", "q": "250 g"}], "m": [50, 43, 16, 511]}]}, "fds": {"nome": "Fim de semana", "desc": "Cinco eventos e refeição livre à noite, quando o risco é maior.", "tot": [221, 200, 74, 2349], "refs": [{"h": "09:00", "tag": "", "livre": false, "itens": [{"n": "Ovo cozido", "q": "100 g"}, {"n": "Pão francês", "q": "30 g"}, {"n": "Aveia em flocos", "q": "25 g"}, {"n": "Leite integral", "q": "250 ml"}, {"n": "Whey concentrado", "q": "32 g"}], "m": [53, 49, 23, 612]}, {"h": "12:00", "tag": "Almoço", "livre": false, "itens": [{"n": "Peito de frango grelhado", "q": "190 g"}, {"n": "Atum em água, drenado", "q": "60 g"}, {"n": "Feijão carioca cozido", "q": "180 g"}, {"n": "Legumes cozidos", "q": "250 g"}, {"n": "Azeite", "q": "4 g"}], "m": [90, 39, 11, 617]}, {"h": "15:00", "tag": "", "livre": false, "itens": [{"n": "Whey concentrado", "q": "25 g"}, {"n": "Leite integral", "q": "250 ml"}, {"n": "Banana prata", "q": "60 g"}], "m": [29, 29, 10, 321]}, {"h": "17:30", "tag": "Volume livre", "livre": false, "itens": [{"n": "Legumes cozidos", "q": "200 g"}], "m": [4, 12, 1, 69]}, {"h": "20:00", "tag": "LIVRE", "livre": true, "itens": [], "m": [45, 70, 30, 730]}]}}, "C": {"t11": {"nome": "Treino 11h00", "desc": "Janela curta. Só 3h15 entre acordar e treinar.", "tot": [233, 235, 72, 2522], "refs": [{"h": "07:45", "tag": "T-3h15", "livre": false, "itens": [{"n": "Aveia em flocos", "q": "60 g"}, {"n": "Leite integral", "q": "250 ml"}, {"n": "Whey concentrado", "q": "32 g"}, {"n": "Banana prata", "q": "100 g"}], "m": [43, 80, 15, 632]}, {"h": "10:15", "tag": "T-45min", "livre": false, "itens": [{"n": "Pão francês", "q": "40 g"}, {"n": "Mel", "q": "15 g"}, {"n": "Banana prata", "q": "80 g"}], "m": [4, 57, 1, 255]}, {"h": "12:30", "tag": "Pós-treino", "livre": false, "itens": [{"n": "Arroz branco cozido", "q": "130 g"}, {"n": "Feijão carioca cozido", "q": "150 g"}, {"n": "Peito de frango grelhado", "q": "170 g"}, {"n": "Azeite", "q": "13 g"}, {"n": "Legumes cozidos", "q": "200 g"}], "m": [69, 69, 19, 721]}, {"h": "16:00", "tag": "", "livre": false, "itens": [{"n": "Whey concentrado", "q": "27 g"}, {"n": "Leite integral", "q": "250 ml"}], "m": [30, 14, 10, 263]}, {"h": "19:00", "tag": "", "livre": false, "itens": [{"n": "Atum em água, drenado", "q": "120 g"}, {"n": "Pasta de amendoim", "q": "19 g"}], "m": [36, 4, 11, 255]}, {"h": "20:30", "tag": "Jantar", "livre": false, "itens": [{"n": "Patinho grelhado", "q": "130 g"}, {"n": "Azeite", "q": "6 g"}, {"n": "Legumes cozidos", "q": "200 g"}], "m": [51, 12, 16, 395]}]}, "t1630": {"nome": "Treino 16h30", "desc": "Janela longa. Almoço é a refeição principal pré-treino.", "tot": [224, 236, 75, 2519], "refs": [{"h": "07:45", "tag": "", "livre": false, "itens": [{"n": "Aveia em flocos", "q": "60 g"}, {"n": "Leite integral", "q": "250 ml"}, {"n": "Whey concentrado", "q": "24 g"}, {"n": "Banana prata", "q": "100 g"}], "m": [37, 80, 15, 600]}, {"h": "10:30", "tag": "", "livre": false, "itens": [{"n": "Leite integral", "q": "200 ml"}, {"n": "Whey concentrado", "q": "21 g"}, {"n": "Queijo mussarela", "q": "55 g"}], "m": [37, 13, 22, 396]}, {"h": "13:00", "tag": "T-3h30", "livre": false, "itens": [{"n": "Arroz branco cozido", "q": "115 g"}, {"n": "Feijão carioca cozido", "q": "150 g"}, {"n": "Peito de frango grelhado", "q": "170 g"}, {"n": "Azeite", "q": "8 g"}, {"n": "Legumes cozidos", "q": "200 g"}], "m": [68, 65, 14, 657]}, {"h": "15:45", "tag": "T-45min", "livre": false, "itens": [{"n": "Pão francês", "q": "40 g"}, {"n": "Mel", "q": "15 g"}, {"n": "Banana prata", "q": "80 g"}], "m": [4, 57, 1, 255]}, {"h": "18:00", "tag": "Pós-treino", "livre": false, "itens": [{"n": "Whey concentrado", "q": "26 g"}, {"n": "Leite integral", "q": "180 ml"}], "m": [27, 11, 8, 216]}, {"h": "20:30", "tag": "Jantar", "livre": false, "itens": [{"n": "Patinho grelhado", "q": "130 g"}, {"n": "Azeite", "q": "6 g"}, {"n": "Legumes cozidos", "q": "200 g"}], "m": [51, 12, 16, 395]}]}, "off": {"nome": "Sem treino", "desc": "Mesma proteína, carboidrato menor. Saem as refeições pré-treino.", "tot": [231, 169, 69, 2220], "refs": [{"h": "08:00", "tag": "", "livre": false, "itens": [{"n": "Aveia em flocos", "q": "50 g"}, {"n": "Leite integral", "q": "250 ml"}, {"n": "Whey concentrado", "q": "32 g"}, {"n": "Banana prata", "q": "30 g"}], "m": [41, 55, 14, 515]}, {"h": "12:30", "tag": "Almoço", "livre": false, "itens": [{"n": "Arroz branco cozido", "q": "70 g"}, {"n": "Feijão carioca cozido", "q": "150 g"}, {"n": "Peito de frango grelhado", "q": "170 g"}, {"n": "Azeite", "q": "10 g"}, {"n": "Legumes cozidos", "q": "250 g"}], "m": [68, 55, 16, 637]}, {"h": "16:00", "tag": "", "livre": false, "itens": [{"n": "Whey concentrado", "q": "26 g"}, {"n": "Leite integral", "q": "250 ml"}, {"n": "Queijo mussarela", "q": "40 g"}], "m": [39, 15, 20, 395]}, {"h": "19:00", "tag": "", "livre": false, "itens": [{"n": "Atum em água, drenado", "q": "120 g"}, {"n": "Pasta de amendoim", "q": "4 g"}], "m": [32, 1, 3, 161]}, {"h": "20:30", "tag": "Jantar", "livre": false, "itens": [{"n": "Patinho grelhado", "q": "120 g"}, {"n": "Batata doce cozida", "q": "150 g"}, {"n": "Azeite", "q": "6 g"}, {"n": "Legumes cozidos", "q": "250 g"}], "m": [50, 43, 16, 511]}]}, "fds": {"nome": "Fim de semana", "desc": "Cinco eventos e refeição livre à noite, quando o risco é maior.", "tot": [220, 184, 74, 2283], "refs": [{"h": "09:00", "tag": "", "livre": false, "itens": [{"n": "Ovo cozido", "q": "100 g"}, {"n": "Pão francês", "q": "30 g"}, {"n": "Aveia em flocos", "q": "25 g"}, {"n": "Leite integral", "q": "250 ml"}, {"n": "Whey concentrado", "q": "32 g"}], "m": [53, 49, 23, 612]}, {"h": "12:00", "tag": "Almoço", "livre": false, "itens": [{"n": "Peito de frango grelhado", "q": "190 g"}, {"n": "Atum em água, drenado", "q": "60 g"}, {"n": "Feijão carioca cozido", "q": "180 g"}, {"n": "Legumes cozidos", "q": "250 g"}, {"n": "Azeite", "q": "4 g"}], "m": [90, 39, 11, 617]}, {"h": "15:00", "tag": "", "livre": false, "itens": [{"n": "Whey concentrado", "q": "25 g"}, {"n": "Leite integral", "q": "250 ml"}], "m": [28, 14, 10, 255]}, {"h": "17:30", "tag": "Volume livre", "livre": false, "itens": [{"n": "Legumes cozidos", "q": "200 g"}], "m": [4, 12, 1, 69]}, {"h": "20:00", "tag": "LIVRE", "livre": true, "itens": [], "m": [45, 70, 30, 730]}]}}, "D": {"t11": {"nome": "Treino 11h00", "desc": "Janela curta. Só 3h15 entre acordar e treinar.", "tot": [232, 227, 72, 2485], "refs": [{"h": "07:45", "tag": "T-3h15", "livre": false, "itens": [{"n": "Aveia em flocos", "q": "60 g"}, {"n": "Leite integral", "q": "250 ml"}, {"n": "Whey concentrado", "q": "32 g"}, {"n": "Banana prata", "q": "100 g"}], "m": [43, 80, 15, 632]}, {"h": "10:15", "tag": "T-45min", "livre": false, "itens": [{"n": "Pão francês", "q": "40 g"}, {"n": "Mel", "q": "15 g"}, {"n": "Banana prata", "q": "80 g"}], "m": [4, 57, 1, 255]}, {"h": "12:30", "tag": "Pós-treino", "livre": false, "itens": [{"n": "Arroz branco cozido", "q": "100 g"}, {"n": "Feijão carioca cozido", "q": "150 g"}, {"n": "Peito de frango grelhado", "q": "170 g"}, {"n": "Azeite", "q": "13 g"}, {"n": "Legumes cozidos", "q": "200 g"}], "m": [68, 60, 19, 684]}, {"h": "16:00", "tag": "", "livre": false, "itens": [{"n": "Whey concentrado", "q": "27 g"}, {"n": "Leite integral", "q": "250 ml"}], "m": [30, 14, 10, 263]}, {"h": "19:00", "tag": "", "livre": false, "itens": [{"n": "Atum em água, drenado", "q": "120 g"}, {"n": "Pasta de amendoim", "q": "19 g"}], "m": [36, 4, 11, 255]}, {"h": "20:30", "tag": "Jantar", "livre": false, "itens": [{"n": "Patinho grelhado", "q": "130 g"}, {"n": "Azeite", "q": "6 g"}, {"n": "Legumes cozidos", "q": "200 g"}], "m": [51, 12, 16, 395]}]}, "t1630": {"nome": "Treino 16h30", "desc": "Janela longa. Almoço é a refeição principal pré-treino.", "tot": [223, 229, 75, 2488], "refs": [{"h": "07:45", "tag": "", "livre": false, "itens": [{"n": "Aveia em flocos", "q": "60 g"}, {"n": "Leite integral", "q": "250 ml"}, {"n": "Whey concentrado", "q": "24 g"}, {"n": "Banana prata", "q": "100 g"}], "m": [37, 80, 15, 600]}, {"h": "10:30", "tag": "", "livre": false, "itens": [{"n": "Leite integral", "q": "200 ml"}, {"n": "Whey concentrado", "q": "21 g"}, {"n": "Queijo mussarela", "q": "55 g"}], "m": [37, 13, 22, 396]}, {"h": "13:00", "tag": "T-3h30", "livre": false, "itens": [{"n": "Arroz branco cozido", "q": "90 g"}, {"n": "Feijão carioca cozido", "q": "150 g"}, {"n": "Peito de frango grelhado", "q": "170 g"}, {"n": "Azeite", "q": "8 g"}, {"n": "Legumes cozidos", "q": "200 g"}], "m": [68, 58, 14, 626]}, {"h": "15:45", "tag": "T-45min", "livre": false, "itens": [{"n": "Pão francês", "q": "40 g"}, {"n": "Mel", "q": "15 g"}, {"n": "Banana prata", "q": "80 g"}], "m": [4, 57, 1, 255]}, {"h": "18:00", "tag": "Pós-treino", "livre": false, "itens": [{"n": "Whey concentrado", "q": "26 g"}, {"n": "Leite integral", "q": "180 ml"}], "m": [27, 11, 8, 216]}, {"h": "20:30", "tag": "Jantar", "livre": false, "itens": [{"n": "Patinho grelhado", "q": "130 g"}, {"n": "Azeite", "q": "6 g"}, {"n": "Legumes cozidos", "q": "200 g"}], "m": [51, 12, 16, 395]}]}, "off": {"nome": "Sem treino", "desc": "Mesma proteína, carboidrato menor. Saem as refeições pré-treino.", "tot": [229, 155, 68, 2148], "refs": [{"h": "08:00", "tag": "", "livre": false, "itens": [{"n": "Aveia em flocos", "q": "40 g"}, {"n": "Leite integral", "q": "250 ml"}, {"n": "Whey concentrado", "q": "32 g"}, {"n": "Banana prata", "q": "30 g"}], "m": [40, 49, 14, 476]}, {"h": "12:30", "tag": "Almoço", "livre": false, "itens": [{"n": "Arroz branco cozido", "q": "70 g"}, {"n": "Feijão carioca cozido", "q": "150 g"}, {"n": "Peito de frango grelhado", "q": "170 g"}, {"n": "Azeite", "q": "10 g"}, {"n": "Legumes cozidos", "q": "250 g"}], "m": [68, 55, 16, 637]}, {"h": "16:00", "tag": "", "livre": false, "itens": [{"n": "Whey concentrado", "q": "26 g"}, {"n": "Leite integral", "q": "250 ml"}, {"n": "Queijo mussarela", "q": "40 g"}], "m": [39, 15, 20, 395]}, {"h": "19:00", "tag": "", "livre": false, "itens": [{"n": "Atum em água, drenado", "q": "120 g"}, {"n": "Pasta de amendoim", "q": "4 g"}], "m": [32, 1, 3, 161]}, {"h": "20:30", "tag": "Jantar", "livre": false, "itens": [{"n": "Patinho grelhado", "q": "120 g"}, {"n": "Batata doce cozida", "q": "110 g"}, {"n": "Azeite", "q": "6 g"}, {"n": "Legumes cozidos", "q": "250 g"}], "m": [50, 35, 16, 480]}]}, "fds": {"nome": "Fim de semana", "desc": "Cinco eventos e refeição livre à noite, quando o risco é maior.", "tot": [217, 167, 73, 2195], "refs": [{"h": "09:00", "tag": "", "livre": false, "itens": [{"n": "Ovo cozido", "q": "100 g"}, {"n": "Aveia em flocos", "q": "25 g"}, {"n": "Leite integral", "q": "250 ml"}, {"n": "Whey concentrado", "q": "32 g"}], "m": [50, 32, 22, 524]}, {"h": "12:00", "tag": "Almoço", "livre": false, "itens": [{"n": "Peito de frango grelhado", "q": "190 g"}, {"n": "Atum em água, drenado", "q": "60 g"}, {"n": "Feijão carioca cozido", "q": "180 g"}, {"n": "Legumes cozidos", "q": "250 g"}, {"n": "Azeite", "q": "4 g"}], "m": [90, 39, 11, 617]}, {"h": "15:00", "tag": "", "livre": false, "itens": [{"n": "Whey concentrado", "q": "25 g"}, {"n": "Leite integral", "q": "250 ml"}], "m": [28, 14, 10, 255]}, {"h": "17:30", "tag": "Volume livre", "livre": false, "itens": [{"n": "Legumes cozidos", "q": "200 g"}], "m": [4, 12, 1, 69]}, {"h": "20:00", "tag": "LIVRE", "livre": true, "itens": [], "m": [45, 70, 30, 730]}]}}}, "alimentos": {"Peito de frango grelhado": [32.0, 0.0, 2.5, 0.0, "prot", "g"], "Coxa e sobrecoxa sem pele": [26.9, 0.0, 9.4, 0.0, "prot", "g"], "Patinho grelhado": [35.9, 0.0, 7.3, 0.0, "prot", "g"], "Patinho moído refogado": [31.5, 0.0, 8.0, 0.0, "prot", "g"], "Bisteca de porco grelhada": [30.0, 0.0, 13.0, 0.0, "prot", "g"], "Lombo de porco assado": [35.7, 0.0, 6.4, 0.0, "prot", "g"], "Atum em água, drenado": [26.0, 0.0, 1.0, 0.0, "prot", "g"], "Tilápia grelhada": [25.8, 0.0, 2.2, 0.0, "prot", "g"], "Merluza ou pescada cozida": [23.0, 0.0, 1.5, 0.0, "prot", "g"], "Salmão grelhado": [25.4, 0.0, 13.4, 0.0, "prot", "g"], "Sardinha em lata, drenada": [24.0, 0.0, 11.0, 0.0, "prot", "g"], "Ovo cozido": [13.3, 0.6, 9.5, 0.0, "prot", "g"], "Queijo mussarela": [25.6, 3.0, 25.2, 0.0, "prot", "g"], "Whey concentrado": [80.0, 8.0, 6.0, 0.5, "prot", "g"], "Arroz branco cozido": [2.5, 28.1, 0.2, 1.6, "carb", "g"], "Macarrão cozido": [3.9, 30.9, 0.6, 1.6, "carb", "g"], "Mandioca (aipim) cozida": [0.6, 30.1, 0.3, 1.6, "carb", "g"], "Batata doce cozida": [1.3, 18.4, 0.1, 2.2, "carb", "g"], "Batata inglesa cozida": [1.2, 11.9, 0.1, 1.3, "carb", "g"], "Inhame cozido": [1.5, 23.2, 0.1, 2.1, "carb", "g"], "Cará cozido": [1.7, 26.0, 0.1, 1.5, "carb", "g"], "Cuscuz de milho cozido": [2.5, 25.3, 0.9, 1.7, "carb", "g"], "Polenta cozida": [1.5, 15.8, 0.3, 1.0, "carb", "g"], "Pão francês": [8.0, 58.6, 3.1, 2.3, "carb", "g"], "Aveia em flocos": [13.9, 66.6, 8.5, 9.1, "carb", "g"], "Feijão carioca cozido": [4.8, 13.6, 0.5, 8.5, "carb", "g"], "Mel": [0.3, 82.0, 0.0, 0.0, "carb", "g"], "Banana prata": [1.3, 26.0, 0.1, 2.0, "fruta", "g"], "Banana nanica": [1.4, 23.8, 0.1, 1.9, "fruta", "g"], "Maçã fuji com casca": [0.3, 15.2, 0.0, 1.3, "fruta", "g"], "Pera williams": [0.6, 14.0, 0.1, 3.0, "fruta", "g"], "Uva itália": [0.7, 13.6, 0.2, 0.9, "fruta", "g"], "Manga palmer": [0.4, 12.8, 0.2, 1.6, "fruta", "g"], "Abacaxi": [0.9, 12.3, 0.1, 1.0, "fruta", "g"], "Mamão formosa": [0.8, 11.6, 0.1, 1.8, "fruta", "g"], "Kiwi": [1.3, 11.5, 0.6, 2.7, "fruta", "g"], "Tangerina ponkan": [0.8, 11.5, 0.1, 1.6, "fruta", "g"], "Goiaba branca": [0.9, 9.9, 0.4, 6.2, "fruta", "g"], "Laranja pera": [1.0, 8.9, 0.1, 0.8, "fruta", "g"], "Melancia": [0.9, 8.1, 0.0, 0.1, "fruta", "g"], "Melão": [0.7, 7.5, 0.0, 0.3, "fruta", "g"], "Morango": [0.9, 6.8, 0.3, 1.7, "fruta", "g"], "Leite integral": [3.2, 4.7, 3.3, 0.0, "prot", "ml"], "Leite desnatado": [3.4, 4.9, 0.2, 0.0, "prot", "ml"], "Azeite": [0.0, 0.0, 100.0, 0.0, "gord", "g"], "Pasta de amendoim": [25.0, 20.0, 50.0, 6.0, "gord", "g"], "Castanha do pará": [14.5, 15.1, 67.0, 7.9, "gord", "g"], "Amêndoa": [21.6, 19.5, 47.3, 11.6, "gord", "g"], "Legumes cozidos": [2.0, 6.0, 0.3, 3.0, "livre", "g"], "Pepino": [0.9, 1.6, 0.1, 1.1, "livre", "g"], "Alface e folhas": [1.3, 1.7, 0.2, 1.8, "livre", "g"], "Tomate": [1.1, 3.1, 0.2, 1.2, "livre", "g"], "Abobrinha cozida": [1.1, 2.9, 0.2, 1.6, "livre", "g"], "Brócolis cozido": [2.1, 4.4, 0.5, 3.4, "livre", "g"], "Couve refogada": [1.7, 4.3, 0.5, 3.1, "livre", "g"], "Chuchu cozido": [0.4, 4.8, 0.1, 1.0, "livre", "g"], "Gelatina zero açúcar": [1.2, 0.0, 0.0, 0.0, "livre", "g"]}, "curva": [{"n": 1, "bloco": "A", "data": "24/08", "iso": "2026-08-24", "peso": 95.5, "cintura": 94.5}, {"n": 2, "bloco": "A", "data": "31/08", "iso": "2026-08-31", "peso": 95.0, "cintura": 94.0}, {"n": 3, "bloco": "A", "data": "07/09", "iso": "2026-09-07", "peso": 94.5, "cintura": 93.6}, {"n": 4, "bloco": "B", "data": "14/09", "iso": "2026-09-14", "peso": 94.0, "cintura": 93.1}, {"n": 5, "bloco": "B", "data": "21/09", "iso": "2026-09-21", "peso": 93.5, "cintura": 92.6}, {"n": 6, "bloco": "B", "data": "28/09", "iso": "2026-09-28", "peso": 93.0, "cintura": 92.2}, {"n": 7, "bloco": "B", "data": "05/10", "iso": "2026-10-05", "peso": 92.5, "cintura": 91.7}, {"n": 8, "bloco": "B", "data": "12/10", "iso": "2026-10-12", "peso": 92.0, "cintura": 91.3}, {"n": 9, "bloco": "C", "data": "19/10", "iso": "2026-10-19", "peso": 91.5, "cintura": 90.8}, {"n": 10, "bloco": "C", "data": "26/10", "iso": "2026-10-26", "peso": 91.1, "cintura": 90.3}, {"n": 11, "bloco": "C", "data": "02/11", "iso": "2026-11-02", "peso": 90.6, "cintura": 89.9}, {"n": 12, "bloco": "C", "data": "09/11", "iso": "2026-11-09", "peso": 90.1, "cintura": 89.5}, {"n": 13, "bloco": "C", "data": "16/11", "iso": "2026-11-16", "peso": 89.6, "cintura": 89.0}, {"n": 14, "bloco": "C", "data": "23/11", "iso": "2026-11-23", "peso": 89.2, "cintura": 88.6}, {"n": 15, "bloco": "D", "data": "30/11", "iso": "2026-11-30", "peso": 88.7, "cintura": 88.1}, {"n": 16, "bloco": "D", "data": "07/12", "iso": "2026-12-07", "peso": 88.2, "cintura": 87.7}, {"n": 17, "bloco": "D", "data": "14/12", "iso": "2026-12-14", "peso": 87.7, "cintura": 87.2}, {"n": 18, "bloco": "D", "data": "21/12", "iso": "2026-12-21", "peso": 87.3, "cintura": 86.8}, {"n": 19, "bloco": "D", "data": "28/12", "iso": "2026-12-28", "peso": 86.8, "cintura": 86.3}], "compras": {"A": {"periodo": "24/08 a 13/09", "cats": [{"cat": "Açougue", "itens": [{"n": "Patinho", "q": "988 g", "extra": null, "nota": "rende 692 g prontos"}, {"n": "Peito de frango", "q": "1,90 kg", "extra": null, "nota": "rende 1,33 kg prontos"}]}, {"cat": "Ovos", "itens": [{"n": "Ovo", "q": "5 un", "extra": null, "nota": "1 un = 50 g sem casca"}]}, {"cat": "Laticínios", "itens": [{"n": "Leite integral", "q": "4,06 L", "extra": "5 caixas", "nota": "caixa de 1 L"}, {"n": "Queijo mussarela, fatiado", "q": "162 g", "extra": null, "nota": null}]}, {"cat": "Hortifruti", "itens": [{"n": "Banana prata", "q": "1,51 kg", "extra": null, "nota": "peso com casca"}, {"n": "Batata doce", "q": "534 g", "extra": null, "nota": "peso com casca"}, {"n": "Legumes variados", "q": "3,37 kg", "extra": null, "nota": "brócolis, abobrinha, cenoura, vagem"}]}, {"cat": "Mercearia", "itens": [{"n": "Arroz branco", "q": "453 g", "extra": null, "nota": "rende 1,18 kg prontos"}, {"n": "Atum em água, lata", "q": "5 latas", "extra": null, "nota": "lata de 170 g rende 120 g drenado"}, {"n": "Aveia em flocos", "q": "367 g", "extra": null, "nota": null}, {"n": "Azeite de oliva", "q": "107 ml", "extra": null, "nota": null}, {"n": "Feijão carioca", "q": "545 g", "extra": null, "nota": "rende 1,20 kg prontos"}, {"n": "Mel", "q": "65 g", "extra": null, "nota": null}, {"n": "Pasta de amendoim", "q": "45 g", "extra": null, "nota": null}]}, {"cat": "Padaria", "itens": [{"n": "Pão francês", "q": "5 un", "extra": null, "nota": "1 un = 50 g"}]}, {"cat": "Suplemento", "itens": [{"n": "Whey concentrado", "q": "477 g", "extra": null, "nota": "dose de 30 g"}]}]}, "B": {"periodo": "14/09 a 18/10", "cats": [{"cat": "Açougue", "itens": [{"n": "Patinho", "q": "988 g", "extra": null, "nota": "rende 692 g prontos"}, {"n": "Peito de frango", "q": "1,90 kg", "extra": null, "nota": "rende 1,33 kg prontos"}]}, {"cat": "Ovos", "itens": [{"n": "Ovo", "q": "5 un", "extra": null, "nota": "1 un = 50 g sem casca"}]}, {"cat": "Laticínios", "itens": [{"n": "Leite integral", "q": "4,06 L", "extra": "5 caixas", "nota": "caixa de 1 L"}, {"n": "Queijo mussarela, fatiado", "q": "162 g", "extra": null, "nota": null}]}, {"cat": "Hortifruti", "itens": [{"n": "Banana prata", "q": "1,51 kg", "extra": null, "nota": "peso com casca"}, {"n": "Batata doce", "q": "534 g", "extra": null, "nota": "peso com casca"}, {"n": "Legumes variados", "q": "3,37 kg", "extra": null, "nota": "brócolis, abobrinha, cenoura, vagem"}]}, {"cat": "Mercearia", "itens": [{"n": "Arroz branco", "q": "235 g", "extra": null, "nota": "rende 611 g prontos"}, {"n": "Atum em água, lata", "q": "5 latas", "extra": null, "nota": "lata de 170 g rende 120 g drenado"}, {"n": "Aveia em flocos", "q": "367 g", "extra": null, "nota": null}, {"n": "Azeite de oliva", "q": "107 ml", "extra": null, "nota": null}, {"n": "Feijão carioca", "q": "545 g", "extra": null, "nota": "rende 1,20 kg prontos"}, {"n": "Mel", "q": "65 g", "extra": null, "nota": null}, {"n": "Pasta de amendoim", "q": "45 g", "extra": null, "nota": null}]}, {"cat": "Padaria", "itens": [{"n": "Pão francês", "q": "5 un", "extra": null, "nota": "1 un = 50 g"}]}, {"cat": "Suplemento", "itens": [{"n": "Whey concentrado", "q": "477 g", "extra": null, "nota": "dose de 30 g"}]}]}, "C": {"periodo": "19/10 a 29/11", "cats": [{"cat": "Açougue", "itens": [{"n": "Patinho", "q": "988 g", "extra": null, "nota": "rende 692 g prontos"}, {"n": "Peito de frango", "q": "1,90 kg", "extra": null, "nota": "rende 1,33 kg prontos"}]}, {"cat": "Ovos", "itens": [{"n": "Ovo", "q": "5 un", "extra": null, "nota": "1 un = 50 g sem casca"}]}, {"cat": "Laticínios", "itens": [{"n": "Leite integral", "q": "4,06 L", "extra": "5 caixas", "nota": "caixa de 1 L"}, {"n": "Queijo mussarela, fatiado", "q": "162 g", "extra": null, "nota": null}]}, {"cat": "Hortifruti", "itens": [{"n": "Banana prata", "q": "1,26 kg", "extra": null, "nota": "peso com casca"}, {"n": "Batata doce", "q": "186 g", "extra": null, "nota": "peso com casca"}, {"n": "Legumes variados", "q": "3,37 kg", "extra": null, "nota": "brócolis, abobrinha, cenoura, vagem"}]}, {"cat": "Mercearia", "itens": [{"n": "Arroz branco", "q": "233 g", "extra": null, "nota": "rende 606 g prontos"}, {"n": "Atum em água, lata", "q": "5 latas", "extra": null, "nota": "lata de 170 g rende 120 g drenado"}, {"n": "Aveia em flocos", "q": "367 g", "extra": null, "nota": null}, {"n": "Azeite de oliva", "q": "107 ml", "extra": null, "nota": null}, {"n": "Feijão carioca", "q": "545 g", "extra": null, "nota": "rende 1,20 kg prontos"}, {"n": "Mel", "q": "65 g", "extra": null, "nota": null}, {"n": "Pasta de amendoim", "q": "45 g", "extra": null, "nota": null}]}, {"cat": "Padaria", "itens": [{"n": "Pão francês", "q": "5 un", "extra": null, "nota": "1 un = 50 g"}]}, {"cat": "Suplemento", "itens": [{"n": "Whey concentrado", "q": "477 g", "extra": null, "nota": "dose de 30 g"}]}]}, "D": {"periodo": "30/11 a 31/12", "cats": [{"cat": "Açougue", "itens": [{"n": "Patinho", "q": "988 g", "extra": null, "nota": "rende 692 g prontos"}, {"n": "Peito de frango", "q": "1,90 kg", "extra": null, "nota": "rende 1,33 kg prontos"}]}, {"cat": "Ovos", "itens": [{"n": "Ovo", "q": "5 un", "extra": null, "nota": "1 un = 50 g sem casca"}]}, {"cat": "Laticínios", "itens": [{"n": "Leite integral", "q": "4,06 L", "extra": "5 caixas", "nota": "caixa de 1 L"}, {"n": "Queijo mussarela, fatiado", "q": "162 g", "extra": null, "nota": null}]}, {"cat": "Hortifruti", "itens": [{"n": "Banana prata", "q": "1,26 kg", "extra": null, "nota": "peso com casca"}, {"n": "Batata doce", "q": "137 g", "extra": null, "nota": "peso com casca"}, {"n": "Legumes variados", "q": "3,37 kg", "extra": null, "nota": "brócolis, abobrinha, cenoura, vagem"}]}, {"cat": "Mercearia", "itens": [{"n": "Arroz branco", "q": "187 g", "extra": null, "nota": "rende 486 g prontos"}, {"n": "Atum em água, lata", "q": "5 latas", "extra": null, "nota": "lata de 170 g rende 120 g drenado"}, {"n": "Aveia em flocos", "q": "356 g", "extra": null, "nota": null}, {"n": "Azeite de oliva", "q": "107 ml", "extra": null, "nota": null}, {"n": "Feijão carioca", "q": "545 g", "extra": null, "nota": "rende 1,20 kg prontos"}, {"n": "Mel", "q": "65 g", "extra": null, "nota": null}, {"n": "Pasta de amendoim", "q": "45 g", "extra": null, "nota": null}]}, {"cat": "Padaria", "itens": [{"n": "Pão francês", "q": "4 un", "extra": null, "nota": "1 un = 50 g"}]}, {"cat": "Suplemento", "itens": [{"n": "Whey concentrado", "q": "477 g", "extra": null, "nota": "dose de 30 g"}]}]}}};
-/* Protocolo de corte — app. Dados em dados.json, sincronizacao opcional via Supabase. */
-let D = null, reg = {}, log = {}, sync = {url:null, key:null, on:false};
-const $ = s => document.querySelector(s);
-const $$ = s => [...document.querySelectorAll(s)];
-const hoje = () => new Date().toISOString().slice(0,10);
-const num = v => (v===''||v==null||isNaN(parseFloat(String(v).replace(',','.')))) ? null
-                 : parseFloat(String(v).replace(',','.'));
-const fmt = n => Math.round(n).toLocaleString('pt-BR');
-
-/* ---------- bloco e modelo de dia pela data ---------- */
-const FAIXAS = [["A","2026-08-24","2026-09-13"],["B","2026-09-14","2026-10-18"],
-                ["C","2026-10-19","2026-11-29"],["D","2026-11-30","2026-12-31"]];
-function blocoDe(d){ const f = FAIXAS.find(x => d >= x[1] && d <= x[2]); return f ? f[0] : (d < "2026-08-24" ? "A" : "D"); }
-function diaDe(d){
-  const wd = new Date(d+"T12:00:00").getDay();      // 0 dom, 6 sab
-  if (wd === 0 || wd === 6) return "fds";
-  return localStorage.getItem("dia:"+d) || "t11";
-}
-
-/* ---------- armazenamento ---------- */
-const LS = { get(k,f){ try{ return JSON.parse(localStorage.getItem(k)) ?? f }catch(e){ return f } },
-             set(k,v){ try{ localStorage.setItem(k, JSON.stringify(v)) }catch(e){} } };
-
-async function sb(metodo, tabela, corpo, query=""){
-  if (!sync.on) return null;
-  const r = await fetch(`${sync.url}/rest/v1/${tabela}${query}`, {
-    method: metodo,
-    headers: {"apikey":sync.key,"Authorization":"Bearer "+sync.key,
-              "Content-Type":"application/json","Prefer":"resolution=merge-duplicates,return=representation"},
-    body: corpo ? JSON.stringify(corpo) : undefined });
-  if (!r.ok) throw new Error(await r.text());
-  return r.status === 204 ? null : r.json();
-}
-async function puxar(){
-  if (!sync.on) return;
-  try{
-    const p = await sb("GET","corte_pesagens",null,"?select=*&order=data");
-    reg = {}; (p||[]).forEach(x => reg[x.data] = {p:x.peso, c:x.cintura});
-    const l = await sb("GET","corte_refeicoes",null,"?select=*&order=data.desc&limit=400");
-    log = {}; (l||[]).forEach(x => { (log[x.data] = log[x.data]||[]).push(x); });
-    LS.set("reg",reg); LS.set("log",log);
-    marcaSync(true,"sincronizado");
-  }catch(e){ marcaSync(false,"offline, salvando no aparelho"); }
-}
-function painelSync(){
-  const cur = LS.get("sync", {url:"",key:""});
-  const el = $("#syncbox");
-  if (el.hasAttribute("hidden")){
-    el.innerHTML = `<label for="surl">Endereço do Supabase</label>
-      <input id="surl" placeholder="https://....supabase.co" value="${cur.url||""}">
-      <label for="skey" style="margin-top:8px">Chave publicável</label>
-      <input id="skey" placeholder="sb_publishable_..." value="${cur.key||""}" style="font-size:13px">
-      <div class="row"><button class="btn pri" id="ssave">Conectar</button>
-        <button class="btn sm" id="soff">Desligar</button></div>
-      <p style="font-size:12px;color:var(--mut);margin-top:9px">Digite uma vez por aparelho. Fica salvo só aqui, nunca no arquivo publicado.</p>`;
-    el.removeAttribute("hidden");
-    $("#ssave").onclick = async () => {
-      const u = $("#surl").value.trim().replace(/\/$/,""), k = $("#skey").value.trim();
-      if (!u || !k) return;
-      LS.set("sync", {url:u, key:k}); sync = {url:u, key:k, on:true};
-      await puxar(); el.setAttribute("hidden",""); ir(localStorage.getItem("aba")||"hoje");
-    };
-    $("#soff").onclick = () => { localStorage.removeItem("sync"); sync={url:null,key:null,on:false};
-      marcaSync(false,""); el.setAttribute("hidden",""); };
-  } else el.setAttribute("hidden","");
-}
-function marcaSync(ok,txt){
-  const d = $("#syncdot"), t = $("#synctxt");
-  if (d) d.className = "dot " + (sync.on ? (ok?"on":"off") : "");
-  if (t) t.textContent = sync.on ? txt : "só neste aparelho · tocar para sincronizar";
-}
-
-/* ---------- CALCULADORA ---------- */
-let calc = { ref:null, sel:new Set() };
-function refsDoDia(){ const b = blocoDe(hoje()), k = diaDe(hoje()); return D.dias[b][k]; }
-
-function telaCalc(){
-  const dia = refsDoDia();
-  if (calc.ref === null || calc.ref >= dia.refs.length){
-    calc.ref = dia.refs.findIndex(r => !r.livre && r.m[0] >= 40);
-    if (calc.ref < 0) calc.ref = 0;
-  }
-  const r = dia.refs[calc.ref], [aP,aC,aG] = r.m;
-  const opts = dia.refs.map((x,i) =>
-    `<option value="${i}" ${i===calc.ref?"selected":""}>${x.h}${x.tag?" · "+x.tag:""} — ${x.m[0]}P ${x.m[1]}C ${x.m[2]}G</option>`).join("");
-  const A = D.alimentos;
-  // o que o plano pede nesta refeicao, para subir no topo da lista
-  const noPlano = new Set((r.itens||[]).map(i => i.n));
-
-  const grupo = (cats, titulo, mostra) => {
-    if (!mostra) return "";
-    let its = Object.keys(A).filter(k => cats.includes(A[k][4]));
-    its.sort((a,b) => (noPlano.has(b)?1:0) - (noPlano.has(a)?1:0));
-    return `<h2>${titulo}</h2><div class="pick">` + its.map(k =>
-      `<button data-al="${k}" aria-pressed="${calc.sel.has(k)}" class="${noPlano.has(k)?'plano':''}">${k}</button>`
-    ).join("") + `</div>`;
-  };
-
-  const planoTxt = (r.itens||[]).map(i => `${i.n} ${i.q}`).join(" · ");
-  $("#tab-calc").innerHTML = `
-    <div class="stickytop">
-      <label for="csel">Refeição · bloco ${blocoDe(hoje())} · ${dia.nome}</label>
-      <select id="csel">${opts}</select>
-    </div>
-    ${r.livre
-      ? `<div class="plano-box">Refeição livre. Teto de 730 kcal e mínimo de 45 g de proteína. Não precisa calcular.</div>`
-      : `<div class="plano-box"><div class="pb-t">O plano pede</div>${planoTxt || "—"}
-          <button class="btn sm" id="cplano" style="margin-top:9px;width:100%">Usar o do plano</button></div>
-         <p class="lead">Ou marque o que você tem. Os itens do plano aparecem primeiro, com marca vermelha.</p>
-         ${grupo(["prot"],"Proteína", aP >= 8)}
-         ${grupo(["carb"],"Carboidrato", aC >= 8)}
-         ${grupo(["fruta"],"Fruta", aC >= 8)}
-         ${grupo(["gord"],"Gordura", aG >= 3)}`}
-    <div class="stickybar vazia" id="cres"></div>`;
-
-  $("#csel").onchange = e => { calc.ref = +e.target.value; calc.sel.clear(); telaCalc(); };
-  const bp = $("#cplano");
-  if (bp) bp.onclick = () => {
-    calc.sel.clear();
-    $$("#tab-calc .pick button").forEach(x => x.setAttribute("aria-pressed","false"));
-    mostraPlano(r);
-  };
-  $$("#tab-calc .pick button").forEach(b => b.onclick = () => {
-    const k = b.dataset.al;
-    calc.sel.has(k) ? calc.sel.delete(k) : calc.sel.add(k);
-    b.setAttribute("aria-pressed", calc.sel.has(k));
-    calcular();
-  });
-  calcular();
-}
-
-function mostraPlano(r){
-  const A = D.alimentos, box = $("#cres");
-  const itens = (r.itens||[]).map(i => ({n:i.n, q:parseFloat(i.q), u:(i.q.match(/[a-z]+$/)||["g"])[0]}));
-  box.className = "stickybar open";
-  box.innerHTML = `
-    <div class="sb-head" id="sbtoggle">
-      <span class="sb-ref">${r.h}${r.tag?" · "+r.tag:""}</span>
-      <span class="sb-mac">${r.m[0]}P · ${r.m[1]}C · ${r.m[2]}G · ${fmt(r.m[3])} kcal</span>
-      <span class="sb-seta">▾</span></div>
-    <div class="sb-body">
-      ${itens.map(i => `<div class="sb-l"><span>${i.n}</span><b>${i.q} ${i.u}</b></div>`).join("")}
-      <div class="sb-alvo">exatamente o que o plano pede nesta refeição</div>
-      <button class="btn pri" id="csave" style="margin-top:10px">Registrar como comido</button>
-    </div>`;
-  $("#sbtoggle").onclick = () => { box.classList.toggle("open"); ajustaEspaco(); };
-  ajustaEspaco();
-  $("#csave").onclick = () => {
-    salvarRefeicao(r.h, `${r.h} ${r.tag||""}`.trim(), itens, r.m[0], r.m[1], r.m[2]);
-    ir("hoje");
-  };
-}
-
-function ajustaEspaco(){
-  const box = $("#cres"), tab = $("#tab-calc");
-  if (!box || !tab) return;
-  const h = box.classList.contains("vazia") ? 20 : box.getBoundingClientRect().height;
-  tab.style.setProperty("--barra", (h + 28) + "px");
-}
-function calcular(){
-  const dia = refsDoDia(), r = dia.refs[calc.ref], A = D.alimentos;
-  const [aP,aC,aG] = r.m;
-  const sel = [...calc.sel].filter(k => A[k]);
-  const box = $("#cres"); if (!box || r.livre) return;
-  if (!sel.length){ box.className = "stickybar vazia"; box.innerHTML = ""; ajustaEspaco(); return; }
-  box.className = box.classList.contains("open") ? "stickybar open" : "stickybar";
-
-  // itens que o proprio plano pede nesta refeicao ficam ancorados na quantidade do plano
-  const plano = {};
-  (r.itens||[]).forEach(i => { if (A[i.n]) plano[i.n] = parseFloat(i.q); });
-  const q = {}; sel.forEach(k => q[k] = 0);
-  const fixos = sel.filter(k => plano[k] != null);
-  fixos.forEach(k => q[k] = plano[k]);
-
-  const livres = sel.filter(k => plano[k] == null);
-  const prot = livres.filter(k => A[k][4]==="prot");
-  const carb = livres.filter(k => A[k][4]==="carb" || A[k][4]==="fruta");
-  const gord = livres.filter(k => A[k][4]==="gord");
-  const soma = (lista, m) => lista.reduce((s,k)=> s + A[k][m]*q[k]/100, 0);
-
-  for (let it=0; it<5; it++){
-    if (carb.length){
-      const ja = soma(fixos,1) + soma(prot,1) + soma(gord,1);
-      const alvo = Math.max(aC - ja, 0) / carb.length;
-      carb.forEach(k => q[k] = A[k][1] ? alvo/A[k][1]*100 : 0);
-    }
-    if (prot.length){
-      const ja = soma(fixos,0) + soma(carb,0) + soma(gord,0);
-      const alvo = Math.max(aP - ja, 0) / prot.length;
-      prot.forEach(k => q[k] = A[k][0] ? alvo/A[k][0]*100 : 0);
-    }
-    if (gord.length){
-      const ja = soma(fixos,2) + soma(prot,2) + soma(carb,2);
-      const alvo = Math.max(aG - ja, 0) / gord.length;
-      gord.forEach(k => q[k] = A[k][2] ? alvo/A[k][2]*100 : 0);
-    }
-  }
-  let P=0,C=0,G=0;
-  sel.forEach(k => { P+=A[k][0]*q[k]/100; C+=A[k][1]*q[k]/100; G+=A[k][2]*q[k]/100; });
-
-  const zerados = sel.filter(k => q[k] < 0.5);
-  const avisos = [];
-  if (zerados.length)
-    avisos.push(`Não sobra espaço para ${zerados.join(" e ")}. Esta refeição já fecha com ${fixos.join(" e ") || "o que você marcou"}. Desmarque um deles para abrir espaço.`);
-  const dG = aG - G;
-  if (!gord.length && !zerados.length && dG > 3) avisos.push(`some ${dG.toFixed(0)} g de azeite`);
-  if (dG < -3) avisos.push(`sobram ${(-dG).toFixed(0)} g de gordura, +${(-dG*9).toFixed(0)} kcal`);
-  if (!carb.length && !fixos.length && aC > 10) avisos.push(`falta carboidrato: ${aC.toFixed(0)} g`);
-
-  box.innerHTML = `
-    <div class="sb-head" id="sbtoggle">
-      <span class="sb-ref">${r.h}${r.tag?" · "+r.tag:""}</span>
-      <span class="sb-mac">${P.toFixed(0)}P · ${C.toFixed(0)}C · ${G.toFixed(0)}G · ${fmt(P*4+C*4+G*9)} kcal</span>
-      <span class="sb-seta">▾</span>
-    </div>
-    <div class="sb-body">
-      ${sel.map(k => `<div class="sb-l${q[k]<0.5?" zero":""}"><span>${k}${plano[k]!=null?'<small>quantidade do plano</small>':''}</span>
-        <b>${Math.round(q[k])} ${A[k][5]}</b></div>`).join("")}
-      ${avisos.map(a => `<div class="sb-av">${a}</div>`).join("")}
-      <div class="sb-alvo">alvo da refeição: ${aP} P · ${aC} C · ${aG} G · ${fmt(r.m[3])} kcal</div>
-      <button class="btn pri" id="csave" style="margin-top:10px">Registrar como comido</button>
-      <button class="btn sm" id="cclear" style="margin-top:6px;width:100%">Limpar seleção</button>
-    </div>`;
-  $("#sbtoggle").onclick = () => { box.classList.toggle("open"); box.dataset.tocado = "1"; ajustaEspaco(); };
-  if (!box.dataset.tocado) box.classList.add("open");
-  ajustaEspaco();
-  $("#csave").onclick = () => {
-    salvarRefeicao(r.h, `${r.h} ${r.tag||""}`.trim(),
-      sel.filter(k=>q[k]>=0.5).map(k => ({n:k, q:Math.round(q[k]), u:A[k][5]})), P, C, G);
-    ir("hoje");
-  };
-  $("#cclear").onclick = () => { calc.sel.clear(); telaCalc(); };
-}
-
-/* ---------- REGISTRO DE REFEICOES ---------- */
-async function salvarRefeicao(hora, nome, itens, P, C, G){
-  const d = hoje();
-  const linha = {data:d, hora, refeicao:nome, itens, p:+P.toFixed(1), c:+C.toFixed(1),
-                 g:+G.toFixed(1), kcal:+(P*4+C*4+G*9).toFixed(1)};
-  (log[d] = log[d]||[]).push(linha); LS.set("log",log);
-  try{ await sb("POST","corte_refeicoes",[linha]); }catch(e){ marcaSync(false,"offline"); }
-  telaHoje();
-}
-async function apagarRefeicao(d, idx){
-  const l = log[d][idx];
-  log[d].splice(idx,1); LS.set("log",log);
-  if (l.id) { try{ await sb("DELETE","corte_refeicoes",null,`?id=eq.${l.id}`); }catch(e){} }
-  telaHoje();
-}
-
-/* ---------- TELA HOJE ---------- */
-function telaHoje(){
-  const d = hoje(), b = blocoDe(d), k = diaDe(d), dia = D.dias[b][k];
-  const feito = log[d] || [];
-  const som = feito.reduce((a,x)=>({p:a.p+ +x.p, c:a.c+ +x.c, g:a.g+ +x.g, kcal:a.kcal+ +x.kcal}),
-                           {p:0,c:0,g:0,kcal:0});
-  const alvo = dia.tot;
-  const modelos = [["t11","Treino 11h"],["t1630","Treino 16h30"],["off","Sem treino"],["fds","Fim de semana"]];
-  $("#tab-hoje").innerHTML = `
-    <label for="dsel">Modelo de hoje</label>
-    <select id="dsel">${modelos.map(([v,n])=>`<option value="${v}" ${v===k?"selected":""}>${n}</option>`).join("")}</select>
-    <dl class="score" style="margin-top:12px">
-      <div><dt>Proteína</dt><dd>${fmt(som.p)}<small>/${alvo[0]}g</small></dd></div>
-      <div><dt>Carbo</dt><dd>${fmt(som.c)}<small>/${alvo[1]}g</small></dd></div>
-      <div><dt>Gordura</dt><dd>${fmt(som.g)}<small>/${alvo[2]}g</small></dd></div>
-      <div><dt>kcal</dt><dd>${fmt(som.kcal)}<small>/${fmt(alvo[3])}</small></dd></div>
-    </dl>
-    <h2>Registrado hoje</h2>
-    ${feito.length ? feito.map((x,i)=>`<div class="card on">
-        <div class="crow"><span class="ctime">${x.hora||""}</span>
-          <span class="ctag">${(x.refeicao||"").replace(x.hora||"","").trim()}</span>
-          <span style="flex:1"></span>
-          <button class="btn sm" data-del="${i}">Apagar</button></div>
-        ${(x.itens||[]).map(i2=>`<div class="citem"><span>${i2.n}</span><b>${i2.q} ${i2.u||"g"}</b></div>`).join("")}
-        <div class="cmac"><b>${fmt(x.p)}</b> P &nbsp;<b>${fmt(x.c)}</b> C &nbsp;<b>${fmt(x.g)}</b> G &nbsp;·&nbsp; <b>${fmt(x.kcal)}</b> KCAL</div>
-      </div>`).join("") : `<div class="empty">Nada registrado ainda. Use a calculadora ou marque uma refeição do plano abaixo.</div>`}
-    <h2>Plano do dia · bloco ${b}</h2>
-    ${dia.refs.map((r,i)=>`<div class="card${r.livre?" livre":""}">
-      <div class="crow"><span class="ctime">${r.h}</span>${r.tag?`<span class="ctag">${r.tag}</span>`:""}
-        <span style="flex:1"></span>
-        ${r.livre?"":`<button class="btn sm" data-plan="${i}">Comi isso</button>`}</div>
-      ${r.livre ? `<div style="font-size:15px">Refeição livre. Teto de 730 kcal e mínimo de 45 g de proteína.</div>`
-        : (r.itens||[]).map(i2=>`<div class="citem"><span>${i2.n}</span><b>${i2.q}</b></div>`).join("")}
-      <div class="cmac"><b>${r.m[0]}</b> P &nbsp;<b>${r.m[1]}</b> C &nbsp;<b>${r.m[2]}</b> G &nbsp;·&nbsp; <b>${fmt(r.m[3])}</b> KCAL</div>
-    </div>`).join("")}`;
-  $("#dsel").onchange = e => { localStorage.setItem("dia:"+d, e.target.value); telaHoje(); };
-  $$("#tab-hoje [data-del]").forEach(b2 => b2.onclick = () => apagarRefeicao(d, +b2.dataset.del));
-  $$("#tab-hoje [data-plan]").forEach(b2 => b2.onclick = () => {
-    const r = dia.refs[+b2.dataset.plan];
-    salvarRefeicao(r.h, `${r.h} ${r.tag||""}`.trim(),
-      (r.itens||[]).map(i2=>({n:i2.n, q:parseFloat(i2.q), u:i2.q.replace(/[\d.,\s]/g,"")||"g"})),
-      r.m[0], r.m[1], r.m[2]);
-  });
-}
-
-/* ---------- PESO E CINTURA ---------- */
-function taxa(){
-  const pts = D.curva.filter(c => num((reg[c.iso]||{}).p)!==null).map(c => [c.n, num(reg[c.iso].p)]);
-  if (pts.length < 2) return null;
-  const u = pts.slice(-4), n=u.length;
-  const sx=u.reduce((a,b)=>a+b[0],0), sy=u.reduce((a,b)=>a+b[1],0);
-  const sxy=u.reduce((a,b)=>a+b[0]*b[1],0), sxx=u.reduce((a,b)=>a+b[0]*b[0],0);
-  const den=n*sxx-sx*sx; return den?(n*sxy-sx*sy)/den:null;
-}
-function telaPeso(){
-  const feitos = D.curva.filter(c => num((reg[c.iso]||{}).p)!==null);
-  const ult = feitos[feitos.length-1], t = taxa(), fim = D.curva[D.curva.length-1];
-  const proj = (ult && t!==null) ? num(reg[ult.iso].p) + t*(19-ult.n) : null;
-  const desvio = ult ? num(reg[ult.iso].p) - ult.peso : null;
-  let acao = "Registre duas semanas", al = false;
-  if (feitos.length >= 2){
-    const dois = feitos.slice(-2).map(c => num(reg[c.iso].p) - c.peso);
-    if (dois.every(x => x > 0.5)) { acao = "Antecipe o próximo bloco"; al = true; }
-    else if (dois.every(x => x < -0.5)) { acao = "Volte um bloco"; al = true; }
-    else acao = "Siga o cronograma";
-  }
-  const passadas = D.curva.filter(c => c.iso <= hoje());
-  const prox = passadas.length ? passadas[passadas.length-1] : D.curva[0];
-  $("#tab-peso").innerHTML = `
-    <h2>Lançar medida</h2>
-    <label for="pdata">Data (segunda-feira)</label>
-    <select id="pdata">${D.curva.map(c=>`<option value="${c.iso}" ${c.iso===prox.iso?"selected":""}>Semana ${c.n} · ${c.data} · alvo ${c.peso.toFixed(1)} kg</option>`).join("")}</select>
-    <div class="grid2" style="margin-top:10px">
-      <div><label for="ppeso">Peso, média de 7 dias</label><input id="ppeso" inputmode="decimal" placeholder="kg"></div>
-      <div><label for="pcint">Cintura</label><input id="pcint" inputmode="decimal" placeholder="cm"></div>
-    </div>
-    <div class="row"><button class="btn pri" id="psave">Salvar</button></div>
-    <dl class="panel" style="margin-top:20px">
-      <div class="pn"><dt>Semanas</dt><dd>${feitos.length}<small>/19</small></dd>
-        <div class="h">${ult?`última: semana ${ult.n}`:"nenhuma ainda"}</div></div>
-      <div class="pn"><dt>Perdido</dt><dd>${ult?(96-num(reg[ult.iso].p)).toFixed(1):"—"}<small>kg</small></dd>
-        <div class="h">${desvio!==null?(desvio>0?"+":"")+desvio.toFixed(1)+" kg vs alvo":"—"}</div></div>
-      <div class="pn"><dt>Ritmo real</dt><dd>${t!==null?t.toFixed(2):"—"}<small>kg/sem</small></dd>
-        <div class="h">faixa segura −0,48 a −0,67</div></div>
-      <div class="pn"><dt>Projeção 31/12</dt><dd>${proj!==null?proj.toFixed(1):"—"}<small>kg</small></dd>
-        <div class="h">alvo ${fim.peso.toFixed(1)} kg</div></div>
-      <div class="pn"><dt>Ação</dt><dd class="${al?"alert":""}" style="font-size:16px;line-height:1.25">${acao}</dd></div>
-    </dl>
-    ${grafico()}
-    <h2>Histórico</h2>
-    <table class="tbl"><tr><th>Sem</th><th>Data</th><th>Alvo</th><th>Peso</th><th>Desvio</th><th>Cintura</th></tr>
-    ${D.curva.map(c=>{ const r=reg[c.iso]||{}, p=num(r.p), dv=p!==null?p-c.peso:null;
-      return `<tr class="${c.iso===prox.iso?"hoje":""}"><td>${c.n}</td><td>${c.data}</td>
-        <td class="n" style="font-size:14px;color:var(--mut)">${c.peso.toFixed(1)}</td>
-        <td class="n">${p!==null?p.toFixed(1):"—"}</td>
-        <td style="color:${dv===null?"var(--mut)":(Math.abs(dv)<=.5?"var(--ok)":"var(--warn)")}">${dv!==null?(dv>0?"+":"")+dv.toFixed(1):""}</td>
-        <td class="n" style="font-size:14px">${num(r.c)!==null?num(r.c).toFixed(1):"—"}</td></tr>`}).join("")}
-    </table>`;
-  const sel = $("#pdata");
-  const preencher = () => { const r = reg[sel.value]||{}; $("#ppeso").value = r.p ?? ""; $("#pcint").value = r.c ?? ""; };
-  sel.onchange = preencher; preencher();
-  $("#psave").onclick = async () => {
-    const d = sel.value, p = num($("#ppeso").value), c = num($("#pcint").value);
-    if (p===null && c===null) return;
-    reg[d] = {p, c}; LS.set("reg",reg);
-    try{ await sb("POST","corte_pesagens",[{data:d, peso:p, cintura:c}],"?on_conflict=data"); marcaSync(true,"sincronizado"); }
-    catch(e){ marcaSync(false,"offline, salvo no aparelho"); }
-    telaPeso();
-  };
-}
-function grafico(){
-  const W=700,H=250,ml=40,mr=10,mt=14,mb=26;
-  const xs = n => ml + (n-1)/18*(W-ml-mr);
-  const vals = D.curva.map(c=>c.peso).concat(Object.values(reg).map(r=>num(r.p)).filter(v=>v!==null));
-  const lo=Math.floor(Math.min(...vals)-1), hi=Math.ceil(Math.max(...vals)+1);
-  const ys = v => mt + (hi-v)/(hi-lo)*(H-mt-mb);
-  const path = pts => pts.map((p,i)=>(i?"L":"M")+xs(p[0]).toFixed(1)+" "+ys(p[1]).toFixed(1)).join(" ");
-  const alvo = D.curva.map(c=>[c.n,c.peso]);
-  const real = D.curva.filter(c=>num((reg[c.iso]||{}).p)!==null).map(c=>[c.n,num(reg[c.iso].p)]);
-  const t = taxa();
-  let proj = "";
-  if (real.length>=2 && t!==null){ const u=real[real.length-1];
-    proj = `<path d="${path([u,[19,u[1]+t*(19-u[0])]])}" fill="none" stroke="#4FCB7C" stroke-width="2" stroke-dasharray="5 4"/>`; }
-  let g = "";
-  for(let v=lo; v<=hi; v+=2) g += `<line x1="${ml}" y1="${ys(v)}" x2="${W-mr}" y2="${ys(v)}" stroke="#2A2D33"/>
-    <text x="${ml-7}" y="${ys(v)+4}" text-anchor="end" fill="#8A8E96" font-size="11">${v}</text>`;
-  g += D.curva.filter(c=>c.n%3===1).map(c=>`<text x="${xs(c.n)}" y="${H-8}" text-anchor="middle" fill="#8A8E96" font-size="11">${c.data}</text>`).join("");
-  return `<svg class="chart" viewBox="0 0 ${W} ${H}" role="img" aria-label="Peso alvo contra peso registrado">${g}
-    <path d="${path(alvo)}" fill="none" stroke="#5A5E66" stroke-width="2"/>${proj}
-    ${real.length?`<path d="${path(real)}" fill="none" stroke="#C8102E" stroke-width="2.5"/>`:""}
-    ${real.map(p=>`<circle cx="${xs(p[0]).toFixed(1)}" cy="${ys(p[1]).toFixed(1)}" r="3.5" fill="#C8102E"/>`).join("")}</svg>`;
-}
-
-/* ---------- COMPRAS ---------- */
-function telaCompras(){
-  const b = blocoDe(hoje()), c = D.compras[b];
-  $("#tab-compras").innerHTML = `<p class="lead">Sete dias do bloco ${b} · ${c.periodo}. Quantidade a <b>comprar</b>, com 8% de folga. Você nunca pesa isto: pese sempre depois de pronto, e o valor pronto está indicado embaixo de cada item.</p>
-    ${c.cats.map(g=>`<div class="card"><div class="crow"><span class="ctag">${g.cat}</span></div>
-      ${g.itens.map(i=>`<div class="citem"><span>${i.n}${(i.extra||i.nota)?`<br><small style="color:var(--mut);font-size:11.5px">${[i.extra,i.nota].filter(Boolean).join(" · ")}</small>`:""}</span><b>${i.q}</b></div>`).join("")}
-    </div>`).join("")}`;
-}
-
-/* ---------- navegacao ---------- */
-function ir(t){
-  $$("main section").forEach(s => s.hidden = s.id !== "tab-"+t);
-  $$("nav button").forEach(b => b.setAttribute("aria-current", b.dataset.t===t ? "page" : "false"));
-  ({hoje:telaHoje, calc:telaCalc, peso:telaPeso, compras:telaCompras})[t]();
-  window.scrollTo(0,0);
-  localStorage.setItem("aba", t);
-}
-async function init(){
-  D = DADOS_EMBUTIDOS;
-  reg = LS.get("reg",{}); log = LS.get("log",{});
-  const cfg = LS.get("sync", window.SYNC || {});
-  if (cfg.url && cfg.key){ sync = {url:cfg.url, key:cfg.key, on:true}; }
-  $("#syncline").onclick = painelSync;
-  const b = blocoDe(hoje());
-  $("#chipbloco").textContent = "Bloco " + b;
-  const bl = D.blocos.find(x=>x.cod===b);
-  $("#chipkcal").textContent = fmt(bl.media) + " kcal";
-  $$("nav button").forEach(b2 => b2.onclick = () => ir(b2.dataset.t));
-  marcaSync(false,"");
-  ir(localStorage.getItem("aba") || "hoje");
-  await puxar();
-  ir(localStorage.getItem("aba") || "hoje");
-}
-init();
-
-</script>
-</body></html>
+    <script type="module" src="/src/main.ts"></script>
+  </body>
+</html>

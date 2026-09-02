@@ -1,0 +1,3346 @@
+{
+ "blocos": [
+  {
+   "cod": "A",
+   "semanas": "Semanas 1 a 3",
+   "periodo": "24/08 a 13/09",
+   "media": 2549,
+   "peso": "94,5 kg",
+   "resumo": "Plano base",
+   "perda": "1,5 kg"
+  },
+  {
+   "cod": "B",
+   "semanas": "Semanas 4 a 8",
+   "periodo": "14/09 a 18/10",
+   "media": 2466,
+   "peso": "92,0 kg",
+   "resumo": "Menos arroz no almoço",
+   "perda": "2,5 kg"
+  },
+  {
+   "cod": "C",
+   "semanas": "Semanas 9 a 14",
+   "periodo": "19/10 a 29/11",
+   "media": 2410,
+   "peso": "89,2 kg",
+   "resumo": "Sai a batata doce do jantar",
+   "perda": "2,8 kg"
+  },
+  {
+   "cod": "D",
+   "semanas": "Semanas 15 a 19",
+   "periodo": "30/11 a 31/12",
+   "media": 2355,
+   "peso": "86,8 kg",
+   "resumo": "Aveia e pão reduzidos",
+   "perda": "2,4 kg"
+  }
+ ],
+ "faixas": [
+  {
+   "cod": "A",
+   "inicio": "2026-08-24",
+   "fim": "2026-09-13"
+  },
+  {
+   "cod": "B",
+   "inicio": "2026-09-14",
+   "fim": "2026-10-18"
+  },
+  {
+   "cod": "C",
+   "inicio": "2026-10-19",
+   "fim": "2026-11-29"
+  },
+  {
+   "cod": "D",
+   "inicio": "2026-11-30",
+   "fim": "2026-12-31"
+  }
+ ],
+ "dias": {
+  "A": {
+   "t11": {
+    "nome": "Treino 11h00",
+    "desc": "Janela curta. Só 3h15 entre acordar e treinar.",
+    "tot": [
+     236,
+     272,
+     72,
+     2683
+    ],
+    "refs": [
+     {
+      "h": "07:45",
+      "tag": "T-3h15",
+      "livre": false,
+      "itens": [
+       {
+        "n": "Aveia em flocos",
+        "q": "60 g"
+       },
+       {
+        "n": "Leite integral",
+        "q": "250 ml"
+       },
+       {
+        "n": "Whey concentrado",
+        "q": "32 g"
+       },
+       {
+        "n": "Banana prata",
+        "q": "100 g"
+       }
+      ],
+      "m": [
+       43,
+       80,
+       15,
+       632
+      ]
+     },
+     {
+      "h": "10:15",
+      "tag": "T-45min",
+      "livre": false,
+      "itens": [
+       {
+        "n": "Pão francês",
+        "q": "40 g"
+       },
+       {
+        "n": "Mel",
+        "q": "15 g"
+       },
+       {
+        "n": "Banana prata",
+        "q": "80 g"
+       }
+      ],
+      "m": [
+       4,
+       57,
+       1,
+       255
+      ]
+     },
+     {
+      "h": "12:30",
+      "tag": "Pós-treino",
+      "livre": false,
+      "itens": [
+       {
+        "n": "Arroz branco cozido",
+        "q": "215 g"
+       },
+       {
+        "n": "Feijão carioca cozido",
+        "q": "150 g"
+       },
+       {
+        "n": "Peito de frango grelhado",
+        "q": "170 g"
+       },
+       {
+        "n": "Azeite",
+        "q": "13 g"
+       },
+       {
+        "n": "Legumes cozidos",
+        "q": "200 g"
+       }
+      ],
+      "m": [
+       71,
+       93,
+       19,
+       826
+      ]
+     },
+     {
+      "h": "16:00",
+      "tag": "",
+      "livre": false,
+      "itens": [
+       {
+        "n": "Whey concentrado",
+        "q": "27 g"
+       },
+       {
+        "n": "Leite integral",
+        "q": "250 ml"
+       }
+      ],
+      "m": [
+       30,
+       14,
+       10,
+       263
+      ]
+     },
+     {
+      "h": "19:00",
+      "tag": "",
+      "livre": false,
+      "itens": [
+       {
+        "n": "Atum em água, drenado",
+        "q": "120 g"
+       },
+       {
+        "n": "Pasta de amendoim",
+        "q": "19 g"
+       }
+      ],
+      "m": [
+       36,
+       4,
+       11,
+       255
+      ]
+     },
+     {
+      "h": "20:30",
+      "tag": "Jantar",
+      "livre": false,
+      "itens": [
+       {
+        "n": "Patinho grelhado",
+        "q": "130 g"
+       },
+       {
+        "n": "Batata doce cozida",
+        "q": "70 g"
+       },
+       {
+        "n": "Azeite",
+        "q": "6 g"
+       },
+       {
+        "n": "Legumes cozidos",
+        "q": "200 g"
+       }
+      ],
+      "m": [
+       52,
+       25,
+       16,
+       451
+      ]
+     }
+    ]
+   },
+   "t1630": {
+    "nome": "Treino 16h30",
+    "desc": "Janela longa. Almoço é a refeição principal pré-treino.",
+    "tot": [
+     227,
+     272,
+     76,
+     2674
+    ],
+    "refs": [
+     {
+      "h": "07:45",
+      "tag": "",
+      "livre": false,
+      "itens": [
+       {
+        "n": "Aveia em flocos",
+        "q": "60 g"
+       },
+       {
+        "n": "Leite integral",
+        "q": "250 ml"
+       },
+       {
+        "n": "Whey concentrado",
+        "q": "24 g"
+       },
+       {
+        "n": "Banana prata",
+        "q": "100 g"
+       }
+      ],
+      "m": [
+       37,
+       80,
+       15,
+       600
+      ]
+     },
+     {
+      "h": "10:30",
+      "tag": "",
+      "livre": false,
+      "itens": [
+       {
+        "n": "Leite integral",
+        "q": "200 ml"
+       },
+       {
+        "n": "Whey concentrado",
+        "q": "21 g"
+       },
+       {
+        "n": "Queijo mussarela",
+        "q": "55 g"
+       }
+      ],
+      "m": [
+       37,
+       13,
+       22,
+       396
+      ]
+     },
+     {
+      "h": "13:00",
+      "tag": "T-3h30",
+      "livre": false,
+      "itens": [
+       {
+        "n": "Arroz branco cozido",
+        "q": "195 g"
+       },
+       {
+        "n": "Feijão carioca cozido",
+        "q": "150 g"
+       },
+       {
+        "n": "Peito de frango grelhado",
+        "q": "170 g"
+       },
+       {
+        "n": "Azeite",
+        "q": "8 g"
+       },
+       {
+        "n": "Legumes cozidos",
+        "q": "200 g"
+       }
+      ],
+      "m": [
+       70,
+       87,
+       14,
+       757
+      ]
+     },
+     {
+      "h": "15:45",
+      "tag": "T-45min",
+      "livre": false,
+      "itens": [
+       {
+        "n": "Pão francês",
+        "q": "40 g"
+       },
+       {
+        "n": "Mel",
+        "q": "15 g"
+       },
+       {
+        "n": "Banana prata",
+        "q": "80 g"
+       }
+      ],
+      "m": [
+       4,
+       57,
+       1,
+       255
+      ]
+     },
+     {
+      "h": "18:00",
+      "tag": "Pós-treino",
+      "livre": false,
+      "itens": [
+       {
+        "n": "Whey concentrado",
+        "q": "26 g"
+       },
+       {
+        "n": "Leite integral",
+        "q": "180 ml"
+       }
+      ],
+      "m": [
+       27,
+       11,
+       8,
+       216
+      ]
+     },
+     {
+      "h": "20:30",
+      "tag": "Jantar",
+      "livre": false,
+      "itens": [
+       {
+        "n": "Patinho grelhado",
+        "q": "130 g"
+       },
+       {
+        "n": "Batata doce cozida",
+        "q": "70 g"
+       },
+       {
+        "n": "Azeite",
+        "q": "6 g"
+       },
+       {
+        "n": "Legumes cozidos",
+        "q": "200 g"
+       }
+      ],
+      "m": [
+       52,
+       25,
+       16,
+       451
+      ]
+     }
+    ]
+   },
+   "off": {
+    "nome": "Sem treino",
+    "desc": "Mesma proteína, carboidrato menor. Saem as refeições pré-treino.",
+    "tot": [
+     233,
+     199,
+     69,
+     2352
+    ],
+    "refs": [
+     {
+      "h": "08:00",
+      "tag": "",
+      "livre": false,
+      "itens": [
+       {
+        "n": "Aveia em flocos",
+        "q": "50 g"
+       },
+       {
+        "n": "Leite integral",
+        "q": "250 ml"
+       },
+       {
+        "n": "Whey concentrado",
+        "q": "32 g"
+       },
+       {
+        "n": "Banana prata",
+        "q": "60 g"
+       }
+      ],
+      "m": [
+       41,
+       63,
+       14,
+       548
+      ]
+     },
+     {
+      "h": "12:30",
+      "tag": "Almoço",
+      "livre": false,
+      "itens": [
+       {
+        "n": "Arroz branco cozido",
+        "q": "150 g"
+       },
+       {
+        "n": "Feijão carioca cozido",
+        "q": "150 g"
+       },
+       {
+        "n": "Peito de frango grelhado",
+        "q": "170 g"
+       },
+       {
+        "n": "Azeite",
+        "q": "10 g"
+       },
+       {
+        "n": "Legumes cozidos",
+        "q": "250 g"
+       }
+      ],
+      "m": [
+       70,
+       78,
+       16,
+       736
+      ]
+     },
+     {
+      "h": "16:00",
+      "tag": "",
+      "livre": false,
+      "itens": [
+       {
+        "n": "Whey concentrado",
+        "q": "26 g"
+       },
+       {
+        "n": "Leite integral",
+        "q": "250 ml"
+       },
+       {
+        "n": "Queijo mussarela",
+        "q": "40 g"
+       }
+      ],
+      "m": [
+       39,
+       15,
+       20,
+       395
+      ]
+     },
+     {
+      "h": "19:00",
+      "tag": "",
+      "livre": false,
+      "itens": [
+       {
+        "n": "Atum em água, drenado",
+        "q": "120 g"
+       },
+       {
+        "n": "Pasta de amendoim",
+        "q": "4 g"
+       }
+      ],
+      "m": [
+       32,
+       1,
+       3,
+       161
+      ]
+     },
+     {
+      "h": "20:30",
+      "tag": "Jantar",
+      "livre": false,
+      "itens": [
+       {
+        "n": "Patinho grelhado",
+        "q": "120 g"
+       },
+       {
+        "n": "Batata doce cozida",
+        "q": "150 g"
+       },
+       {
+        "n": "Azeite",
+        "q": "6 g"
+       },
+       {
+        "n": "Legumes cozidos",
+        "q": "250 g"
+       }
+      ],
+      "m": [
+       50,
+       43,
+       16,
+       511
+      ]
+     }
+    ]
+   },
+   "fds": {
+    "nome": "Fim de semana",
+    "desc": "Cinco eventos e refeição livre à noite, quando o risco é maior.",
+    "tot": [
+     221,
+     208,
+     74,
+     2387
+    ],
+    "refs": [
+     {
+      "h": "09:00",
+      "tag": "",
+      "livre": false,
+      "itens": [
+       {
+        "n": "Ovo cozido",
+        "q": "100 g"
+       },
+       {
+        "n": "Pão francês",
+        "q": "30 g"
+       },
+       {
+        "n": "Aveia em flocos",
+        "q": "25 g"
+       },
+       {
+        "n": "Leite integral",
+        "q": "250 ml"
+       },
+       {
+        "n": "Whey concentrado",
+        "q": "32 g"
+       }
+      ],
+      "m": [
+       53,
+       49,
+       23,
+       612
+      ]
+     },
+     {
+      "h": "12:00",
+      "tag": "Almoço",
+      "livre": false,
+      "itens": [
+       {
+        "n": "Peito de frango grelhado",
+        "q": "190 g"
+       },
+       {
+        "n": "Atum em água, drenado",
+        "q": "60 g"
+       },
+       {
+        "n": "Feijão carioca cozido",
+        "q": "180 g"
+       },
+       {
+        "n": "Arroz branco cozido",
+        "q": "30 g"
+       },
+       {
+        "n": "Legumes cozidos",
+        "q": "250 g"
+       },
+       {
+        "n": "Azeite",
+        "q": "4 g"
+       }
+      ],
+      "m": [
+       91,
+       48,
+       11,
+       654
+      ]
+     },
+     {
+      "h": "15:00",
+      "tag": "",
+      "livre": false,
+      "itens": [
+       {
+        "n": "Whey concentrado",
+        "q": "25 g"
+       },
+       {
+        "n": "Leite integral",
+        "q": "250 ml"
+       },
+       {
+        "n": "Banana prata",
+        "q": "60 g"
+       }
+      ],
+      "m": [
+       29,
+       29,
+       10,
+       321
+      ]
+     },
+     {
+      "h": "17:30",
+      "tag": "Volume livre",
+      "livre": false,
+      "itens": [
+       {
+        "n": "Legumes cozidos",
+        "q": "200 g"
+       }
+      ],
+      "m": [
+       4,
+       12,
+       1,
+       69
+      ]
+     },
+     {
+      "h": "20:00",
+      "tag": "LIVRE",
+      "livre": true,
+      "itens": [],
+      "m": [
+       45,
+       70,
+       30,
+       730
+      ]
+     }
+    ]
+   }
+  },
+  "B": {
+   "t11": {
+    "nome": "Treino 11h00",
+    "desc": "Janela curta. Só 3h15 entre acordar e treinar.",
+    "tot": [
+     234,
+     248,
+     72,
+     2578
+    ],
+    "refs": [
+     {
+      "h": "07:45",
+      "tag": "T-3h15",
+      "livre": false,
+      "itens": [
+       {
+        "n": "Aveia em flocos",
+        "q": "60 g"
+       },
+       {
+        "n": "Leite integral",
+        "q": "250 ml"
+       },
+       {
+        "n": "Whey concentrado",
+        "q": "32 g"
+       },
+       {
+        "n": "Banana prata",
+        "q": "100 g"
+       }
+      ],
+      "m": [
+       43,
+       80,
+       15,
+       632
+      ]
+     },
+     {
+      "h": "10:15",
+      "tag": "T-45min",
+      "livre": false,
+      "itens": [
+       {
+        "n": "Pão francês",
+        "q": "40 g"
+       },
+       {
+        "n": "Mel",
+        "q": "15 g"
+       },
+       {
+        "n": "Banana prata",
+        "q": "80 g"
+       }
+      ],
+      "m": [
+       4,
+       57,
+       1,
+       255
+      ]
+     },
+     {
+      "h": "12:30",
+      "tag": "Pós-treino",
+      "livre": false,
+      "itens": [
+       {
+        "n": "Arroz branco cozido",
+        "q": "130 g"
+       },
+       {
+        "n": "Feijão carioca cozido",
+        "q": "150 g"
+       },
+       {
+        "n": "Peito de frango grelhado",
+        "q": "170 g"
+       },
+       {
+        "n": "Azeite",
+        "q": "13 g"
+       },
+       {
+        "n": "Legumes cozidos",
+        "q": "200 g"
+       }
+      ],
+      "m": [
+       69,
+       69,
+       19,
+       721
+      ]
+     },
+     {
+      "h": "16:00",
+      "tag": "",
+      "livre": false,
+      "itens": [
+       {
+        "n": "Whey concentrado",
+        "q": "27 g"
+       },
+       {
+        "n": "Leite integral",
+        "q": "250 ml"
+       }
+      ],
+      "m": [
+       30,
+       14,
+       10,
+       263
+      ]
+     },
+     {
+      "h": "19:00",
+      "tag": "",
+      "livre": false,
+      "itens": [
+       {
+        "n": "Atum em água, drenado",
+        "q": "120 g"
+       },
+       {
+        "n": "Pasta de amendoim",
+        "q": "19 g"
+       }
+      ],
+      "m": [
+       36,
+       4,
+       11,
+       255
+      ]
+     },
+     {
+      "h": "20:30",
+      "tag": "Jantar",
+      "livre": false,
+      "itens": [
+       {
+        "n": "Patinho grelhado",
+        "q": "130 g"
+       },
+       {
+        "n": "Batata doce cozida",
+        "q": "70 g"
+       },
+       {
+        "n": "Azeite",
+        "q": "6 g"
+       },
+       {
+        "n": "Legumes cozidos",
+        "q": "200 g"
+       }
+      ],
+      "m": [
+       52,
+       25,
+       16,
+       451
+      ]
+     }
+    ]
+   },
+   "t1630": {
+    "nome": "Treino 16h30",
+    "desc": "Janela longa. Almoço é a refeição principal pré-treino.",
+    "tot": [
+     225,
+     249,
+     75,
+     2575
+    ],
+    "refs": [
+     {
+      "h": "07:45",
+      "tag": "",
+      "livre": false,
+      "itens": [
+       {
+        "n": "Aveia em flocos",
+        "q": "60 g"
+       },
+       {
+        "n": "Leite integral",
+        "q": "250 ml"
+       },
+       {
+        "n": "Whey concentrado",
+        "q": "24 g"
+       },
+       {
+        "n": "Banana prata",
+        "q": "100 g"
+       }
+      ],
+      "m": [
+       37,
+       80,
+       15,
+       600
+      ]
+     },
+     {
+      "h": "10:30",
+      "tag": "",
+      "livre": false,
+      "itens": [
+       {
+        "n": "Leite integral",
+        "q": "200 ml"
+       },
+       {
+        "n": "Whey concentrado",
+        "q": "21 g"
+       },
+       {
+        "n": "Queijo mussarela",
+        "q": "55 g"
+       }
+      ],
+      "m": [
+       37,
+       13,
+       22,
+       396
+      ]
+     },
+     {
+      "h": "13:00",
+      "tag": "T-3h30",
+      "livre": false,
+      "itens": [
+       {
+        "n": "Arroz branco cozido",
+        "q": "115 g"
+       },
+       {
+        "n": "Feijão carioca cozido",
+        "q": "150 g"
+       },
+       {
+        "n": "Peito de frango grelhado",
+        "q": "170 g"
+       },
+       {
+        "n": "Azeite",
+        "q": "8 g"
+       },
+       {
+        "n": "Legumes cozidos",
+        "q": "200 g"
+       }
+      ],
+      "m": [
+       68,
+       65,
+       14,
+       657
+      ]
+     },
+     {
+      "h": "15:45",
+      "tag": "T-45min",
+      "livre": false,
+      "itens": [
+       {
+        "n": "Pão francês",
+        "q": "40 g"
+       },
+       {
+        "n": "Mel",
+        "q": "15 g"
+       },
+       {
+        "n": "Banana prata",
+        "q": "80 g"
+       }
+      ],
+      "m": [
+       4,
+       57,
+       1,
+       255
+      ]
+     },
+     {
+      "h": "18:00",
+      "tag": "Pós-treino",
+      "livre": false,
+      "itens": [
+       {
+        "n": "Whey concentrado",
+        "q": "26 g"
+       },
+       {
+        "n": "Leite integral",
+        "q": "180 ml"
+       }
+      ],
+      "m": [
+       27,
+       11,
+       8,
+       216
+      ]
+     },
+     {
+      "h": "20:30",
+      "tag": "Jantar",
+      "livre": false,
+      "itens": [
+       {
+        "n": "Patinho grelhado",
+        "q": "130 g"
+       },
+       {
+        "n": "Batata doce cozida",
+        "q": "70 g"
+       },
+       {
+        "n": "Azeite",
+        "q": "6 g"
+       },
+       {
+        "n": "Legumes cozidos",
+        "q": "200 g"
+       }
+      ],
+      "m": [
+       52,
+       25,
+       16,
+       451
+      ]
+     }
+    ]
+   },
+   "off": {
+    "nome": "Sem treino",
+    "desc": "Mesma proteína, carboidrato menor. Saem as refeições pré-treino.",
+    "tot": [
+     231,
+     178,
+     69,
+     2259
+    ],
+    "refs": [
+     {
+      "h": "08:00",
+      "tag": "",
+      "livre": false,
+      "itens": [
+       {
+        "n": "Aveia em flocos",
+        "q": "50 g"
+       },
+       {
+        "n": "Leite integral",
+        "q": "250 ml"
+       },
+       {
+        "n": "Whey concentrado",
+        "q": "32 g"
+       },
+       {
+        "n": "Banana prata",
+        "q": "60 g"
+       }
+      ],
+      "m": [
+       41,
+       63,
+       14,
+       548
+      ]
+     },
+     {
+      "h": "12:30",
+      "tag": "Almoço",
+      "livre": false,
+      "itens": [
+       {
+        "n": "Arroz branco cozido",
+        "q": "75 g"
+       },
+       {
+        "n": "Feijão carioca cozido",
+        "q": "150 g"
+       },
+       {
+        "n": "Peito de frango grelhado",
+        "q": "170 g"
+       },
+       {
+        "n": "Azeite",
+        "q": "10 g"
+       },
+       {
+        "n": "Legumes cozidos",
+        "q": "250 g"
+       }
+      ],
+      "m": [
+       68,
+       56,
+       16,
+       643
+      ]
+     },
+     {
+      "h": "16:00",
+      "tag": "",
+      "livre": false,
+      "itens": [
+       {
+        "n": "Whey concentrado",
+        "q": "26 g"
+       },
+       {
+        "n": "Leite integral",
+        "q": "250 ml"
+       },
+       {
+        "n": "Queijo mussarela",
+        "q": "40 g"
+       }
+      ],
+      "m": [
+       39,
+       15,
+       20,
+       395
+      ]
+     },
+     {
+      "h": "19:00",
+      "tag": "",
+      "livre": false,
+      "itens": [
+       {
+        "n": "Atum em água, drenado",
+        "q": "120 g"
+       },
+       {
+        "n": "Pasta de amendoim",
+        "q": "4 g"
+       }
+      ],
+      "m": [
+       32,
+       1,
+       3,
+       161
+      ]
+     },
+     {
+      "h": "20:30",
+      "tag": "Jantar",
+      "livre": false,
+      "itens": [
+       {
+        "n": "Patinho grelhado",
+        "q": "120 g"
+       },
+       {
+        "n": "Batata doce cozida",
+        "q": "150 g"
+       },
+       {
+        "n": "Azeite",
+        "q": "6 g"
+       },
+       {
+        "n": "Legumes cozidos",
+        "q": "250 g"
+       }
+      ],
+      "m": [
+       50,
+       43,
+       16,
+       511
+      ]
+     }
+    ]
+   },
+   "fds": {
+    "nome": "Fim de semana",
+    "desc": "Cinco eventos e refeição livre à noite, quando o risco é maior.",
+    "tot": [
+     221,
+     200,
+     74,
+     2349
+    ],
+    "refs": [
+     {
+      "h": "09:00",
+      "tag": "",
+      "livre": false,
+      "itens": [
+       {
+        "n": "Ovo cozido",
+        "q": "100 g"
+       },
+       {
+        "n": "Pão francês",
+        "q": "30 g"
+       },
+       {
+        "n": "Aveia em flocos",
+        "q": "25 g"
+       },
+       {
+        "n": "Leite integral",
+        "q": "250 ml"
+       },
+       {
+        "n": "Whey concentrado",
+        "q": "32 g"
+       }
+      ],
+      "m": [
+       53,
+       49,
+       23,
+       612
+      ]
+     },
+     {
+      "h": "12:00",
+      "tag": "Almoço",
+      "livre": false,
+      "itens": [
+       {
+        "n": "Peito de frango grelhado",
+        "q": "190 g"
+       },
+       {
+        "n": "Atum em água, drenado",
+        "q": "60 g"
+       },
+       {
+        "n": "Feijão carioca cozido",
+        "q": "180 g"
+       },
+       {
+        "n": "Legumes cozidos",
+        "q": "250 g"
+       },
+       {
+        "n": "Azeite",
+        "q": "4 g"
+       }
+      ],
+      "m": [
+       90,
+       39,
+       11,
+       617
+      ]
+     },
+     {
+      "h": "15:00",
+      "tag": "",
+      "livre": false,
+      "itens": [
+       {
+        "n": "Whey concentrado",
+        "q": "25 g"
+       },
+       {
+        "n": "Leite integral",
+        "q": "250 ml"
+       },
+       {
+        "n": "Banana prata",
+        "q": "60 g"
+       }
+      ],
+      "m": [
+       29,
+       29,
+       10,
+       321
+      ]
+     },
+     {
+      "h": "17:30",
+      "tag": "Volume livre",
+      "livre": false,
+      "itens": [
+       {
+        "n": "Legumes cozidos",
+        "q": "200 g"
+       }
+      ],
+      "m": [
+       4,
+       12,
+       1,
+       69
+      ]
+     },
+     {
+      "h": "20:00",
+      "tag": "LIVRE",
+      "livre": true,
+      "itens": [],
+      "m": [
+       45,
+       70,
+       30,
+       730
+      ]
+     }
+    ]
+   }
+  },
+  "C": {
+   "t11": {
+    "nome": "Treino 11h00",
+    "desc": "Janela curta. Só 3h15 entre acordar e treinar.",
+    "tot": [
+     233,
+     235,
+     72,
+     2522
+    ],
+    "refs": [
+     {
+      "h": "07:45",
+      "tag": "T-3h15",
+      "livre": false,
+      "itens": [
+       {
+        "n": "Aveia em flocos",
+        "q": "60 g"
+       },
+       {
+        "n": "Leite integral",
+        "q": "250 ml"
+       },
+       {
+        "n": "Whey concentrado",
+        "q": "32 g"
+       },
+       {
+        "n": "Banana prata",
+        "q": "100 g"
+       }
+      ],
+      "m": [
+       43,
+       80,
+       15,
+       632
+      ]
+     },
+     {
+      "h": "10:15",
+      "tag": "T-45min",
+      "livre": false,
+      "itens": [
+       {
+        "n": "Pão francês",
+        "q": "40 g"
+       },
+       {
+        "n": "Mel",
+        "q": "15 g"
+       },
+       {
+        "n": "Banana prata",
+        "q": "80 g"
+       }
+      ],
+      "m": [
+       4,
+       57,
+       1,
+       255
+      ]
+     },
+     {
+      "h": "12:30",
+      "tag": "Pós-treino",
+      "livre": false,
+      "itens": [
+       {
+        "n": "Arroz branco cozido",
+        "q": "130 g"
+       },
+       {
+        "n": "Feijão carioca cozido",
+        "q": "150 g"
+       },
+       {
+        "n": "Peito de frango grelhado",
+        "q": "170 g"
+       },
+       {
+        "n": "Azeite",
+        "q": "13 g"
+       },
+       {
+        "n": "Legumes cozidos",
+        "q": "200 g"
+       }
+      ],
+      "m": [
+       69,
+       69,
+       19,
+       721
+      ]
+     },
+     {
+      "h": "16:00",
+      "tag": "",
+      "livre": false,
+      "itens": [
+       {
+        "n": "Whey concentrado",
+        "q": "27 g"
+       },
+       {
+        "n": "Leite integral",
+        "q": "250 ml"
+       }
+      ],
+      "m": [
+       30,
+       14,
+       10,
+       263
+      ]
+     },
+     {
+      "h": "19:00",
+      "tag": "",
+      "livre": false,
+      "itens": [
+       {
+        "n": "Atum em água, drenado",
+        "q": "120 g"
+       },
+       {
+        "n": "Pasta de amendoim",
+        "q": "19 g"
+       }
+      ],
+      "m": [
+       36,
+       4,
+       11,
+       255
+      ]
+     },
+     {
+      "h": "20:30",
+      "tag": "Jantar",
+      "livre": false,
+      "itens": [
+       {
+        "n": "Patinho grelhado",
+        "q": "130 g"
+       },
+       {
+        "n": "Azeite",
+        "q": "6 g"
+       },
+       {
+        "n": "Legumes cozidos",
+        "q": "200 g"
+       }
+      ],
+      "m": [
+       51,
+       12,
+       16,
+       395
+      ]
+     }
+    ]
+   },
+   "t1630": {
+    "nome": "Treino 16h30",
+    "desc": "Janela longa. Almoço é a refeição principal pré-treino.",
+    "tot": [
+     224,
+     236,
+     75,
+     2519
+    ],
+    "refs": [
+     {
+      "h": "07:45",
+      "tag": "",
+      "livre": false,
+      "itens": [
+       {
+        "n": "Aveia em flocos",
+        "q": "60 g"
+       },
+       {
+        "n": "Leite integral",
+        "q": "250 ml"
+       },
+       {
+        "n": "Whey concentrado",
+        "q": "24 g"
+       },
+       {
+        "n": "Banana prata",
+        "q": "100 g"
+       }
+      ],
+      "m": [
+       37,
+       80,
+       15,
+       600
+      ]
+     },
+     {
+      "h": "10:30",
+      "tag": "",
+      "livre": false,
+      "itens": [
+       {
+        "n": "Leite integral",
+        "q": "200 ml"
+       },
+       {
+        "n": "Whey concentrado",
+        "q": "21 g"
+       },
+       {
+        "n": "Queijo mussarela",
+        "q": "55 g"
+       }
+      ],
+      "m": [
+       37,
+       13,
+       22,
+       396
+      ]
+     },
+     {
+      "h": "13:00",
+      "tag": "T-3h30",
+      "livre": false,
+      "itens": [
+       {
+        "n": "Arroz branco cozido",
+        "q": "115 g"
+       },
+       {
+        "n": "Feijão carioca cozido",
+        "q": "150 g"
+       },
+       {
+        "n": "Peito de frango grelhado",
+        "q": "170 g"
+       },
+       {
+        "n": "Azeite",
+        "q": "8 g"
+       },
+       {
+        "n": "Legumes cozidos",
+        "q": "200 g"
+       }
+      ],
+      "m": [
+       68,
+       65,
+       14,
+       657
+      ]
+     },
+     {
+      "h": "15:45",
+      "tag": "T-45min",
+      "livre": false,
+      "itens": [
+       {
+        "n": "Pão francês",
+        "q": "40 g"
+       },
+       {
+        "n": "Mel",
+        "q": "15 g"
+       },
+       {
+        "n": "Banana prata",
+        "q": "80 g"
+       }
+      ],
+      "m": [
+       4,
+       57,
+       1,
+       255
+      ]
+     },
+     {
+      "h": "18:00",
+      "tag": "Pós-treino",
+      "livre": false,
+      "itens": [
+       {
+        "n": "Whey concentrado",
+        "q": "26 g"
+       },
+       {
+        "n": "Leite integral",
+        "q": "180 ml"
+       }
+      ],
+      "m": [
+       27,
+       11,
+       8,
+       216
+      ]
+     },
+     {
+      "h": "20:30",
+      "tag": "Jantar",
+      "livre": false,
+      "itens": [
+       {
+        "n": "Patinho grelhado",
+        "q": "130 g"
+       },
+       {
+        "n": "Azeite",
+        "q": "6 g"
+       },
+       {
+        "n": "Legumes cozidos",
+        "q": "200 g"
+       }
+      ],
+      "m": [
+       51,
+       12,
+       16,
+       395
+      ]
+     }
+    ]
+   },
+   "off": {
+    "nome": "Sem treino",
+    "desc": "Mesma proteína, carboidrato menor. Saem as refeições pré-treino.",
+    "tot": [
+     231,
+     169,
+     69,
+     2220
+    ],
+    "refs": [
+     {
+      "h": "08:00",
+      "tag": "",
+      "livre": false,
+      "itens": [
+       {
+        "n": "Aveia em flocos",
+        "q": "50 g"
+       },
+       {
+        "n": "Leite integral",
+        "q": "250 ml"
+       },
+       {
+        "n": "Whey concentrado",
+        "q": "32 g"
+       },
+       {
+        "n": "Banana prata",
+        "q": "30 g"
+       }
+      ],
+      "m": [
+       41,
+       55,
+       14,
+       515
+      ]
+     },
+     {
+      "h": "12:30",
+      "tag": "Almoço",
+      "livre": false,
+      "itens": [
+       {
+        "n": "Arroz branco cozido",
+        "q": "70 g"
+       },
+       {
+        "n": "Feijão carioca cozido",
+        "q": "150 g"
+       },
+       {
+        "n": "Peito de frango grelhado",
+        "q": "170 g"
+       },
+       {
+        "n": "Azeite",
+        "q": "10 g"
+       },
+       {
+        "n": "Legumes cozidos",
+        "q": "250 g"
+       }
+      ],
+      "m": [
+       68,
+       55,
+       16,
+       637
+      ]
+     },
+     {
+      "h": "16:00",
+      "tag": "",
+      "livre": false,
+      "itens": [
+       {
+        "n": "Whey concentrado",
+        "q": "26 g"
+       },
+       {
+        "n": "Leite integral",
+        "q": "250 ml"
+       },
+       {
+        "n": "Queijo mussarela",
+        "q": "40 g"
+       }
+      ],
+      "m": [
+       39,
+       15,
+       20,
+       395
+      ]
+     },
+     {
+      "h": "19:00",
+      "tag": "",
+      "livre": false,
+      "itens": [
+       {
+        "n": "Atum em água, drenado",
+        "q": "120 g"
+       },
+       {
+        "n": "Pasta de amendoim",
+        "q": "4 g"
+       }
+      ],
+      "m": [
+       32,
+       1,
+       3,
+       161
+      ]
+     },
+     {
+      "h": "20:30",
+      "tag": "Jantar",
+      "livre": false,
+      "itens": [
+       {
+        "n": "Patinho grelhado",
+        "q": "120 g"
+       },
+       {
+        "n": "Batata doce cozida",
+        "q": "150 g"
+       },
+       {
+        "n": "Azeite",
+        "q": "6 g"
+       },
+       {
+        "n": "Legumes cozidos",
+        "q": "250 g"
+       }
+      ],
+      "m": [
+       50,
+       43,
+       16,
+       511
+      ]
+     }
+    ]
+   },
+   "fds": {
+    "nome": "Fim de semana",
+    "desc": "Cinco eventos e refeição livre à noite, quando o risco é maior.",
+    "tot": [
+     220,
+     184,
+     74,
+     2283
+    ],
+    "refs": [
+     {
+      "h": "09:00",
+      "tag": "",
+      "livre": false,
+      "itens": [
+       {
+        "n": "Ovo cozido",
+        "q": "100 g"
+       },
+       {
+        "n": "Pão francês",
+        "q": "30 g"
+       },
+       {
+        "n": "Aveia em flocos",
+        "q": "25 g"
+       },
+       {
+        "n": "Leite integral",
+        "q": "250 ml"
+       },
+       {
+        "n": "Whey concentrado",
+        "q": "32 g"
+       }
+      ],
+      "m": [
+       53,
+       49,
+       23,
+       612
+      ]
+     },
+     {
+      "h": "12:00",
+      "tag": "Almoço",
+      "livre": false,
+      "itens": [
+       {
+        "n": "Peito de frango grelhado",
+        "q": "190 g"
+       },
+       {
+        "n": "Atum em água, drenado",
+        "q": "60 g"
+       },
+       {
+        "n": "Feijão carioca cozido",
+        "q": "180 g"
+       },
+       {
+        "n": "Legumes cozidos",
+        "q": "250 g"
+       },
+       {
+        "n": "Azeite",
+        "q": "4 g"
+       }
+      ],
+      "m": [
+       90,
+       39,
+       11,
+       617
+      ]
+     },
+     {
+      "h": "15:00",
+      "tag": "",
+      "livre": false,
+      "itens": [
+       {
+        "n": "Whey concentrado",
+        "q": "25 g"
+       },
+       {
+        "n": "Leite integral",
+        "q": "250 ml"
+       }
+      ],
+      "m": [
+       28,
+       14,
+       10,
+       255
+      ]
+     },
+     {
+      "h": "17:30",
+      "tag": "Volume livre",
+      "livre": false,
+      "itens": [
+       {
+        "n": "Legumes cozidos",
+        "q": "200 g"
+       }
+      ],
+      "m": [
+       4,
+       12,
+       1,
+       69
+      ]
+     },
+     {
+      "h": "20:00",
+      "tag": "LIVRE",
+      "livre": true,
+      "itens": [],
+      "m": [
+       45,
+       70,
+       30,
+       730
+      ]
+     }
+    ]
+   }
+  },
+  "D": {
+   "t11": {
+    "nome": "Treino 11h00",
+    "desc": "Janela curta. Só 3h15 entre acordar e treinar.",
+    "tot": [
+     232,
+     227,
+     72,
+     2485
+    ],
+    "refs": [
+     {
+      "h": "07:45",
+      "tag": "T-3h15",
+      "livre": false,
+      "itens": [
+       {
+        "n": "Aveia em flocos",
+        "q": "60 g"
+       },
+       {
+        "n": "Leite integral",
+        "q": "250 ml"
+       },
+       {
+        "n": "Whey concentrado",
+        "q": "32 g"
+       },
+       {
+        "n": "Banana prata",
+        "q": "100 g"
+       }
+      ],
+      "m": [
+       43,
+       80,
+       15,
+       632
+      ]
+     },
+     {
+      "h": "10:15",
+      "tag": "T-45min",
+      "livre": false,
+      "itens": [
+       {
+        "n": "Pão francês",
+        "q": "40 g"
+       },
+       {
+        "n": "Mel",
+        "q": "15 g"
+       },
+       {
+        "n": "Banana prata",
+        "q": "80 g"
+       }
+      ],
+      "m": [
+       4,
+       57,
+       1,
+       255
+      ]
+     },
+     {
+      "h": "12:30",
+      "tag": "Pós-treino",
+      "livre": false,
+      "itens": [
+       {
+        "n": "Arroz branco cozido",
+        "q": "100 g"
+       },
+       {
+        "n": "Feijão carioca cozido",
+        "q": "150 g"
+       },
+       {
+        "n": "Peito de frango grelhado",
+        "q": "170 g"
+       },
+       {
+        "n": "Azeite",
+        "q": "13 g"
+       },
+       {
+        "n": "Legumes cozidos",
+        "q": "200 g"
+       }
+      ],
+      "m": [
+       68,
+       60,
+       19,
+       684
+      ]
+     },
+     {
+      "h": "16:00",
+      "tag": "",
+      "livre": false,
+      "itens": [
+       {
+        "n": "Whey concentrado",
+        "q": "27 g"
+       },
+       {
+        "n": "Leite integral",
+        "q": "250 ml"
+       }
+      ],
+      "m": [
+       30,
+       14,
+       10,
+       263
+      ]
+     },
+     {
+      "h": "19:00",
+      "tag": "",
+      "livre": false,
+      "itens": [
+       {
+        "n": "Atum em água, drenado",
+        "q": "120 g"
+       },
+       {
+        "n": "Pasta de amendoim",
+        "q": "19 g"
+       }
+      ],
+      "m": [
+       36,
+       4,
+       11,
+       255
+      ]
+     },
+     {
+      "h": "20:30",
+      "tag": "Jantar",
+      "livre": false,
+      "itens": [
+       {
+        "n": "Patinho grelhado",
+        "q": "130 g"
+       },
+       {
+        "n": "Azeite",
+        "q": "6 g"
+       },
+       {
+        "n": "Legumes cozidos",
+        "q": "200 g"
+       }
+      ],
+      "m": [
+       51,
+       12,
+       16,
+       395
+      ]
+     }
+    ]
+   },
+   "t1630": {
+    "nome": "Treino 16h30",
+    "desc": "Janela longa. Almoço é a refeição principal pré-treino.",
+    "tot": [
+     223,
+     229,
+     75,
+     2488
+    ],
+    "refs": [
+     {
+      "h": "07:45",
+      "tag": "",
+      "livre": false,
+      "itens": [
+       {
+        "n": "Aveia em flocos",
+        "q": "60 g"
+       },
+       {
+        "n": "Leite integral",
+        "q": "250 ml"
+       },
+       {
+        "n": "Whey concentrado",
+        "q": "24 g"
+       },
+       {
+        "n": "Banana prata",
+        "q": "100 g"
+       }
+      ],
+      "m": [
+       37,
+       80,
+       15,
+       600
+      ]
+     },
+     {
+      "h": "10:30",
+      "tag": "",
+      "livre": false,
+      "itens": [
+       {
+        "n": "Leite integral",
+        "q": "200 ml"
+       },
+       {
+        "n": "Whey concentrado",
+        "q": "21 g"
+       },
+       {
+        "n": "Queijo mussarela",
+        "q": "55 g"
+       }
+      ],
+      "m": [
+       37,
+       13,
+       22,
+       396
+      ]
+     },
+     {
+      "h": "13:00",
+      "tag": "T-3h30",
+      "livre": false,
+      "itens": [
+       {
+        "n": "Arroz branco cozido",
+        "q": "90 g"
+       },
+       {
+        "n": "Feijão carioca cozido",
+        "q": "150 g"
+       },
+       {
+        "n": "Peito de frango grelhado",
+        "q": "170 g"
+       },
+       {
+        "n": "Azeite",
+        "q": "8 g"
+       },
+       {
+        "n": "Legumes cozidos",
+        "q": "200 g"
+       }
+      ],
+      "m": [
+       68,
+       58,
+       14,
+       626
+      ]
+     },
+     {
+      "h": "15:45",
+      "tag": "T-45min",
+      "livre": false,
+      "itens": [
+       {
+        "n": "Pão francês",
+        "q": "40 g"
+       },
+       {
+        "n": "Mel",
+        "q": "15 g"
+       },
+       {
+        "n": "Banana prata",
+        "q": "80 g"
+       }
+      ],
+      "m": [
+       4,
+       57,
+       1,
+       255
+      ]
+     },
+     {
+      "h": "18:00",
+      "tag": "Pós-treino",
+      "livre": false,
+      "itens": [
+       {
+        "n": "Whey concentrado",
+        "q": "26 g"
+       },
+       {
+        "n": "Leite integral",
+        "q": "180 ml"
+       }
+      ],
+      "m": [
+       27,
+       11,
+       8,
+       216
+      ]
+     },
+     {
+      "h": "20:30",
+      "tag": "Jantar",
+      "livre": false,
+      "itens": [
+       {
+        "n": "Patinho grelhado",
+        "q": "130 g"
+       },
+       {
+        "n": "Azeite",
+        "q": "6 g"
+       },
+       {
+        "n": "Legumes cozidos",
+        "q": "200 g"
+       }
+      ],
+      "m": [
+       51,
+       12,
+       16,
+       395
+      ]
+     }
+    ]
+   },
+   "off": {
+    "nome": "Sem treino",
+    "desc": "Mesma proteína, carboidrato menor. Saem as refeições pré-treino.",
+    "tot": [
+     229,
+     155,
+     68,
+     2148
+    ],
+    "refs": [
+     {
+      "h": "08:00",
+      "tag": "",
+      "livre": false,
+      "itens": [
+       {
+        "n": "Aveia em flocos",
+        "q": "40 g"
+       },
+       {
+        "n": "Leite integral",
+        "q": "250 ml"
+       },
+       {
+        "n": "Whey concentrado",
+        "q": "32 g"
+       },
+       {
+        "n": "Banana prata",
+        "q": "30 g"
+       }
+      ],
+      "m": [
+       40,
+       49,
+       14,
+       476
+      ]
+     },
+     {
+      "h": "12:30",
+      "tag": "Almoço",
+      "livre": false,
+      "itens": [
+       {
+        "n": "Arroz branco cozido",
+        "q": "70 g"
+       },
+       {
+        "n": "Feijão carioca cozido",
+        "q": "150 g"
+       },
+       {
+        "n": "Peito de frango grelhado",
+        "q": "170 g"
+       },
+       {
+        "n": "Azeite",
+        "q": "10 g"
+       },
+       {
+        "n": "Legumes cozidos",
+        "q": "250 g"
+       }
+      ],
+      "m": [
+       68,
+       55,
+       16,
+       637
+      ]
+     },
+     {
+      "h": "16:00",
+      "tag": "",
+      "livre": false,
+      "itens": [
+       {
+        "n": "Whey concentrado",
+        "q": "26 g"
+       },
+       {
+        "n": "Leite integral",
+        "q": "250 ml"
+       },
+       {
+        "n": "Queijo mussarela",
+        "q": "40 g"
+       }
+      ],
+      "m": [
+       39,
+       15,
+       20,
+       395
+      ]
+     },
+     {
+      "h": "19:00",
+      "tag": "",
+      "livre": false,
+      "itens": [
+       {
+        "n": "Atum em água, drenado",
+        "q": "120 g"
+       },
+       {
+        "n": "Pasta de amendoim",
+        "q": "4 g"
+       }
+      ],
+      "m": [
+       32,
+       1,
+       3,
+       161
+      ]
+     },
+     {
+      "h": "20:30",
+      "tag": "Jantar",
+      "livre": false,
+      "itens": [
+       {
+        "n": "Patinho grelhado",
+        "q": "120 g"
+       },
+       {
+        "n": "Batata doce cozida",
+        "q": "110 g"
+       },
+       {
+        "n": "Azeite",
+        "q": "6 g"
+       },
+       {
+        "n": "Legumes cozidos",
+        "q": "250 g"
+       }
+      ],
+      "m": [
+       50,
+       35,
+       16,
+       480
+      ]
+     }
+    ]
+   },
+   "fds": {
+    "nome": "Fim de semana",
+    "desc": "Cinco eventos e refeição livre à noite, quando o risco é maior.",
+    "tot": [
+     217,
+     167,
+     73,
+     2195
+    ],
+    "refs": [
+     {
+      "h": "09:00",
+      "tag": "",
+      "livre": false,
+      "itens": [
+       {
+        "n": "Ovo cozido",
+        "q": "100 g"
+       },
+       {
+        "n": "Aveia em flocos",
+        "q": "25 g"
+       },
+       {
+        "n": "Leite integral",
+        "q": "250 ml"
+       },
+       {
+        "n": "Whey concentrado",
+        "q": "32 g"
+       }
+      ],
+      "m": [
+       50,
+       32,
+       22,
+       524
+      ]
+     },
+     {
+      "h": "12:00",
+      "tag": "Almoço",
+      "livre": false,
+      "itens": [
+       {
+        "n": "Peito de frango grelhado",
+        "q": "190 g"
+       },
+       {
+        "n": "Atum em água, drenado",
+        "q": "60 g"
+       },
+       {
+        "n": "Feijão carioca cozido",
+        "q": "180 g"
+       },
+       {
+        "n": "Legumes cozidos",
+        "q": "250 g"
+       },
+       {
+        "n": "Azeite",
+        "q": "4 g"
+       }
+      ],
+      "m": [
+       90,
+       39,
+       11,
+       617
+      ]
+     },
+     {
+      "h": "15:00",
+      "tag": "",
+      "livre": false,
+      "itens": [
+       {
+        "n": "Whey concentrado",
+        "q": "25 g"
+       },
+       {
+        "n": "Leite integral",
+        "q": "250 ml"
+       }
+      ],
+      "m": [
+       28,
+       14,
+       10,
+       255
+      ]
+     },
+     {
+      "h": "17:30",
+      "tag": "Volume livre",
+      "livre": false,
+      "itens": [
+       {
+        "n": "Legumes cozidos",
+        "q": "200 g"
+       }
+      ],
+      "m": [
+       4,
+       12,
+       1,
+       69
+      ]
+     },
+     {
+      "h": "20:00",
+      "tag": "LIVRE",
+      "livre": true,
+      "itens": [],
+      "m": [
+       45,
+       70,
+       30,
+       730
+      ]
+     }
+    ]
+   }
+  }
+ },
+ "alimentos": {
+  "Peito de frango grelhado": [
+   32,
+   0,
+   2.5,
+   0,
+   "prot",
+   "g"
+  ],
+  "Coxa e sobrecoxa sem pele": [
+   26.9,
+   0,
+   9.4,
+   0,
+   "prot",
+   "g"
+  ],
+  "Patinho grelhado": [
+   35.9,
+   0,
+   7.3,
+   0,
+   "prot",
+   "g"
+  ],
+  "Patinho moído refogado": [
+   31.5,
+   0,
+   8,
+   0,
+   "prot",
+   "g"
+  ],
+  "Bisteca de porco grelhada": [
+   30,
+   0,
+   13,
+   0,
+   "prot",
+   "g"
+  ],
+  "Lombo de porco assado": [
+   35.7,
+   0,
+   6.4,
+   0,
+   "prot",
+   "g"
+  ],
+  "Atum em água, drenado": [
+   26,
+   0,
+   1,
+   0,
+   "prot",
+   "g"
+  ],
+  "Tilápia grelhada": [
+   25.8,
+   0,
+   2.2,
+   0,
+   "prot",
+   "g"
+  ],
+  "Merluza ou pescada cozida": [
+   23,
+   0,
+   1.5,
+   0,
+   "prot",
+   "g"
+  ],
+  "Salmão grelhado": [
+   25.4,
+   0,
+   13.4,
+   0,
+   "prot",
+   "g"
+  ],
+  "Sardinha em lata, drenada": [
+   24,
+   0,
+   11,
+   0,
+   "prot",
+   "g"
+  ],
+  "Ovo cozido": [
+   13.3,
+   0.6,
+   9.5,
+   0,
+   "prot",
+   "g"
+  ],
+  "Queijo mussarela": [
+   25.6,
+   3,
+   25.2,
+   0,
+   "prot",
+   "g"
+  ],
+  "Whey concentrado": [
+   80,
+   8,
+   6,
+   0.5,
+   "prot",
+   "g"
+  ],
+  "Arroz branco cozido": [
+   2.5,
+   28.1,
+   0.2,
+   1.6,
+   "carb",
+   "g"
+  ],
+  "Macarrão cozido": [
+   3.9,
+   30.9,
+   0.6,
+   1.6,
+   "carb",
+   "g"
+  ],
+  "Mandioca (aipim) cozida": [
+   0.6,
+   30.1,
+   0.3,
+   1.6,
+   "carb",
+   "g"
+  ],
+  "Batata doce cozida": [
+   1.3,
+   18.4,
+   0.1,
+   2.2,
+   "carb",
+   "g"
+  ],
+  "Batata inglesa cozida": [
+   1.2,
+   11.9,
+   0.1,
+   1.3,
+   "carb",
+   "g"
+  ],
+  "Inhame cozido": [
+   1.5,
+   23.2,
+   0.1,
+   2.1,
+   "carb",
+   "g"
+  ],
+  "Cará cozido": [
+   1.7,
+   26,
+   0.1,
+   1.5,
+   "carb",
+   "g"
+  ],
+  "Cuscuz de milho cozido": [
+   2.5,
+   25.3,
+   0.9,
+   1.7,
+   "carb",
+   "g"
+  ],
+  "Polenta cozida": [
+   1.5,
+   15.8,
+   0.3,
+   1,
+   "carb",
+   "g"
+  ],
+  "Pão francês": [
+   8,
+   58.6,
+   3.1,
+   2.3,
+   "carb",
+   "g"
+  ],
+  "Aveia em flocos": [
+   13.9,
+   66.6,
+   8.5,
+   9.1,
+   "carb",
+   "g"
+  ],
+  "Feijão carioca cozido": [
+   4.8,
+   13.6,
+   0.5,
+   8.5,
+   "carb",
+   "g"
+  ],
+  "Mel": [
+   0.3,
+   82,
+   0,
+   0,
+   "carb",
+   "g"
+  ],
+  "Banana prata": [
+   1.3,
+   26,
+   0.1,
+   2,
+   "fruta",
+   "g"
+  ],
+  "Banana nanica": [
+   1.4,
+   23.8,
+   0.1,
+   1.9,
+   "fruta",
+   "g"
+  ],
+  "Maçã fuji com casca": [
+   0.3,
+   15.2,
+   0,
+   1.3,
+   "fruta",
+   "g"
+  ],
+  "Pera williams": [
+   0.6,
+   14,
+   0.1,
+   3,
+   "fruta",
+   "g"
+  ],
+  "Uva itália": [
+   0.7,
+   13.6,
+   0.2,
+   0.9,
+   "fruta",
+   "g"
+  ],
+  "Manga palmer": [
+   0.4,
+   12.8,
+   0.2,
+   1.6,
+   "fruta",
+   "g"
+  ],
+  "Abacaxi": [
+   0.9,
+   12.3,
+   0.1,
+   1,
+   "fruta",
+   "g"
+  ],
+  "Mamão formosa": [
+   0.8,
+   11.6,
+   0.1,
+   1.8,
+   "fruta",
+   "g"
+  ],
+  "Kiwi": [
+   1.3,
+   11.5,
+   0.6,
+   2.7,
+   "fruta",
+   "g"
+  ],
+  "Tangerina ponkan": [
+   0.8,
+   11.5,
+   0.1,
+   1.6,
+   "fruta",
+   "g"
+  ],
+  "Goiaba branca": [
+   0.9,
+   9.9,
+   0.4,
+   6.2,
+   "fruta",
+   "g"
+  ],
+  "Laranja pera": [
+   1,
+   8.9,
+   0.1,
+   0.8,
+   "fruta",
+   "g"
+  ],
+  "Melancia": [
+   0.9,
+   8.1,
+   0,
+   0.1,
+   "fruta",
+   "g"
+  ],
+  "Melão": [
+   0.7,
+   7.5,
+   0,
+   0.3,
+   "fruta",
+   "g"
+  ],
+  "Morango": [
+   0.9,
+   6.8,
+   0.3,
+   1.7,
+   "fruta",
+   "g"
+  ],
+  "Leite integral": [
+   3.2,
+   4.7,
+   3.3,
+   0,
+   "outro",
+   "ml"
+  ],
+  "Leite desnatado": [
+   3.4,
+   4.9,
+   0.2,
+   0,
+   "outro",
+   "ml"
+  ],
+  "Azeite": [
+   0,
+   0,
+   100,
+   0,
+   "gord",
+   "g"
+  ],
+  "Pasta de amendoim": [
+   25,
+   20,
+   50,
+   6,
+   "gord",
+   "g"
+  ],
+  "Castanha do pará": [
+   14.5,
+   15.1,
+   67,
+   7.9,
+   "gord",
+   "g"
+  ],
+  "Amêndoa": [
+   21.6,
+   19.5,
+   47.3,
+   11.6,
+   "gord",
+   "g"
+  ],
+  "Legumes cozidos": [
+   2,
+   6,
+   0.3,
+   3,
+   "livre",
+   "g"
+  ],
+  "Pepino": [
+   0.9,
+   1.6,
+   0.1,
+   1.1,
+   "livre",
+   "g"
+  ],
+  "Alface e folhas": [
+   1.3,
+   1.7,
+   0.2,
+   1.8,
+   "livre",
+   "g"
+  ],
+  "Tomate": [
+   1.1,
+   3.1,
+   0.2,
+   1.2,
+   "livre",
+   "g"
+  ],
+  "Abobrinha cozida": [
+   1.1,
+   2.9,
+   0.2,
+   1.6,
+   "livre",
+   "g"
+  ],
+  "Brócolis cozido": [
+   2.1,
+   4.4,
+   0.5,
+   3.4,
+   "livre",
+   "g"
+  ],
+  "Couve refogada": [
+   1.7,
+   4.3,
+   0.5,
+   3.1,
+   "livre",
+   "g"
+  ],
+  "Chuchu cozido": [
+   0.4,
+   4.8,
+   0.1,
+   1,
+   "livre",
+   "g"
+  ],
+  "Gelatina zero açúcar": [
+   1.2,
+   0,
+   0,
+   0,
+   "livre",
+   "g"
+  ]
+ },
+ "curva": [
+  {
+   "n": 1,
+   "bloco": "A",
+   "data": "24/08",
+   "iso": "2026-08-24",
+   "peso": 95.5,
+   "cintura": 94.5
+  },
+  {
+   "n": 2,
+   "bloco": "A",
+   "data": "31/08",
+   "iso": "2026-08-31",
+   "peso": 95,
+   "cintura": 94
+  },
+  {
+   "n": 3,
+   "bloco": "A",
+   "data": "07/09",
+   "iso": "2026-09-07",
+   "peso": 94.5,
+   "cintura": 93.6
+  },
+  {
+   "n": 4,
+   "bloco": "B",
+   "data": "14/09",
+   "iso": "2026-09-14",
+   "peso": 94,
+   "cintura": 93.1
+  },
+  {
+   "n": 5,
+   "bloco": "B",
+   "data": "21/09",
+   "iso": "2026-09-21",
+   "peso": 93.5,
+   "cintura": 92.6
+  },
+  {
+   "n": 6,
+   "bloco": "B",
+   "data": "28/09",
+   "iso": "2026-09-28",
+   "peso": 93,
+   "cintura": 92.2
+  },
+  {
+   "n": 7,
+   "bloco": "B",
+   "data": "05/10",
+   "iso": "2026-10-05",
+   "peso": 92.5,
+   "cintura": 91.7
+  },
+  {
+   "n": 8,
+   "bloco": "B",
+   "data": "12/10",
+   "iso": "2026-10-12",
+   "peso": 92,
+   "cintura": 91.3
+  },
+  {
+   "n": 9,
+   "bloco": "C",
+   "data": "19/10",
+   "iso": "2026-10-19",
+   "peso": 91.5,
+   "cintura": 90.8
+  },
+  {
+   "n": 10,
+   "bloco": "C",
+   "data": "26/10",
+   "iso": "2026-10-26",
+   "peso": 91.1,
+   "cintura": 90.3
+  },
+  {
+   "n": 11,
+   "bloco": "C",
+   "data": "02/11",
+   "iso": "2026-11-02",
+   "peso": 90.6,
+   "cintura": 89.9
+  },
+  {
+   "n": 12,
+   "bloco": "C",
+   "data": "09/11",
+   "iso": "2026-11-09",
+   "peso": 90.1,
+   "cintura": 89.5
+  },
+  {
+   "n": 13,
+   "bloco": "C",
+   "data": "16/11",
+   "iso": "2026-11-16",
+   "peso": 89.6,
+   "cintura": 89
+  },
+  {
+   "n": 14,
+   "bloco": "C",
+   "data": "23/11",
+   "iso": "2026-11-23",
+   "peso": 89.2,
+   "cintura": 88.6
+  },
+  {
+   "n": 15,
+   "bloco": "D",
+   "data": "30/11",
+   "iso": "2026-11-30",
+   "peso": 88.7,
+   "cintura": 88.1
+  },
+  {
+   "n": 16,
+   "bloco": "D",
+   "data": "07/12",
+   "iso": "2026-12-07",
+   "peso": 88.2,
+   "cintura": 87.7
+  },
+  {
+   "n": 17,
+   "bloco": "D",
+   "data": "14/12",
+   "iso": "2026-12-14",
+   "peso": 87.7,
+   "cintura": 87.2
+  },
+  {
+   "n": 18,
+   "bloco": "D",
+   "data": "21/12",
+   "iso": "2026-12-21",
+   "peso": 87.3,
+   "cintura": 86.8
+  },
+  {
+   "n": 19,
+   "bloco": "D",
+   "data": "28/12",
+   "iso": "2026-12-28",
+   "peso": 86.8,
+   "cintura": 86.3
+  }
+ ],
+ "parametros": {
+  "pesoInicial": 96,
+  "faixaSemanal": [
+   0.005,
+   0.007
+  ],
+  "kcalPorKg": 7700,
+  "semanaPadrao": {
+   "t11": 2,
+   "t1630": 2,
+   "off": 1,
+   "fds": 2
+  },
+  "folgaCompras": 0.08,
+  "rendimento": {
+   "Patinho grelhado": 0.7,
+   "Peito de frango grelhado": 0.7,
+   "Arroz branco cozido": 2.6,
+   "Feijão carioca cozido": 2.2,
+   "Banana prata": 0.64,
+   "Batata doce cozida": 0.87,
+   "Azeite": 0.92
+  },
+  "livre": {
+   "kcalMax": 730,
+   "protMin": 45
+  },
+  "autorregulacao": {
+   "desvioKg": 0.5,
+   "semanas": 2
+  },
+  "regressaoPontos": 4,
+  "porcoesFixas": {
+   "outro": 250,
+   "livre": 200,
+   "Alface e folhas": 100,
+   "Couve refogada": 100
+  },
+  "solver": {
+   "pesos": {
+    "p": 3,
+    "c": 1,
+    "g": 2
+   },
+   "minimoG": 10,
+   "minimoMl": 50,
+   "passoG": 5,
+   "passoMl": 10,
+   "iteracoes": 50,
+   "toleranciaG": 0.1,
+   "avisos": {
+    "protFalta": 10,
+    "carbFalta": 15,
+    "gordSobra": 5,
+    "azeiteFalta": 3
+   },
+   "maxPorCategoria": 2,
+   "alcanceMinimo": 0.5,
+   "porcaoTeorica": 300
+  },
+  "secoes": [
+   "Açougue",
+   "Ovos",
+   "Laticínios",
+   "Hortifruti",
+   "Mercearia",
+   "Padaria",
+   "Suplemento"
+  ],
+  "embalagens": {
+   "Atum em água, drenado": {
+    "unidade": "lata",
+    "porcao": 120,
+    "mostrar": "unidades",
+    "rotulo": "lata de 170 g rende 120 g drenado"
+   },
+   "Ovo cozido": {
+    "unidade": "un",
+    "porcao": 50,
+    "mostrar": "unidades",
+    "rotulo": "1 un = 50 g sem casca"
+   },
+   "Pão francês": {
+    "unidade": "un",
+    "porcao": 50,
+    "mostrar": "unidades",
+    "rotulo": "1 un = 50 g"
+   },
+   "Leite integral": {
+    "unidade": "caixa",
+    "porcao": 1000,
+    "mostrar": "ambos",
+    "rotulo": "caixa de 1 L"
+   }
+  },
+  "mercado": {
+   "Patinho grelhado": {
+    "secao": "Açougue",
+    "nome": "Patinho",
+    "notaRendimento": "rende"
+   },
+   "Peito de frango grelhado": {
+    "secao": "Açougue",
+    "nome": "Peito de frango",
+    "notaRendimento": "rende"
+   },
+   "Ovo cozido": {
+    "secao": "Ovos",
+    "nome": "Ovo"
+   },
+   "Leite integral": {
+    "secao": "Laticínios",
+    "nome": "Leite integral"
+   },
+   "Queijo mussarela": {
+    "secao": "Laticínios",
+    "nome": "Queijo mussarela, fatiado"
+   },
+   "Banana prata": {
+    "secao": "Hortifruti",
+    "nome": "Banana prata",
+    "notaRendimento": "casca"
+   },
+   "Batata doce cozida": {
+    "secao": "Hortifruti",
+    "nome": "Batata doce",
+    "notaRendimento": "casca"
+   },
+   "Legumes cozidos": {
+    "secao": "Hortifruti",
+    "nome": "Legumes variados",
+    "nota": "brócolis, abobrinha, cenoura, vagem"
+   },
+   "Arroz branco cozido": {
+    "secao": "Mercearia",
+    "nome": "Arroz branco",
+    "notaRendimento": "rende"
+   },
+   "Atum em água, drenado": {
+    "secao": "Mercearia",
+    "nome": "Atum em água, lata"
+   },
+   "Aveia em flocos": {
+    "secao": "Mercearia",
+    "nome": "Aveia em flocos"
+   },
+   "Azeite": {
+    "secao": "Mercearia",
+    "nome": "Azeite de oliva",
+    "unidadeCompra": "ml"
+   },
+   "Feijão carioca cozido": {
+    "secao": "Mercearia",
+    "nome": "Feijão carioca",
+    "notaRendimento": "rende"
+   },
+   "Mel": {
+    "secao": "Mercearia",
+    "nome": "Mel"
+   },
+   "Pasta de amendoim": {
+    "secao": "Mercearia",
+    "nome": "Pasta de amendoim"
+   },
+   "Pão francês": {
+    "secao": "Padaria",
+    "nome": "Pão francês"
+   },
+   "Whey concentrado": {
+    "secao": "Suplemento",
+    "nome": "Whey concentrado",
+    "nota": "dose de 30 g"
+   }
+  },
+  "maximos": {
+   "Whey concentrado": 50,
+   "Azeite": 25,
+   "Pasta de amendoim": 40,
+   "Castanha do pará": 30,
+   "Amêndoa": 40,
+   "Mel": 40,
+   "Queijo mussarela": 80,
+   "Ovo cozido": 250,
+   "Aveia em flocos": 120
+  }
+ }
+}
