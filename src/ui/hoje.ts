@@ -1,123 +1,198 @@
-import { blocoDe, modeloDe } from "../core/calendario.ts";
-import { macrosRefeicao, somar, totalDia, zero } from "../core/macros.ts";
-import { COD_MODELOS, type CodModelo, type Refeicao } from "../data/schema.ts";
-import { $$, NOMES_MODELO, esc, inteiro, type Contexto, type Tela } from "./comum.ts";
+import { blocoDe, diasEntre, ehFimDeSemana, modeloDe } from "../core/calendario.ts";
+import { macrosRefeicao, mediaSemanal, somar, totalDia, zero } from "../core/macros.ts";
+import { COD_MODELOS, type CodBloco, type CodModelo, type Refeicao } from "../data/schema.ts";
+import { $$, NOMES_MODELO, esc, inteiro, milhar, nf, type Contexto, type Tela } from "./comum.ts";
 
 /**
- * Tela Hoje: o alvo do dia, o que ja foi registrado e o plano.
- * Todo numero vem de src/core/macros.ts, nada e somado aqui.
+ * Tela principal: a pagina do protocolo, como no documento de agosto, com o
+ * registro do dia em cima. Blocos numa linha do tempo, modelo de dia em toggles,
+ * refeicoes em grade e o placar fixo no rodape. Todo numero vem de src/core/.
  */
 
-function placar(ctx: Contexto, alvo: readonly number[], soma: { p: number; c: number; g: number; kcal: number }): string {
-  const linhas: [string, number, number, string][] = [
-    ["Proteína", soma.p, alvo[0]!, "g"],
-    ["Carbo", soma.c, alvo[1]!, "g"],
-    ["Gordura", soma.g, alvo[2]!, "g"],
-    ["kcal", soma.kcal, alvo[3]!, ""],
-  ];
-  void ctx;
-  return `<dl class="score">${linhas
-    .map(
-      ([rotulo, feito, meta, unidade]) =>
-        `<div><dt>${rotulo}</dt><dd>${inteiro(feito)}<small>/${inteiro(meta)}${unidade}</small></dd></div>`,
-    )
-    .join("")}</dl>`;
+/** Bloco e modelo que estao sendo vistos. Null quer dizer "o de hoje". */
+let blocoVisto: CodBloco | null = null;
+let modeloVisto: CodModelo | null = null;
+
+interface Visao {
+  hoje: string;
+  blocoHoje: CodBloco;
+  modeloHoje: CodModelo;
+  bloco: CodBloco;
+  modelo: CodModelo;
+  /** O que esta na tela e exatamente o dia de hoje: registra e mostra placar feito/alvo. */
+  ehHoje: boolean;
 }
 
-function cartaoRegistrado(r: {
-  id: string;
-  hora: string;
-  refeicao: string;
-  itens: readonly { n: string; q: string }[];
-  p: number;
-  c: number;
-  g: number;
-  kcal: number;
-}): string {
-  return `<div class="card on">
-    <div class="crow"><span class="ctime">${esc(r.hora)}</span>
-      ${r.refeicao ? `<span class="ctag">${esc(r.refeicao)}</span>` : ""}
-      <span style="flex:1"></span>
-      <button class="btn sm" data-apagar="${esc(r.id)}">Apagar</button></div>
-    ${r.itens
-      .map((i) => `<div class="citem"><span>${esc(i.n)}</span><b>${esc(i.q)}</b></div>`)
-      .join("")}
-    <div class="cmac"><b>${inteiro(r.p)}</b> P &nbsp;<b>${inteiro(r.c)}</b> C &nbsp;<b>${inteiro(r.g)}</b> G
-      &nbsp;·&nbsp; <b>${inteiro(r.kcal)}</b> KCAL</div>
+function visao(ctx: Contexto): Visao {
+  const hoje = ctx.hoje();
+  const blocoHoje = blocoDe(hoje, ctx.plano.faixas);
+  const modeloHoje = modeloDe(hoje, ctx.repo.modeloDe(hoje));
+  const bloco = blocoVisto ?? blocoHoje;
+  const modelo = bloco === blocoHoje ? (modeloVisto ?? modeloHoje) : (modeloVisto ?? "t11");
+  return { hoje, blocoHoje, modeloHoje, bloco, modelo, ehHoje: bloco === blocoHoje && modelo === modeloHoje };
+}
+
+function cabecalho(ctx: Contexto): string {
+  const { atleta, curva, parametros } = ctx.plano;
+  const primeiro = curva[0]!;
+  const ultimo = curva[curva.length - 1]!;
+  const perda = parametros.pesoInicial - ultimo.peso;
+  const semanas = diasEntre(primeiro.iso, ultimo.iso) / 7;
+  const resumo =
+    `Perda planejada de ${nf(perda, 1)} kg em ${semanas} semanas, ${nf(perda / semanas, 2)} kg por semana. ` +
+    `De ${nf(parametros.pesoInicial, 1)} para ${nf(ultimo.peso, 1)} kg e cintura de ${nf(primeiro.cintura, 1)} ` +
+    `para ${nf(ultimo.cintura, 1)} cm até ${esc(ultimo.data)}. Proteína fixa, carboidrato cai bloco a bloco.`;
+  return `<div class="head">
+    <div class="l">
+      <div class="eyebrow">${esc(atleta.eyebrow)}</div>
+      <h1>Protocolo<br>de <em>corte</em></h1>
+      <p class="sub">${resumo}</p>
+    </div>
+    <div class="athlete">${esc(atleta.nome)}<br><b>${esc(atleta.linha)}</b><br>${esc(atleta.atividade)}</div>
   </div>`;
 }
 
-function cartaoPlano(ctx: Contexto, ref: Refeicao, indice: number, jaRegistrada: boolean): string {
+function blocos(ctx: Contexto, v: Visao): string {
+  const cartoes = ctx.plano.blocos
+    .map((b) => {
+      const media = mediaSemanal(ctx.plano.alimentos, ctx.plano.dias[b.cod]!, ctx.plano.parametros.semanaPadrao);
+      const selecionado = b.cod === v.bloco;
+      return `<button class="heat" role="tab" aria-selected="${selecionado}" data-bloco="${b.cod}">
+        <span class="h-top"><span class="h-cod">${b.cod}</span><span class="h-wk">${esc(b.semanas)}</span></span>
+        <span class="h-line"><span class="h-sub">${esc(b.periodo)}</span>
+          <span class="h-kcal">${milhar(media)}<span>kcal/dia</span></span></span>
+      </button>`;
+    })
+    .join("");
+  const b = ctx.plano.blocos.find((x) => x.cod === v.bloco)!;
+  return `<div class="section-label">Tempos e movimentos</div>
+    <div class="heats" role="tablist">${cartoes}</div>
+    <dl class="blockbar">
+      <div class="bb"><dt>Perda projetada no bloco</dt><dd>${esc(b.perda)}</dd></div>
+      <div class="bb"><dt>Período</dt><dd>${esc(b.periodo)}</dd></div>
+      <div class="bb"><dt>O que muda</dt><dd>${esc(b.resumo)}</dd></div>
+      <div class="bb"><dt>Peso ao fim do bloco</dt><dd>${esc(b.peso)}</dd></div>
+    </dl>`;
+}
+
+function toggles(ctx: Contexto, v: Visao): string {
+  const fimDeSemana = ehFimDeSemana(v.hoje) && v.bloco === v.blocoHoje;
+  const botoes = COD_MODELOS.map(
+    (cod) =>
+      `<button class="day" role="tab" aria-selected="${cod === v.modelo}" data-modelo="${cod}">${NOMES_MODELO[cod]}</button>`,
+  ).join("");
+  const nota = fimDeSemana
+    ? " Hoje é fim de semana, então o modelo do dia é fixo; os outros ficam só para consulta."
+    : v.bloco !== v.blocoHoje
+      ? ` Você está vendo o bloco ${v.bloco}, só para consulta. O de hoje é o ${v.blocoHoje}.`
+      : "";
+  return `<div class="section-label">Modelo de dia</div>
+    <div class="days" role="tablist">${botoes}</div>
+    <p class="daydesc">${esc(ctx.plano.dias[v.bloco]![v.modelo]!.desc)}${nota}</p>`;
+}
+
+function cartaoRefeicao(ctx: Contexto, ref: Refeicao, indice: number, v: Visao, jaRegistrada: boolean): string {
   const { kcalMax, protMin } = ctx.plano.parametros.livre;
   const m = macrosRefeicao(ctx.plano.alimentos, ref);
   const corpo = ref.livre
-    ? `<div style="font-size:15px">Refeição livre. Teto de ${inteiro(kcalMax)} kcal e mínimo de
-        ${inteiro(protMin)} g de proteína. Coma devagar, comece pela proteína.</div>`
-    : ref.itens
-        .map((i) => `<div class="citem"><span>${esc(i.n)}</span><b>${esc(i.q)}</b></div>`)
-        .join("");
-
-  // sem esta marca o botao nao da retorno nenhum e a mesma refeicao entra tres vezes
-  const rotulo = jaRegistrada ? "Registrar de novo" : ref.livre ? "Comi a livre" : "Comi isso";
-
-  return `<div class="card${ref.livre ? " livre" : ""}${jaRegistrada ? " feito" : ""}">
-    <div class="crow"><span class="ctime">${esc(ref.h)}</span>
-      ${ref.tag ? `<span class="ctag">${esc(ref.tag)}</span>` : ""}
-      ${jaRegistrada ? `<span class="ok-tag">registrada</span>` : ""}
-      <span style="flex:1"></span>
-      <button class="btn sm" data-comi="${indice}">${rotulo}</button></div>
+    ? `<p class="m-free">Almoço ou jantar fora, sem pesar. <b>Teto de ${inteiro(kcalMax)} kcal</b> e
+        <b>mínimo de ${inteiro(protMin)} g de proteína</b>.</p>`
+    : ref.itens.map((i) => `<div class="m-item"><span>${esc(i.n)}</span><b>${esc(i.q)}</b></div>`).join("");
+  const rotulo = jaRegistrada ? "De novo" : ref.livre ? "Comi a livre" : "Comi isso";
+  const botao = v.ehHoje ? `<button class="btn sm" data-comi="${indice}">${rotulo}</button>` : "";
+  return `<div class="meal${ref.livre ? " livre" : ""}${jaRegistrada ? " feito" : ""}">
+    <div class="m-head"><span class="m-time">${esc(ref.h)}</span>
+      ${ref.tag ? `<span class="m-tag">${esc(ref.tag)}</span>` : ""}
+      ${jaRegistrada ? `<span class="ok-tag">registrada</span>` : ""}</div>
     ${corpo}
-    <div class="cmac"><b>${inteiro(m.p)}</b> P &nbsp;<b>${inteiro(m.c)}</b> C &nbsp;<b>${inteiro(m.g)}</b> G
-      &nbsp;·&nbsp; <b>${inteiro(m.kcal)}</b> KCAL</div>
+    <div class="m-macros"><b>${inteiro(m.p)}</b> P &nbsp;<b>${inteiro(m.c)}</b> C &nbsp;<b>${inteiro(m.g)}</b> G
+      &nbsp;·&nbsp; <b>${inteiro(m.kcal)}</b> KCAL ${botao}</div>
   </div>`;
+}
+
+function registradas(ctx: Contexto, v: Visao): string {
+  const lista = ctx.repo.refeicoesDe(v.hoje);
+  if (lista.length === 0) {
+    return `<div class="section-label">Registrado hoje</div>
+      <div class="empty">Nada registrado ainda. Marque uma refeição do plano ou use a calculadora.</div>`;
+  }
+  return `<div class="section-label">Registrado hoje</div>
+    <div class="meals">${lista
+      .map(
+        (r) => `<div class="meal feito">
+          <div class="m-head"><span class="m-time">${esc(r.hora)}</span>
+            ${r.refeicao ? `<span class="m-tag">${esc(r.refeicao)}</span>` : ""}</div>
+          ${r.itens.map((i) => `<div class="m-item"><span>${esc(i.n)}</span><b>${esc(i.q)}</b></div>`).join("")}
+          <div class="m-macros"><b>${inteiro(r.p)}</b> P &nbsp;<b>${inteiro(r.c)}</b> C &nbsp;<b>${inteiro(r.g)}</b> G
+            &nbsp;·&nbsp; <b>${inteiro(r.kcal)}</b> KCAL
+            <button class="btn sm" data-apagar="${esc(r.id)}">Apagar</button></div>
+        </div>`,
+      )
+      .join("")}</div>`;
+}
+
+function placar(ctx: Contexto, v: Visao): string {
+  const dia = ctx.plano.dias[v.bloco]![v.modelo]!;
+  const alvo = totalDia(ctx.plano.alimentos, dia);
+  const lista = ctx.repo.refeicoesDe(v.hoje);
+  const feito = lista.length > 0 ? somar(...lista.map((r) => ({ ...r, fibra: 0 }))) : zero();
+  const celula = (rotulo: string, valorFeito: number, valorAlvo: number, unidade: string, grande = false) =>
+    v.ehHoje
+      ? `<div class="sc"><dt>${rotulo}</dt><dd>${grande ? milhar(valorFeito) : inteiro(valorFeito)}<small>/${
+          grande ? milhar(valorAlvo) : inteiro(valorAlvo)
+        } ${unidade}</small></dd></div>`
+      : `<div class="sc"><dt>${rotulo}</dt><dd>${grande ? milhar(valorAlvo) : inteiro(valorAlvo)}<small>${unidade}</small></dd></div>`;
+  return `<dl class="score">
+    ${celula("Proteína", feito.p, alvo.p, "g")}
+    ${celula("Carboidrato", feito.c, alvo.c, "g")}
+    ${celula("Gordura", feito.g, alvo.g, "g")}
+    ${celula(v.ehHoje ? "Hoje" : "Total do dia", feito.kcal, alvo.kcal, "kcal", true)}
+  </dl>`;
 }
 
 export const telaHoje: Tela = {
   render(ctx) {
-    const data = ctx.hoje();
-    const bloco = blocoDe(data, ctx.plano.faixas);
-    const modelo = modeloDe(data, ctx.repo.modeloDe(data));
-    const dia = ctx.plano.dias[bloco]![modelo]!;
-    const registradas = ctx.repo.refeicoesDe(data);
-    const soma = registradas.length > 0 ? somar(...registradas.map((r) => ({ ...r, fibra: 0 }))) : zero();
-    const alvo = totalDia(ctx.plano.alimentos, dia);
-    const fimDeSemana = modelo === "fds";
-    const horasRegistradas = new Set(registradas.map((r) => r.hora));
-
+    const v = visao(ctx);
+    const dia = ctx.plano.dias[v.bloco]![v.modelo]!;
+    const horasRegistradas = new Set(ctx.repo.refeicoesDe(v.hoje).map((r) => r.hora));
     return `
-      <label for="sel-modelo">Modelo de hoje</label>
-      <select id="sel-modelo" ${fimDeSemana ? "disabled" : ""}>
-        ${COD_MODELOS.map(
-          (cod) => `<option value="${cod}" ${cod === modelo ? "selected" : ""}>${NOMES_MODELO[cod]}</option>`,
-        ).join("")}
-      </select>
-      ${fimDeSemana ? `<p class="lead" style="margin-top:6px">Sábado e domingo são sempre fim de semana.</p>` : ""}
-      ${placar(ctx, [Math.round(alvo.p), Math.round(alvo.c), Math.round(alvo.g), Math.round(alvo.kcal)], soma)}
-      <p class="lead" style="margin-top:10px">${esc(dia.desc)}</p>
-
-      <h2>Registrado hoje</h2>
-      ${
-        registradas.length > 0
-          ? registradas.map(cartaoRegistrado).join("")
-          : `<div class="empty">Nada registrado ainda. Marque uma refeição do plano ou use a calculadora.</div>`
-      }
-
-      <h2>Plano do dia, bloco ${bloco}</h2>
-      ${dia.refs.map((r, i) => cartaoPlano(ctx, r, i, horasRegistradas.has(r.h))).join("")}
+      ${cabecalho(ctx)}
+      ${blocos(ctx, v)}
+      ${toggles(ctx, v)}
+      <div class="meals">${dia.refs
+        .map((r, i) => cartaoRefeicao(ctx, r, i, v, v.ehHoje && horasRegistradas.has(r.h)))
+        .join("")}</div>
+      ${registradas(ctx, v)}
+      ${placar(ctx, v)}
     `;
   },
 
   ligar(ctx, raiz) {
-    const data = ctx.hoje();
-    const bloco = blocoDe(data, ctx.plano.faixas);
-    const modelo = modeloDe(data, ctx.repo.modeloDe(data));
-    const dia = ctx.plano.dias[bloco]![modelo]!;
+    const v = visao(ctx);
+    const dia = ctx.plano.dias[v.bloco]![v.modelo]!;
 
-    const seletor = raiz.querySelector<HTMLSelectElement>("#sel-modelo");
-    seletor?.addEventListener("change", () => {
-      ctx.repo.definirModelo(data, seletor.value as CodModelo);
-      ctx.redesenhar();
-    });
+    for (const botao of $$<HTMLButtonElement>(raiz, "[data-bloco]")) {
+      botao.addEventListener("click", () => {
+        const cod = botao.dataset.bloco as CodBloco;
+        blocoVisto = cod === v.blocoHoje ? null : cod;
+        modeloVisto = null;
+        ctx.redesenhar();
+      });
+    }
+
+    for (const botao of $$<HTMLButtonElement>(raiz, "[data-modelo]")) {
+      botao.addEventListener("click", () => {
+        const cod = botao.dataset.modelo as CodModelo;
+        // no bloco de hoje, em dia util, escolher o modelo e decidir o dia: persiste
+        if (v.bloco === v.blocoHoje && !ehFimDeSemana(v.hoje)) {
+          ctx.repo.definirModelo(v.hoje, cod);
+          modeloVisto = null;
+        } else {
+          modeloVisto = cod;
+        }
+        ctx.redesenhar();
+      });
+    }
 
     for (const botao of $$<HTMLButtonElement>(raiz, "[data-apagar]")) {
       botao.addEventListener("click", () => {
@@ -129,11 +204,11 @@ export const telaHoje: Tela = {
     for (const botao of $$<HTMLButtonElement>(raiz, "[data-comi]")) {
       botao.addEventListener("click", () => {
         const ref = dia.refs[Number(botao.dataset.comi)];
-        if (!ref) return;
+        if (!ref || !v.ehHoje) return;
         // recalcula a partir dos itens: registrar o m arredondado do plano e o erro da v1
         const m = macrosRefeicao(ctx.plano.alimentos, ref);
         ctx.repo.registrarRefeicao({
-          data,
+          data: v.hoje,
           hora: ref.h,
           refeicao: ref.livre ? "Livre" : ref.tag,
           itens: ref.itens.map((i) => ({ n: i.n, q: i.q })),
@@ -147,3 +222,4 @@ export const telaHoje: Tela = {
     }
   },
 };
+

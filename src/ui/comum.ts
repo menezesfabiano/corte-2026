@@ -33,6 +33,11 @@ export function nf(x: number, casas = 0): string {
   return x.toFixed(casas).replace(".", ",");
 }
 
+/** 2549 vira "2.549", do jeito que o documento mostrava. */
+export function milhar(x: number): string {
+  return Math.round(x).toLocaleString("pt-BR");
+}
+
 /** Arredonda para inteiro e formata. Usado em macro e kcal na tela. */
 export function inteiro(x: number): string {
   return String(Math.round(x));

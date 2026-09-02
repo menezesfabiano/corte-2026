@@ -143,7 +143,23 @@ export const ParametrosSchema = z.object({
   mercado: z.record(z.string(), MercadoSchema),
 });
 
+export const AtletaSchema = z.object({
+  nome: z.string().min(1),
+  linha: z.string(),
+  atividade: z.string(),
+  eyebrow: z.string(),
+});
+
+/** Texto do protocolo. Itens aceitam **negrito** entre asteriscos duplos. */
+export const RegraSchema = z.object({
+  titulo: z.string().min(1),
+  itens: z.array(z.string().min(1)).min(1),
+});
+
 export const PlanoSchema = z.object({
+  atleta: AtletaSchema,
+  regras: z.array(RegraSchema).min(1),
+  fontes: z.string(),
   blocos: z.array(BlocoSchema).length(4),
   faixas: z.array(FaixaSchema).length(4),
   dias: z.record(CodBlocoSchema, z.record(CodModeloSchema, DiaModeloSchema)),
@@ -169,6 +185,8 @@ export type Embalagem = z.infer<typeof EmbalagemSchema>;
 export type Mercado = z.infer<typeof MercadoSchema>;
 export type Solver = z.infer<typeof SolverSchema>;
 export type Parametros = z.infer<typeof ParametrosSchema>;
+export type Atleta = z.infer<typeof AtletaSchema>;
+export type Regra = z.infer<typeof RegraSchema>;
 export type Plano = z.infer<typeof PlanoSchema>;
 
 /** Indices dos macros dentro de Macro e de Alimento. */

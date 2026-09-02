@@ -8,6 +8,7 @@ import { telaHoje } from "./hoje.ts";
 import { telaCalcular } from "./calcular.ts";
 import { telaPeso } from "./peso.ts";
 import { telaCompras } from "./compras.ts";
+import { telaRegras } from "./regras.ts";
 
 /** Casca do app: cabecalho, abas e conta. Nenhuma conta de macro passa por aqui. */
 
@@ -16,6 +17,7 @@ const TELAS: Record<string, Tela> = {
   calc: telaCalcular,
   peso: telaPeso,
   compras: telaCompras,
+  regras: telaRegras,
 };
 
 let abaAtual = "hoje";

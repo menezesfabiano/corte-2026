@@ -3342,5 +3342,44 @@
    "Ovo cozido": 250,
    "Aveia em flocos": 120
   }
- }
+ },
+ "atleta": {
+  "nome": "Fabiano",
+  "linha": "2,02 m · 96 kg · 39 anos",
+  "atividade": "CrossFit 4x/semana",
+  "eyebrow": "19 semanas · 24 ago a 31 dez 2026"
+ },
+ "regras": [
+  {
+   "titulo": "Como pesar",
+   "itens": [
+    "**Pese tudo pronto**, como vai para o prato. Carne, peixe, arroz, feijão, batata doce e legumes, todos depois de cozidos.",
+    "Exceções, pesadas como saem da embalagem: aveia, whey, pão, mel, azeite, castanha e pasta de amendoim.",
+    "Ovo cozido: 1 unidade equivale a 50 g."
+   ]
+  },
+  {
+   "titulo": "Regras do corte",
+   "itens": [
+    "A refeição das 07:45 sai **até 15 minutos depois de acordar**. Se passar das 08:30, corte a aveia para 45 g.",
+    "Sem ovo, queijo ou pasta de amendoim no café da manhã em dia de treino: gordura atrasa o esvaziamento gástrico.",
+    "A refeição pré-treino é **a última a ser cortada**. Todo ajuste de bloco sai do jantar e dos lanches.",
+    "Creatina 5 g/dia. Água: 4 L em dia de treino, 3 L nos demais. Sono mínimo de 7h.",
+    "**Composição da semana:** o plano assume 4 treinos, 1 dia sem treino e 2 de fim de semana. Se você treinar 3x, a média cai cerca de 50 kcal; se treinar 5x, sobe cerca de 45. Dentro dessa variação não mexa em nada.",
+    "**Deadlift em 120 a 123 kg** e sem 1RM overhead até o ortopedista avaliar o cotovelo direito."
+   ]
+  },
+  {
+   "titulo": "Quando mudar de bloco",
+   "itens": [
+    "Peso parado por **duas semanas seguidas** na média de 7 dias: antecipe o próximo bloco.",
+    "Perda acima de **0,7 kg por semana** em duas seguidas: volte um bloco. Acima disso a perda de massa magra dispara.",
+    "RPE alto para cargas habituais somado a sono ruim e irritabilidade por duas semanas: uma semana em manutenção antes de retomar.",
+    "Cintura toda segunda, em jejum, em pé, fim da expiração normal, sobre o umbigo, média de três medidas.",
+    "**Regra de parada.** Se a cintura chegar a 88 cm antes da semana 19, pare o déficit e volte para manutenção (soma cerca de 500 kcal/dia ao bloco corrente). O plano tem margem para ir até 86 cm, e abaixo de 10% de gordura a fome, o sono e a qualidade de treino pioram rápido sem ganho visual proporcional.",
+    "**Ceia de Natal, Natal e Réveillon** entram como refeições livres extras. Três delas a 1.200 kcal custam 0,18 kg de gordura no total. Não vale reprogramar nada por causa disso."
+   ]
+  }
+ ],
+ "fontes": "Macros por 100 g de alimento pronto: TACO 4ª edição (UNICAMP, 2011) para in natura, cozidos e grelhados; rótulo padrão de mercado brasileiro para whey concentrado, pasta de amendoim e atum enlatado. Manutenção inicial de 3.180 kcal por dia, média semanal com quatro dias de treino, por Mifflin-St Jeor com fator de atividade 1,565. Déficit mantido em 18% do gasto corrente, recalculado semana a semana, com penalidade de 6% por termogênese adaptativa até a semana 8. Perda projetada de 9,2 kg em 19 semanas, dos quais 94% de gordura na premissa de treino de força com proteína acima de 2,4 g/kg. Fibra entre 25 e 41 g por dia (TACO). Cálcio estimado entre 1.000 e 1.240 mg por dia, acima da recomendação de 1.000 mg. Selênio entre 168 e 235 mcg por dia (USDA FoodData Central), acima da recomendação de 55 mcg e bem abaixo do limite tolerado de 400 mcg, sem necessidade de castanha do pará. Proteína entre 2,35 e 2,68 g/kg e gordura entre 0,73 e 0,88 g/kg em todos os 16 cardápios, sempre acima do piso de 0,7 g/kg. Conversão de 1 cm de cintura por kg de gordura em homens, faixa de 0,8 a 1,2. Média semanal calculada com 2 dias de treino às 11h, 2 dias às 16h30, 1 dia sem treino e 2 dias de fim de semana."
 }

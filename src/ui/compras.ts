@@ -15,6 +15,7 @@ export const telaCompras: Tela = {
     return `
       <p class="lead">Sete dias do bloco ${lista.bloco}, ${esc(lista.periodo)}. Quantidade a <b>comprar</b>,
       já com ${folga}% de folga. Você nunca pesa isto: pese sempre depois de pronto.</p>
+      <div class="grid-cartoes">
       ${lista.secoes
         .map(
           (secao) => `<div class="card">
@@ -33,6 +34,7 @@ export const telaCompras: Tela = {
           </div>`,
         )
         .join("")}
+      </div>
     `;
   },
 
