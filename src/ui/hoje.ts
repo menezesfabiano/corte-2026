@@ -1,15 +1,14 @@
-import { blocoDe, horaAgora, modeloDe } from "../core/calendario.ts";
-import { ehCaminhada, entradaCaminhada, entradaDoce, macrosDoce, metaDoDia } from "../core/extras.ts";
+import { blocoDe, modeloDe } from "../core/calendario.ts";
+import { ehCaminhada, metaDoDia } from "../core/extras.ts";
 import { macrosRefeicao, mediaSemanal, somar, totalDia, zero } from "../core/macros.ts";
 import { resumoPlano } from "../core/peso.ts";
 import { COD_MODELOS, type CodBloco, type CodModelo, type Refeicao } from "../data/schema.ts";
-import { $, $$, NOMES_MODELO, esc, inteiro, milhar, nf, type Contexto, type Tela } from "./comum.ts";
+import { $$, NOMES_MODELO, esc, inteiro, milhar, nf, type Contexto, type Tela } from "./comum.ts";
 
 /**
  * Tela principal: a pagina do protocolo, como no documento de agosto. Blocos numa
  * linha do tempo, modelo de dia em toggles, refeicoes em grade para consulta, o
- * registro do que foge do plano (doce oficial, caminhada, calculadora) e a meta
- * do dia fixa no rodape. Todo numero vem de src/core/.
+ * que saiu da calculadora e a meta do dia fixa no rodape. Todo numero vem de src/core/.
  */
 
 /** Bloco e modelo que estao sendo vistos. Null quer dizer "o de hoje". */
@@ -103,22 +102,6 @@ function cartaoRefeicao(ctx: Contexto, ref: Refeicao): string {
   </div>`;
 }
 
-/** Os dois registros de um toque do plano v2. Valem sempre para o dia de hoje. */
-function registroDoDia(ctx: Contexto, v: Visao): string {
-  const p = ctx.plano.parametros;
-  const doce = macrosDoce(p);
-  const andou = ctx.repo.refeicoesDe(v.hoje).some(ehCaminhada);
-  return `<div class="section-label">Registro do dia</div>
-    <p class="daydesc">O plano acima é só para consulta. Registre o que foge dele: o doce oficial de até
-      ${inteiro(p.doce.kcalMax)} kcal, a caminhada de ${inteiro(p.caminhada.minutos)} min e o que sair da calculadora.</p>
-    <div class="row">
-      <button class="btn" id="reg-doce">Registrar doce oficial (${inteiro(doce.kcal)} kcal)</button>
-      <button class="btn${andou ? " feito" : ""}" id="reg-caminhada" aria-pressed="${andou}">${
-        andou ? "Caminhada feita" : `Caminhada ${inteiro(p.caminhada.minutos)} min`
-      }</button>
-    </div>`;
-}
-
 function registradas(ctx: Contexto, v: Visao): string {
   const lista = ctx.repo.refeicoesDe(v.hoje);
   if (lista.length === 0) {
@@ -168,7 +151,6 @@ export const telaHoje: Tela = {
       ${blocos(ctx, v)}
       ${toggles(ctx, v)}
       <div class="meals">${dia.refs.map((r) => cartaoRefeicao(ctx, r)).join("")}</div>
-      ${registroDoDia(ctx, v)}
       ${registradas(ctx, v)}
       ${placar(ctx, v)}
     `;
@@ -176,7 +158,6 @@ export const telaHoje: Tela = {
 
   ligar(ctx, raiz) {
     const v = visao(ctx);
-    const p = ctx.plano.parametros;
 
     for (const botao of $$<HTMLButtonElement>(raiz, "[data-bloco]")) {
       botao.addEventListener("click", () => {
@@ -207,17 +188,5 @@ export const telaHoje: Tela = {
         ctx.redesenhar();
       });
     }
-
-    $(raiz, "#reg-doce")?.addEventListener("click", () => {
-      ctx.repo.registrarRefeicao(entradaDoce(p, v.hoje, horaAgora()));
-      ctx.redesenhar();
-    });
-
-    $(raiz, "#reg-caminhada")?.addEventListener("click", () => {
-      const feita = ctx.repo.refeicoesDe(v.hoje).find(ehCaminhada);
-      if (feita) ctx.repo.apagarRefeicao(feita.id);
-      else ctx.repo.registrarRefeicao(entradaCaminhada(p, v.hoje, horaAgora()));
-      ctx.redesenhar();
-    });
   },
 };

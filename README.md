@@ -6,10 +6,10 @@ App pessoal de acompanhamento de um protocolo de corte, de 24/08 a 31/12 de 2026
 
 Desde 31/10/2026 vale o plano v2: curva nova de 96,0 kg em 31/10 a 89,8 kg em 30/12, doce oficial de até 150 kcal por dia e caminhada diária. O que isso muda no app:
 
-- A tela Hoje é consulta do plano. Não se marca refeição a refeição; registra-se só o que foge dele: doce oficial, caminhada e o que sair da calculadora. O rodapé mostra a meta do dia, cardápio mais doce.
+- A tela Hoje é consulta do plano. Não se marca refeição a refeição nem há registro de doce ou caminhada; só o que sai da calculadora fica registrado. O rodapé mostra a meta do dia, cardápio mais doce.
 - O modelo de dia escolhido vale em qualquer dia, inclusive sábado e domingo.
 - A tela Peso mede o tempo em semanas reais desde a partida (`parametros.partida`), porque a partida e o fechamento (`parametros.fechamento`) não caem em segunda-feira. A leitura olha o ritmo dos dois últimos intervalos entre pesagens (`parametros.ritmo`), não o desvio contra o alvo.
-- Doce e caminhada entram como refeição registrada, para aproveitar o cache local e a sincronização. A caminhada vai com macro zero e é reconhecida pelo nome (`src/core/extras.ts`).
+- O doce oficial entra só na meta do dia (`src/core/extras.ts`). Registros de doce e caminhada feitos entre 10/11 09:23 e a remoção do botão continuam aparecendo em "Registrado hoje" e podem ser apagados ali.
 
 ## Rodar local
 
