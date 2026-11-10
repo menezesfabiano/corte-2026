@@ -1,4 +1,5 @@
-import { esc, nf, type Tela } from "./comum.ts";
+import { resumoPlano } from "../core/peso.ts";
+import { esc, milhar, nf, type Tela } from "./comum.ts";
 
 /**
  * Tela Regras: o texto do protocolo, como pesar, regras do corte, quando mudar
@@ -11,8 +12,8 @@ function comNegrito(texto: string): string {
 }
 
 /**
- * Os numeros da regra de bloco vem de parametros.autorregulacao, a mesma fonte
- * que a tela Peso usa para decidir. Texto e decisao nao podem divergir de novo.
+ * Os numeros do texto vem de parametros, a mesma fonte que as telas Hoje e Peso
+ * usam para decidir. Texto e decisao nao podem divergir de novo.
  */
 function comParametros(texto: string, valores: Record<string, string>): string {
   return texto.replace(/\{(\w+)\}/g, (tudo, chave: string) => valores[chave] ?? tudo);
@@ -24,6 +25,16 @@ export const telaRegras: Tela = {
     const valores = {
       desvioKg: nf(parametros.autorregulacao.desvioKg, 1),
       semanas: String(parametros.autorregulacao.semanas),
+      paradoKg: nf(parametros.ritmo.paradoKg, 1),
+      rapidoKg: nf(parametros.ritmo.rapidoKg, 1),
+      minimoKg: nf(parametros.ritmo.minimoKg, 1),
+      ritmoPlano: nf(resumoPlano(parametros).ritmo, 2),
+      pesoInicial: nf(parametros.pesoInicial, 1),
+      partida: parametros.partida.data,
+      fechamento: parametros.fechamento.data,
+      doceKcal: String(parametros.doce.kcalMax),
+      caminhadaMin: String(parametros.caminhada.minutos),
+      passos: milhar(parametros.caminhada.passos),
     };
     return `
       <div class="rules">

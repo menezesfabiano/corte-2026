@@ -123,15 +123,63 @@ export const SolverSchema = z.object({
   }),
 });
 
+/** De onde a curva parte: data e cintura do dia do peso inicial. Nao precisa ser segunda-feira. */
+export const PartidaSchema = z.object({
+  iso: ISO,
+  data: z.string(),
+  cintura: z.number().positive(),
+});
+
+/** Onde o plano termina. Pode cair no meio da semana, por isso fica fora da curva de segundas. */
+export const FechamentoSchema = z.object({
+  iso: ISO,
+  data: z.string(),
+  peso: z.number().positive(),
+  cintura: z.number().positive(),
+});
+
+/** Limites da leitura de ritmo na tela Peso, em kg por semana e em dias. */
+export const RitmoSchema = z.object({
+  /** Perda menor que isto em dois intervalos seguidos quer dizer peso parado. */
+  paradoKg: z.number().positive(),
+  /** Perda maior que isto em dois intervalos seguidos e rapida demais. */
+  rapidoKg: z.number().positive(),
+  /** Media dos dois ultimos intervalos abaixo disto fica abaixo do ritmo. */
+  minimoKg: z.number().positive(),
+  /** Intervalo entre pesagens mais curto que isto nao vira ritmo: e ruido. */
+  intervaloMinDias: z.number().int().positive(),
+  /** A regressao so vale com esta distancia entre o primeiro e o ultimo ponto. */
+  janelaMinDias: z.number().int().positive(),
+});
+
+/** Doce oficial do dia: macros do registro de um toque e teto de kcal. */
+export const DoceSchema = z.object({
+  p: z.number().nonnegative(),
+  c: z.number().nonnegative(),
+  g: z.number().nonnegative(),
+  kcalMax: z.number().positive(),
+});
+
+export const CaminhadaSchema = z.object({
+  minutos: z.number().int().positive(),
+  passos: z.number().int().positive(),
+});
+
 export const ParametrosSchema = z.object({
   pesoInicial: z.number().positive(),
+  partida: PartidaSchema,
+  fechamento: FechamentoSchema,
   faixaSemanal: z.tuple([z.number(), z.number()]),
   kcalPorKg: z.number().positive(),
   semanaPadrao: z.record(CodModeloSchema, z.number().int().nonnegative()),
   folgaCompras: z.number().min(0).max(1),
   rendimento: z.record(z.string(), z.number().positive()),
   livre: z.object({ kcalMax: z.number().positive(), protMin: z.number().nonnegative() }),
+  doce: DoceSchema,
+  caminhada: CaminhadaSchema,
+  /** Faixa de desvio contra o alvo que a tela Peso pinta como dentro do esperado. */
   autorregulacao: z.object({ desvioKg: z.number().positive(), semanas: z.number().int().positive() }),
+  ritmo: RitmoSchema,
   regressaoPontos: z.number().int().min(2),
   /** Quantidade padrao dos itens que entram fixos na calculadora. Chave: categoria ou nome do alimento. */
   porcoesFixas: z.record(z.string(), z.number().positive()),
@@ -185,6 +233,8 @@ export type Embalagem = z.infer<typeof EmbalagemSchema>;
 export type Mercado = z.infer<typeof MercadoSchema>;
 export type Solver = z.infer<typeof SolverSchema>;
 export type Parametros = z.infer<typeof ParametrosSchema>;
+export type Partida = z.infer<typeof PartidaSchema>;
+export type Fechamento = z.infer<typeof FechamentoSchema>;
 export type Atleta = z.infer<typeof AtletaSchema>;
 export type Regra = z.infer<typeof RegraSchema>;
 export type Plano = z.infer<typeof PlanoSchema>;

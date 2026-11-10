@@ -20,6 +20,21 @@ export function hojeISO(agora: Date = new Date()): string {
   return FORMATO_ISO.format(agora);
 }
 
+const FORMATO_HORA = new Intl.DateTimeFormat("pt-BR", {
+  timeZone: FUSO,
+  hour: "2-digit",
+  minute: "2-digit",
+  hourCycle: "h23",
+});
+
+/** Hora local em Sao Paulo no formato HH:MM, para carimbar um registro feito agora. */
+export function horaAgora(agora: Date = new Date()): string {
+  const partes = FORMATO_HORA.formatToParts(agora);
+  const hora = partes.find((p) => p.type === "hour")?.value ?? "00";
+  const minuto = partes.find((p) => p.type === "minute")?.value ?? "00";
+  return `${hora.padStart(2, "0")}:${minuto.padStart(2, "0")}`;
+}
+
 const RE_ISO = /^(\d{4})-(\d{2})-(\d{2})$/;
 
 /** Quebra YYYY-MM-DD em numeros. Lanca se o formato estiver errado. */
@@ -100,12 +115,11 @@ export function blocoDe(iso: string, faixas: readonly Faixa[]): CodBloco {
 }
 
 /**
- * Modelo de dia. Sabado e domingo sao sempre fds. Em dia util vale a escolha
- * salva pelo usuario, e na falta dela o padrao t11.
+ * Modelo de dia. A escolha salva pelo usuario vale em qualquer dia, inclusive
+ * sabado e domingo. Na falta dela, fim de semana abre em fds e dia util em t11.
  */
 export function modeloDe(iso: string, override?: CodModelo | null): CodModelo {
-  if (ehFimDeSemana(iso)) return "fds";
-  return override ?? "t11";
+  return override ?? (ehFimDeSemana(iso) ? "fds" : "t11");
 }
 
 /** Ponto da curva cuja segunda-feira e a mais recente ate a data. Null antes da semana 1. */

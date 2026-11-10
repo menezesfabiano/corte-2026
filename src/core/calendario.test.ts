@@ -8,6 +8,7 @@ import {
   ehFimDeSemana,
   ehISO,
   hojeISO,
+  horaAgora,
   modeloDe,
   partesISO,
   pontoDaCurva,
@@ -128,10 +129,31 @@ describe("blocoDe", () => {
   });
 });
 
+describe("horaAgora", () => {
+  it("devolve HH:MM no fuso de Sao Paulo", () => {
+    // 11/11 as 02:05 UTC e 10/11 as 23:05 em Sao Paulo
+    expect(horaAgora(new Date("2026-11-11T02:05:00Z"))).toBe("23:05");
+    expect(horaAgora(new Date("2026-11-10T12:40:00Z"))).toBe("09:40");
+  });
+
+  it("meia-noite sai como 00:00, nunca 24:00", () => {
+    expect(horaAgora(new Date("2026-11-11T03:00:00Z"))).toBe("00:00");
+  });
+
+  it("sem argumento usa o relogio do aparelho e mantem o formato", () => {
+    expect(horaAgora()).toMatch(/^\d{2}:\d{2}$/);
+  });
+});
+
 describe("modeloDe", () => {
-  it("fim de semana e sempre fds, mesmo com override", () => {
-    expect(modeloDe("2026-08-29", "t11")).toBe("fds");
+  it("fim de semana sem escolha abre em fds", () => {
+    expect(modeloDe("2026-08-29")).toBe("fds");
     expect(modeloDe("2026-08-30", null)).toBe("fds");
+  });
+
+  it("a escolha do usuario vale tambem no fim de semana", () => {
+    expect(modeloDe("2026-08-29", "t11")).toBe("t11");
+    expect(modeloDe("2026-08-30", "off")).toBe("off");
   });
 
   it("dia util respeita a escolha do usuario", () => {
@@ -147,18 +169,18 @@ describe("modeloDe", () => {
 
 describe("semanaDe", () => {
   it("pega a segunda mais recente ate a data", () => {
-    expect(semanaDe("2026-08-24", curva)?.n).toBe(1);
-    expect(semanaDe("2026-08-28", curva)?.n).toBe(1);
-    expect(semanaDe("2026-08-31", curva)?.n).toBe(2);
-    expect(semanaDe("2026-12-31", curva)?.n).toBe(19);
+    expect(semanaDe("2026-11-02", curva)?.n).toBe(1);
+    expect(semanaDe("2026-11-06", curva)?.n).toBe(1);
+    expect(semanaDe("2026-11-09", curva)?.n).toBe(2);
+    expect(semanaDe("2026-12-31", curva)?.n).toBe(9);
   });
 
   it("devolve null antes da semana 1", () => {
-    expect(semanaDe("2026-08-23", curva)).toBeNull();
+    expect(semanaDe("2026-11-01", curva)).toBeNull();
   });
 
   it("acha o ponto exato da pesagem", () => {
-    expect(pontoDaCurva("2026-09-07", curva)?.peso).toBe(94.5);
-    expect(pontoDaCurva("2026-09-08", curva)).toBeNull();
+    expect(pontoDaCurva("2026-11-16", curva)?.peso).toBe(94.4);
+    expect(pontoDaCurva("2026-11-17", curva)).toBeNull();
   });
 });

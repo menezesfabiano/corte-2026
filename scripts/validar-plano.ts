@@ -11,6 +11,8 @@ import type { CodBloco, CodModelo } from "../src/data/schema.ts";
 import { macrosItens, macrosRefeicao, mediaSemanal, paraTupla, totalDia } from "../src/core/macros.ts";
 import { blocoDe, dataCurta, diaDaSemana, diasEntre } from "../src/core/calendario.ts";
 import { itensDaLista, listaDeCompras } from "../src/core/compras.ts";
+import { resumoPlano } from "../src/core/peso.ts";
+import { macrosDoce } from "../src/core/extras.ts";
 
 const RAIZ = resolve(dirname(fileURLToPath(import.meta.url)), "..");
 // aceita um caminho alternativo no argv, usado para testar o proprio validador
@@ -236,25 +238,65 @@ const primeiro = curva[0]!;
 const ultimo = curva[curva.length - 1]!;
 ok(`${curva.length} pontos, de ${primeiro.data} (${nf(primeiro.peso)} kg) a ${ultimo.data} (${nf(ultimo.peso)} kg).`);
 
+// a partida e o fechamento ficam fora da curva de segundas, mas amarram as duas pontas dela
+const { partida, fechamento } = parametros;
+if (dataCurta(partida.iso) !== partida.data) erro(`partida: iso ${partida.iso} nao bate com data "${partida.data}"`);
+if (dataCurta(fechamento.iso) !== fechamento.data) {
+  erro(`fechamento: iso ${fechamento.iso} nao bate com data "${fechamento.data}"`);
+}
+if (partida.iso >= primeiro.iso) erro(`a partida (${partida.data}) precisa vir antes da semana 1 (${primeiro.data})`);
+if (fechamento.iso < ultimo.iso) erro(`o fechamento (${fechamento.data}) vem antes da ultima semana (${ultimo.data})`);
+if (primeiro.peso > parametros.pesoInicial) erro("a semana 1 tem alvo acima do peso inicial");
+if (fechamento.peso > ultimo.peso) erro("o peso do fechamento esta acima do alvo da ultima semana");
+if (primeiro.cintura > partida.cintura) erro("a semana 1 tem cintura alvo acima da cintura de partida");
+if (fechamento.cintura > ultimo.cintura) erro("a cintura do fechamento esta acima do alvo da ultima semana");
+if (diasEntre(partida.iso, primeiro.iso) > 7) erro("a partida fica a mais de 7 dias da semana 1");
+ok(
+  `partida em ${partida.data} com ${nf(parametros.pesoInicial)} kg, ` +
+    `fechamento em ${fechamento.data} com ${nf(fechamento.peso)} kg.`,
+);
+
 // ---------------------------------------------------------- ritmo e deficit
 
 titulo("Ritmo e deficit");
-const perda = parametros.pesoInicial - ultimo.peso;
-const intervalos = curva.length - 1;
-const ritmo = perda / intervalos;
+const { perda, semanas: semanasPlano, ritmo } = resumoPlano(parametros);
 const [pisoPct, tetoPct] = parametros.faixaSemanal;
 const piso = pisoPct * parametros.pesoInicial;
 const teto = tetoPct * parametros.pesoInicial;
-const dias = diasEntre(primeiro.iso, ultimo.iso);
+const dias = diasEntre(partida.iso, fechamento.iso);
 const deficitTotal = perda * parametros.kcalPorKg;
 
-ok(`perda planejada ${nf(perda)} kg em ${intervalos} intervalos semanais, ritmo ${nf(ritmo, 2)} kg por semana.`);
+ok(`perda planejada ${nf(perda)} kg em ${nf(semanasPlano)} semanas reais, ritmo ${nf(ritmo, 2)} kg por semana.`);
 ok(
   `faixa segura ${nf(piso, 2)} a ${nf(teto, 2)} kg por semana ` +
     `(${nf(pisoPct * 100, 1)} a ${nf(tetoPct * 100, 1)}% de ${nf(parametros.pesoInicial)} kg).`,
 );
 ok(`deficit acumulado ${nf(deficitTotal, 0)} kcal em ${dias} dias, ${nf(deficitTotal / dias, 0)} kcal por dia.`);
 if (ritmo < piso || ritmo > teto) erro(`ritmo ${nf(ritmo, 2)} kg por semana esta fora da faixa segura`);
+
+const lim = parametros.ritmo;
+if (!(lim.paradoKg < lim.minimoKg && lim.minimoKg < lim.rapidoKg)) {
+  erro("parametros.ritmo precisa ter paradoKg < minimoKg < rapidoKg");
+}
+if (ritmo <= lim.minimoKg || ritmo >= lim.rapidoKg) {
+  erro(`o ritmo do plano (${nf(ritmo, 2)}) precisa ficar entre minimoKg e rapidoKg, senao a tela Peso alerta o proprio plano`);
+}
+if (lim.rapidoKg > teto) erro("parametros.ritmo.rapidoKg esta acima do teto da faixa segura");
+ok(
+  `leitura de ritmo: parado abaixo de ${nf(lim.paradoKg)}, abaixo do ritmo ate ${nf(lim.minimoKg)}, ` +
+    `rapido acima de ${nf(lim.rapidoKg)} kg por semana.`,
+);
+
+// ------------------------------------------------------------ doce oficial
+
+titulo("Doce oficial e caminhada");
+const doce = macrosDoce(parametros);
+if (doce.kcal > parametros.doce.kcalMax) {
+  erro(`o doce oficial fecha em ${nf(doce.kcal, 0)} kcal, acima do teto de ${parametros.doce.kcalMax}`);
+} else {
+  ok(`doce oficial de ${nf(doce.kcal, 0)} kcal, dentro do teto de ${parametros.doce.kcalMax}.`);
+}
+ok(`caminhada de ${parametros.caminhada.minutos} min por dia, meta de ${parametros.caminhada.passos} passos.`);
 
 // -------------------------------------------------------------- alimentos
 

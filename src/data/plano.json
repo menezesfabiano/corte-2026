@@ -2,39 +2,39 @@
  "blocos": [
   {
    "cod": "A",
-   "semanas": "Semanas 1 a 3",
+   "semanas": "Encerrado",
    "periodo": "24/08 a 13/09",
    "media": 2549,
-   "peso": "94,5 kg",
+   "peso": "encerrado",
    "resumo": "Plano base",
-   "perda": "1,5 kg"
+   "perda": "encerrado"
   },
   {
    "cod": "B",
-   "semanas": "Semanas 4 a 8",
+   "semanas": "Encerrado",
    "periodo": "14/09 a 18/10",
    "media": 2466,
-   "peso": "92,0 kg",
+   "peso": "encerrado",
    "resumo": "Menos arroz no almoço",
-   "perda": "2,5 kg"
+   "perda": "encerrado"
   },
   {
    "cod": "C",
-   "semanas": "Semanas 9 a 14",
+   "semanas": "Semanas 1 a 4",
    "periodo": "19/10 a 29/11",
    "media": 2410,
-   "peso": "89,2 kg",
+   "peso": "93,0 kg",
    "resumo": "Sai a batata doce do jantar",
-   "perda": "2,8 kg"
+   "perda": "3,0 kg"
   },
   {
    "cod": "D",
-   "semanas": "Semanas 15 a 19",
+   "semanas": "Semanas 5 a 9",
    "periodo": "30/11 a 31/12",
    "media": 2355,
-   "peso": "86,8 kg",
+   "peso": "89,8 kg",
    "resumo": "Aveia e pão reduzidos",
-   "perda": "2,4 kg"
+   "perda": "3,2 kg"
   }
  ],
  "faixas": [
@@ -3006,162 +3006,93 @@
  "curva": [
   {
    "n": 1,
-   "bloco": "A",
-   "data": "24/08",
-   "iso": "2026-08-24",
-   "peso": 95.5,
-   "cintura": 94.5
-  },
-  {
-   "n": 2,
-   "bloco": "A",
-   "data": "31/08",
-   "iso": "2026-08-31",
-   "peso": 95,
-   "cintura": 94
-  },
-  {
-   "n": 3,
-   "bloco": "A",
-   "data": "07/09",
-   "iso": "2026-09-07",
-   "peso": 94.5,
-   "cintura": 93.6
-  },
-  {
-   "n": 4,
-   "bloco": "B",
-   "data": "14/09",
-   "iso": "2026-09-14",
-   "peso": 94,
-   "cintura": 93.1
-  },
-  {
-   "n": 5,
-   "bloco": "B",
-   "data": "21/09",
-   "iso": "2026-09-21",
-   "peso": 93.5,
-   "cintura": 92.6
-  },
-  {
-   "n": 6,
-   "bloco": "B",
-   "data": "28/09",
-   "iso": "2026-09-28",
-   "peso": 93,
-   "cintura": 92.2
-  },
-  {
-   "n": 7,
-   "bloco": "B",
-   "data": "05/10",
-   "iso": "2026-10-05",
-   "peso": 92.5,
-   "cintura": 91.7
-  },
-  {
-   "n": 8,
-   "bloco": "B",
-   "data": "12/10",
-   "iso": "2026-10-12",
-   "peso": 92,
-   "cintura": 91.3
-  },
-  {
-   "n": 9,
-   "bloco": "C",
-   "data": "19/10",
-   "iso": "2026-10-19",
-   "peso": 91.5,
-   "cintura": 90.8
-  },
-  {
-   "n": 10,
-   "bloco": "C",
-   "data": "26/10",
-   "iso": "2026-10-26",
-   "peso": 91.1,
-   "cintura": 90.3
-  },
-  {
-   "n": 11,
    "bloco": "C",
    "data": "02/11",
    "iso": "2026-11-02",
-   "peso": 90.6,
-   "cintura": 89.9
+   "peso": 95.8,
+   "cintura": 94.3
   },
   {
-   "n": 12,
+   "n": 2,
    "bloco": "C",
    "data": "09/11",
    "iso": "2026-11-09",
-   "peso": 90.1,
-   "cintura": 89.5
+   "peso": 95.1,
+   "cintura": 93.7
   },
   {
-   "n": 13,
+   "n": 3,
    "bloco": "C",
    "data": "16/11",
    "iso": "2026-11-16",
-   "peso": 89.6,
-   "cintura": 89
+   "peso": 94.4,
+   "cintura": 93.0
   },
   {
-   "n": 14,
+   "n": 4,
    "bloco": "C",
    "data": "23/11",
    "iso": "2026-11-23",
-   "peso": 89.2,
-   "cintura": 88.6
+   "peso": 93.7,
+   "cintura": 92.3
   },
   {
-   "n": 15,
+   "n": 5,
    "bloco": "D",
    "data": "30/11",
    "iso": "2026-11-30",
-   "peso": 88.7,
-   "cintura": 88.1
+   "peso": 93.0,
+   "cintura": 91.7
   },
   {
-   "n": 16,
+   "n": 6,
    "bloco": "D",
    "data": "07/12",
    "iso": "2026-12-07",
-   "peso": 88.2,
-   "cintura": 87.7
+   "peso": 92.3,
+   "cintura": 91.0
   },
   {
-   "n": 17,
+   "n": 7,
    "bloco": "D",
    "data": "14/12",
    "iso": "2026-12-14",
-   "peso": 87.7,
-   "cintura": 87.2
+   "peso": 91.5,
+   "cintura": 90.3
   },
   {
-   "n": 18,
+   "n": 8,
    "bloco": "D",
    "data": "21/12",
    "iso": "2026-12-21",
-   "peso": 87.3,
-   "cintura": 86.8
+   "peso": 90.8,
+   "cintura": 89.6
   },
   {
-   "n": 19,
+   "n": 9,
    "bloco": "D",
    "data": "28/12",
    "iso": "2026-12-28",
-   "peso": 86.8,
-   "cintura": 86.3
+   "peso": 90.0,
+   "cintura": 88.9
   }
  ],
  "parametros": {
   "pesoInicial": 96,
+  "partida": {
+   "iso": "2026-10-31",
+   "data": "31/10",
+   "cintura": 94.5
+  },
+  "fechamento": {
+   "iso": "2026-12-30",
+   "data": "30/12",
+   "peso": 89.8,
+   "cintura": 88.7
+  },
   "faixaSemanal": [
    0.005,
-   0.007
+   0.0094
   ],
   "kcalPorKg": 7700,
   "semanaPadrao": {
@@ -3184,9 +3115,26 @@
    "kcalMax": 730,
    "protMin": 45
   },
+  "doce": {
+   "p": 2,
+   "c": 21,
+   "g": 6,
+   "kcalMax": 150
+  },
+  "caminhada": {
+   "minutos": 30,
+   "passos": 8000
+  },
   "autorregulacao": {
    "desvioKg": 0.5,
    "semanas": 2
+  },
+  "ritmo": {
+   "paradoKg": 0.2,
+   "rapidoKg": 0.9,
+   "minimoKg": 0.5,
+   "intervaloMinDias": 5,
+   "janelaMinDias": 7
   },
   "regressaoPontos": 4,
   "porcoesFixas": {
@@ -3347,7 +3295,7 @@
   "nome": "Fabiano",
   "linha": "2,02 m · 96 kg · 39 anos",
   "atividade": "CrossFit 4x/semana",
-  "eyebrow": "19 semanas · 24 ago a 31 dez 2026"
+  "eyebrow": "Plano v2 · 31 out a 30 dez 2026"
  },
  "regras": [
   {
@@ -3365,22 +3313,25 @@
     "Sem ovo, queijo ou pasta de amendoim no café da manhã em dia de treino: gordura atrasa o esvaziamento gástrico.",
     "A refeição pré-treino é **a última a ser cortada**. Todo ajuste de bloco sai do jantar e dos lanches.",
     "Creatina 5 g/dia. Água: 4 L em dia de treino, 3 L nos demais. Sono mínimo de 7h.",
+    "**Doce oficial:** até {doceKcal} kcal por dia, com hora marcada e registrado na tela Hoje. Depois de um exagero não há compensação: a refeição seguinte é a do plano.",
+    "**Caminhada de {caminhadaMin} min todos os dias**, em ritmo de conversa, com meta de {passos} passos. Marque na tela Hoje.",
     "**Composição da semana:** o plano assume 4 treinos, 1 dia sem treino e 2 de fim de semana. Se você treinar 3x, a média cai cerca de 50 kcal; se treinar 5x, sobe cerca de 45. Dentro dessa variação não mexa em nada.",
     "**Deadlift em 120 a 123 kg** e sem 1RM overhead até o ortopedista avaliar o cotovelo direito."
    ]
   },
   {
-   "titulo": "Quando mudar de bloco",
+   "titulo": "Ritmo e ajustes",
    "itens": [
-    "Média de 7 dias mais de **{desvioKg} kg acima do alvo da semana** por {semanas} segundas seguidas: antecipe o próximo bloco.",
-    "Média de 7 dias mais de **{desvioKg} kg abaixo do alvo** por {semanas} segundas seguidas: volte um bloco. Perder mais rápido que a curva é perder massa magra.",
-    "Dentro de {desvioKg} kg do alvo, para cima ou para baixo: siga o cronograma. A tela Peso aplica exatamente esta regra e mostra a decisão.",
+    "A tela Peso mede o **ritmo real** entre uma pesagem e a seguinte, em kg por semana, contando a partir de {pesoInicial} kg em {partida}. O plano pede {ritmoPlano} kg por semana até {fechamento}.",
+    "Menos de **{paradoKg} kg por semana** em dois intervalos seguidos: peso parado. Fale com o coach antes de cortar qualquer coisa.",
+    "Mais de **{rapidoKg} kg por semana** em dois intervalos seguidos: rápido demais, volte ao cardápio do bloco B. Perder acima disso é perder massa magra.",
+    "Média dos dois últimos intervalos abaixo de **{minimoKg} kg por semana**: abaixo do ritmo. Confira o doce e a caminhada antes de mexer no cardápio.",
     "RPE alto para cargas habituais somado a sono ruim e irritabilidade por duas semanas: uma semana em manutenção antes de retomar.",
     "Cintura toda segunda, em jejum, em pé, fim da expiração normal, sobre o umbigo, média de três medidas.",
-    "**Regra de parada.** Se a cintura chegar a 88 cm antes da semana 19, pare o déficit e volte para manutenção (soma cerca de 500 kcal/dia ao bloco corrente). O plano tem margem para ir até 86 cm, e abaixo de 10% de gordura a fome, o sono e a qualidade de treino pioram rápido sem ganho visual proporcional.",
+    "**Regra de parada.** Se a cintura chegar a 88 cm antes de {fechamento}, pare o déficit e fale com o coach para montar a manutenção.",
     "**Ceia de Natal, Natal e Réveillon** entram como refeições livres extras. Três delas a 1.200 kcal custam 0,18 kg de gordura no total. Não vale reprogramar nada por causa disso."
    ]
   }
  ],
- "fontes": "Macros por 100 g de alimento pronto: TACO 4ª edição (UNICAMP, 2011) para in natura, cozidos e grelhados; rótulo padrão de mercado brasileiro para whey concentrado, pasta de amendoim e atum enlatado. Manutenção inicial de 3.180 kcal por dia, média semanal com quatro dias de treino, por Mifflin-St Jeor com fator de atividade 1,565. Déficit mantido em 18% do gasto corrente, recalculado semana a semana, com penalidade de 6% por termogênese adaptativa até a semana 8. Perda projetada de 9,2 kg em 19 semanas, dos quais 94% de gordura na premissa de treino de força com proteína acima de 2,4 g/kg. Fibra entre 25 e 41 g por dia (TACO). Cálcio estimado entre 1.000 e 1.240 mg por dia, acima da recomendação de 1.000 mg. Selênio entre 168 e 235 mcg por dia (USDA FoodData Central), acima da recomendação de 55 mcg e bem abaixo do limite tolerado de 400 mcg, sem necessidade de castanha do pará. Proteína entre 2,35 e 2,68 g/kg e gordura entre 0,73 e 0,88 g/kg em todos os 16 cardápios, sempre acima do piso de 0,7 g/kg. Conversão de 1 cm de cintura por kg de gordura em homens, faixa de 0,8 a 1,2. Média semanal calculada com 2 dias de treino às 11h, 2 dias às 16h30, 1 dia sem treino e 2 dias de fim de semana."
+ "fontes": "Macros por 100 g de alimento pronto: TACO 4ª edição (UNICAMP, 2011) para in natura, cozidos e grelhados; rótulo padrão de mercado brasileiro para whey concentrado, pasta de amendoim e atum enlatado. Plano v2, de 31/10/2026: manutenção de 3.181 kcal por dia a 96 kg, por Mifflin-St Jeor com fator de atividade 1,565, sem contar a caminhada. Cardápios dos blocos C e D mais o doce oficial de 146 kcal e a caminhada diária de 30 min dão déficit de 23% do gasto total. Curva alvo com perda de 6,2 kg entre 31/10 e 30/12, na premissa de treino de força com proteína acima de 2,3 g/kg. Fibra entre 25 e 41 g por dia (TACO). Cálcio estimado entre 1.000 e 1.240 mg por dia, acima da recomendação de 1.000 mg. Selênio entre 168 e 235 mcg por dia (USDA FoodData Central), acima da recomendação de 55 mcg e bem abaixo do limite tolerado de 400 mcg, sem necessidade de castanha do pará. Proteína entre 2,35 e 2,68 g/kg e gordura entre 0,73 e 0,88 g/kg em todos os 16 cardápios, sempre acima do piso de 0,7 g/kg. Conversão de 1 cm de cintura por kg de gordura em homens, faixa de 0,8 a 1,2. Média semanal calculada com 2 dias de treino às 11h, 2 dias às 16h30, 1 dia sem treino e 2 dias de fim de semana."
 }

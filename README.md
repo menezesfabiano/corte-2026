@@ -1,6 +1,15 @@
 # Corte 2026
 
-App pessoal de acompanhamento de um protocolo de corte, de 24/08 a 31/12 de 2026. Quatro telas: Hoje, Calcular, Peso e Compras. Roda offline, sincroniza com o Supabase quando há login.
+App pessoal de acompanhamento de um protocolo de corte, de 24/08 a 31/12 de 2026. Cinco telas: Hoje, Calcular, Peso, Compras e Regras. Roda offline, sincroniza com o Supabase quando há login.
+
+## Plano v2
+
+Desde 31/10/2026 vale o plano v2: curva nova de 96,0 kg em 31/10 a 89,8 kg em 30/12, doce oficial de até 150 kcal por dia e caminhada diária. O que isso muda no app:
+
+- A tela Hoje é consulta do plano. Não se marca refeição a refeição; registra-se só o que foge dele: doce oficial, caminhada e o que sair da calculadora. O rodapé mostra a meta do dia, cardápio mais doce.
+- O modelo de dia escolhido vale em qualquer dia, inclusive sábado e domingo.
+- A tela Peso mede o tempo em semanas reais desde a partida (`parametros.partida`), porque a partida e o fechamento (`parametros.fechamento`) não caem em segunda-feira. A leitura olha o ritmo dos dois últimos intervalos entre pesagens (`parametros.ritmo`), não o desvio contra o alvo.
+- Doce e caminhada entram como refeição registrada, para aproveitar o cache local e a sincronização. A caminhada vai com macro zero e é reconhecida pelo nome (`src/core/extras.ts`).
 
 ## Rodar local
 
@@ -16,7 +25,7 @@ Abre em `http://localhost:5173/corte-2026/`. Sem `.env` o app funciona inteiro, 
 ## Configurar o Supabase
 
 1. Copie `.env.example` para `.env` e preencha `VITE_SUPABASE_URL` e `VITE_SUPABASE_PUBLISHABLE_KEY` (Project Settings, API). A publishable key pode ser pública: o RLS garante que cada usuário só lê e escreve as próprias linhas.
-2. Aplique a migração `supabase/migrations/0001_corte_2026.sql` no SQL Editor do painel, ou com a CLI:
+2. Aplique as migrações de `supabase/migrations/`, em ordem, no SQL Editor do painel, ou com a CLI:
 
 ```bash
 npx supabase db push
@@ -34,6 +43,8 @@ No GitHub, as mesmas duas variáveis vão em Settings, Secrets and variables, Ac
 - o total de algum modelo de dia não bater com a soma exata das refeições;
 - a média de algum bloco fugir mais de 1 kcal da semana padrão `(2·t11 + 2·t1630 + 1·off + 2·fds) / 7`;
 - as faixas de data tiverem buraco ou sobreposição, ou a curva sair de segunda-feira em segunda-feira;
+- a partida não vier antes da semana 1, o fechamento vier antes da última semana, ou o ritmo do plano ficar fora dos limites de `parametros.ritmo`;
+- o doce oficial passar do teto de kcal;
 - algum alimento usado no plano estiver fora da tabela ou sem seção de mercado.
 
 Para rodar só a validação:
