@@ -51,8 +51,8 @@ describe("meta do dia", () => {
     expect(meta.g).toBeCloseTo(cardapio.g + 6, 10);
   });
 
-  it("treino 11h do bloco C fecha em 2.668 kcal com o doce", () => {
+  it("treino 11h do bloco C fecha em 2.671 kcal com o doce", () => {
     const meta = metaDoDia(totalDia(plano.alimentos, plano.dias.C!.t11!), p);
-    expect(Math.round(meta.kcal)).toBe(2668);
+    expect(Math.round(meta.kcal)).toBe(2671);
   });
 });

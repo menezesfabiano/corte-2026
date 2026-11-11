@@ -22,7 +22,7 @@
    "cod": "C",
    "semanas": "Semanas 1 a 4",
    "periodo": "19/10 a 29/11",
-   "media": 2410,
+   "media": 2408,
    "peso": "93,0 kg",
    "resumo": "Sai a batata doce do jantar",
    "perda": "3,0 kg"
@@ -31,7 +31,7 @@
    "cod": "D",
    "semanas": "Semanas 5 a 9",
    "periodo": "30/11 a 31/12",
-   "media": 2355,
+   "media": 2353,
    "peso": "89,8 kg",
    "resumo": "Aveia e pão reduzidos",
    "perda": "3,2 kg"
@@ -1324,9 +1324,9 @@
     "desc": "Janela curta. Só 3h15 entre acordar e treinar.",
     "tot": [
      233,
-     235,
+     237,
      72,
-     2522
+     2525
     ],
     "refs": [
      {
@@ -1390,7 +1390,7 @@
       "itens": [
        {
         "n": "Arroz branco cozido",
-        "q": "130 g"
+        "q": "220 g"
        },
        {
         "n": "Feijão carioca cozido",
@@ -1398,22 +1398,18 @@
        },
        {
         "n": "Peito de frango grelhado",
-        "q": "170 g"
+        "q": "190 g"
        },
        {
         "n": "Azeite",
         "q": "13 g"
-       },
-       {
-        "n": "Legumes cozidos",
-        "q": "200 g"
        }
       ],
       "m": [
-       69,
-       69,
+       74,
+       82,
        19,
-       721
+       793
       ]
      },
      {
@@ -1470,17 +1466,13 @@
        {
         "n": "Azeite",
         "q": "6 g"
-       },
-       {
-        "n": "Legumes cozidos",
-        "q": "200 g"
        }
       ],
       "m": [
-       51,
-       12,
-       16,
-       395
+       47,
+       0,
+       15,
+       326
       ]
      }
     ]
@@ -1489,10 +1481,10 @@
     "nome": "Treino 16h30",
     "desc": "Janela longa. Almoço é a refeição principal pré-treino.",
     "tot": [
-     224,
-     236,
+     225,
+     237,
      75,
-     2519
+     2522
     ],
     "refs": [
      {
@@ -1556,7 +1548,7 @@
       "itens": [
        {
         "n": "Arroz branco cozido",
-        "q": "115 g"
+        "q": "205 g"
        },
        {
         "n": "Feijão carioca cozido",
@@ -1564,22 +1556,18 @@
        },
        {
         "n": "Peito de frango grelhado",
-        "q": "170 g"
+        "q": "190 g"
        },
        {
         "n": "Azeite",
         "q": "8 g"
-       },
-       {
-        "n": "Legumes cozidos",
-        "q": "200 g"
        }
       ],
       "m": [
-       68,
-       65,
+       73,
+       78,
        14,
-       657
+       730
       ]
      },
      {
@@ -1640,17 +1628,13 @@
        {
         "n": "Azeite",
         "q": "6 g"
-       },
-       {
-        "n": "Legumes cozidos",
-        "q": "200 g"
        }
       ],
       "m": [
-       51,
-       12,
-       16,
-       395
+       47,
+       0,
+       15,
+       326
       ]
      }
     ]
@@ -1659,10 +1643,10 @@
     "nome": "Sem treino",
     "desc": "Mesma proteína, carboidrato menor. Saem as refeições pré-treino.",
     "tot": [
-     231,
+     229,
      169,
-     69,
-     2220
+     68,
+     2208
     ],
     "refs": [
      {
@@ -1701,7 +1685,7 @@
       "itens": [
        {
         "n": "Arroz branco cozido",
-        "q": "70 g"
+        "q": "125 g"
        },
        {
         "n": "Feijão carioca cozido",
@@ -1709,22 +1693,18 @@
        },
        {
         "n": "Peito de frango grelhado",
-        "q": "170 g"
+        "q": "190 g"
        },
        {
         "n": "Azeite",
         "q": "10 g"
-       },
-       {
-        "n": "Legumes cozidos",
-        "q": "250 g"
        }
       ],
       "m": [
-       68,
-       55,
+       71,
+       56,
        16,
-       637
+       648
       ]
      },
      {
@@ -1784,34 +1764,30 @@
        },
        {
         "n": "Batata doce cozida",
-        "q": "150 g"
+        "q": "230 g"
        },
        {
         "n": "Azeite",
         "q": "6 g"
-       },
-       {
-        "n": "Legumes cozidos",
-        "q": "250 g"
        }
       ],
       "m": [
-       50,
-       43,
-       16,
-       511
+       46,
+       42,
+       15,
+       488
       ]
      }
     ]
    },
    "fds": {
     "nome": "Fim de semana",
-    "desc": "Cinco eventos e refeição livre à noite, quando o risco é maior.",
+    "desc": "Quatro eventos, com a refeição livre à noite, quando o risco é maior.",
     "tot": [
      220,
      184,
-     74,
-     2283
+     73,
+     2275
     ],
     "refs": [
      {
@@ -1854,7 +1830,7 @@
       "itens": [
        {
         "n": "Peito de frango grelhado",
-        "q": "190 g"
+        "q": "210 g"
        },
        {
         "n": "Atum em água, drenado",
@@ -1865,8 +1841,8 @@
         "q": "180 g"
        },
        {
-        "n": "Legumes cozidos",
-        "q": "250 g"
+        "n": "Arroz branco cozido",
+        "q": "95 g"
        },
        {
         "n": "Azeite",
@@ -1874,10 +1850,10 @@
        }
       ],
       "m": [
-       90,
-       39,
+       94,
+       51,
        11,
-       617
+       678
       ]
      },
      {
@@ -1902,23 +1878,6 @@
       ]
      },
      {
-      "h": "17:30",
-      "tag": "Volume livre",
-      "livre": false,
-      "itens": [
-       {
-        "n": "Legumes cozidos",
-        "q": "200 g"
-       }
-      ],
-      "m": [
-       4,
-       12,
-       1,
-       69
-      ]
-     },
-     {
       "h": "20:00",
       "tag": "LIVRE",
       "livre": true,
@@ -1939,9 +1898,9 @@
     "desc": "Janela curta. Só 3h15 entre acordar e treinar.",
     "tot": [
      232,
-     227,
+     228,
      72,
-     2485
+     2488
     ],
     "refs": [
      {
@@ -2005,7 +1964,7 @@
       "itens": [
        {
         "n": "Arroz branco cozido",
-        "q": "100 g"
+        "q": "190 g"
        },
        {
         "n": "Feijão carioca cozido",
@@ -2013,22 +1972,18 @@
        },
        {
         "n": "Peito de frango grelhado",
-        "q": "170 g"
+        "q": "190 g"
        },
        {
         "n": "Azeite",
         "q": "13 g"
-       },
-       {
-        "n": "Legumes cozidos",
-        "q": "200 g"
        }
       ],
       "m": [
-       68,
-       60,
+       73,
+       74,
        19,
-       684
+       756
       ]
      },
      {
@@ -2085,17 +2040,13 @@
        {
         "n": "Azeite",
         "q": "6 g"
-       },
-       {
-        "n": "Legumes cozidos",
-        "q": "200 g"
        }
       ],
       "m": [
-       51,
-       12,
-       16,
-       395
+       47,
+       0,
+       15,
+       326
       ]
      }
     ]
@@ -2104,10 +2055,10 @@
     "nome": "Treino 16h30",
     "desc": "Janela longa. Almoço é a refeição principal pré-treino.",
     "tot": [
-     223,
-     229,
+     224,
+     230,
      75,
-     2488
+     2491
     ],
     "refs": [
      {
@@ -2171,7 +2122,7 @@
       "itens": [
        {
         "n": "Arroz branco cozido",
-        "q": "90 g"
+        "q": "180 g"
        },
        {
         "n": "Feijão carioca cozido",
@@ -2179,22 +2130,18 @@
        },
        {
         "n": "Peito de frango grelhado",
-        "q": "170 g"
+        "q": "190 g"
        },
        {
         "n": "Azeite",
         "q": "8 g"
-       },
-       {
-        "n": "Legumes cozidos",
-        "q": "200 g"
        }
       ],
       "m": [
-       68,
-       58,
+       72,
+       71,
        14,
-       626
+       699
       ]
      },
      {
@@ -2255,17 +2202,13 @@
        {
         "n": "Azeite",
         "q": "6 g"
-       },
-       {
-        "n": "Legumes cozidos",
-        "q": "200 g"
        }
       ],
       "m": [
-       51,
-       12,
-       16,
-       395
+       47,
+       0,
+       15,
+       326
       ]
      }
     ]
@@ -2274,10 +2217,10 @@
     "nome": "Sem treino",
     "desc": "Mesma proteína, carboidrato menor. Saem as refeições pré-treino.",
     "tot": [
-     229,
+     227,
      155,
-     68,
-     2148
+     67,
+     2137
     ],
     "refs": [
      {
@@ -2316,7 +2259,7 @@
       "itens": [
        {
         "n": "Arroz branco cozido",
-        "q": "70 g"
+        "q": "125 g"
        },
        {
         "n": "Feijão carioca cozido",
@@ -2324,22 +2267,18 @@
        },
        {
         "n": "Peito de frango grelhado",
-        "q": "170 g"
+        "q": "190 g"
        },
        {
         "n": "Azeite",
         "q": "10 g"
-       },
-       {
-        "n": "Legumes cozidos",
-        "q": "250 g"
        }
       ],
       "m": [
-       68,
-       55,
+       71,
+       56,
        16,
-       637
+       648
       ]
      },
      {
@@ -2399,34 +2338,30 @@
        },
        {
         "n": "Batata doce cozida",
-        "q": "110 g"
+        "q": "190 g"
        },
        {
         "n": "Azeite",
         "q": "6 g"
-       },
-       {
-        "n": "Legumes cozidos",
-        "q": "250 g"
        }
       ],
       "m": [
-       50,
+       46,
        35,
-       16,
-       480
+       15,
+       457
       ]
      }
     ]
    },
    "fds": {
     "nome": "Fim de semana",
-    "desc": "Cinco eventos e refeição livre à noite, quando o risco é maior.",
+    "desc": "Quatro eventos, com a refeição livre à noite, quando o risco é maior.",
     "tot": [
      217,
-     167,
-     73,
-     2195
+     166,
+     72,
+     2187
     ],
     "refs": [
      {
@@ -2465,7 +2400,7 @@
       "itens": [
        {
         "n": "Peito de frango grelhado",
-        "q": "190 g"
+        "q": "210 g"
        },
        {
         "n": "Atum em água, drenado",
@@ -2476,8 +2411,8 @@
         "q": "180 g"
        },
        {
-        "n": "Legumes cozidos",
-        "q": "250 g"
+        "n": "Arroz branco cozido",
+        "q": "95 g"
        },
        {
         "n": "Azeite",
@@ -2485,10 +2420,10 @@
        }
       ],
       "m": [
-       90,
-       39,
+       94,
+       51,
        11,
-       617
+       678
       ]
      },
      {
@@ -2510,23 +2445,6 @@
        14,
        10,
        255
-      ]
-     },
-     {
-      "h": "17:30",
-      "tag": "Volume livre",
-      "livre": false,
-      "itens": [
-       {
-        "n": "Legumes cozidos",
-        "q": "200 g"
-       }
-      ],
-      "m": [
-       4,
-       12,
-       1,
-       69
       ]
      },
      {
@@ -3301,7 +3219,7 @@
   {
    "titulo": "Como pesar",
    "itens": [
-    "**Pese tudo pronto**, como vai para o prato. Carne, peixe, arroz, feijão, batata doce e legumes, todos depois de cozidos.",
+    "**Pese tudo pronto**, como vai para o prato. Carne, peixe, arroz, feijão e batata doce, todos depois de cozidos.",
     "Exceções, pesadas como saem da embalagem: aveia, whey, pão, mel, azeite, castanha e pasta de amendoim.",
     "Ovo cozido: 1 unidade equivale a 50 g."
    ]

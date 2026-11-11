@@ -138,11 +138,18 @@ describe("lista derivada dos quatro blocos", () => {
     }
   });
 
-  it("o arroz cai de bloco em bloco, como o protocolo manda", () => {
+  it("o arroz cai de A para B, sobe no C com o carboidrato dos legumes e volta a cair no D", () => {
     const arroz = COD_BLOCOS.map((b) => itemDe(b, "Arroz branco cozido").comprar);
     expect(arroz[0]).toBeGreaterThan(arroz[1]!);
-    expect(arroz[1]).toBeGreaterThan(arroz[2]!);
+    expect(arroz[2]).toBeGreaterThan(arroz[1]!);
     expect(arroz[2]).toBeGreaterThan(arroz[3]!);
+  });
+
+  it("legumes saem da lista nos blocos C e D", () => {
+    const alimentos = (b: "C" | "D") => itensDaLista(listaDeCompras(plano, b)).map((i) => i.alimento);
+    expect(alimentos("C")).not.toContain("Legumes cozidos");
+    expect(alimentos("D")).not.toContain("Legumes cozidos");
+    expect(itensDaLista(listaDeCompras(plano, "B")).map((i) => i.alimento)).toContain("Legumes cozidos");
   });
 
   it("a batata doce some do jantar no bloco C", () => {

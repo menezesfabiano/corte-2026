@@ -91,7 +91,7 @@ describe("soma e subtracao", () => {
 });
 
 describe("refeicoes do plano", () => {
-  it("recalcula as 84 refeicoes nao livres dentro da tolerancia", () => {
+  it("recalcula as 82 refeicoes nao livres dentro da tolerancia", () => {
     let contadas = 0;
     for (const b of COD_BLOCOS) {
       for (const k of COD_MODELOS) {
@@ -106,7 +106,7 @@ describe("refeicoes do plano", () => {
         }
       }
     }
-    expect(contadas).toBe(84);
+    expect(contadas).toBe(82);
   });
 
   it("refeicao livre vale o valor declarado, sem itens", () => {
@@ -148,10 +148,10 @@ describe("media semanal do bloco", () => {
     }
   });
 
-  it("os degraus entre blocos sao 83, 56 e 55 kcal", () => {
+  it("os degraus entre blocos sao 83, 59 e 55 kcal", () => {
     const m = COD_BLOCOS.map((b) => mediaSemanal(tabela, plano.dias[b]!, plano.parametros.semanaPadrao));
     expect(Math.round(m[0]! - m[1]!)).toBe(83);
-    expect(Math.round(m[1]! - m[2]!)).toBe(56);
+    expect(Math.round(m[1]! - m[2]!)).toBe(59);
     expect(Math.round(m[2]! - m[3]!)).toBe(55);
   });
 
